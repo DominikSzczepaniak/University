@@ -1,6 +1,7 @@
 from wdi import *
 from math import log2
 #done
+#test
 def zad1():
     #a
     n = scanf("%d")
