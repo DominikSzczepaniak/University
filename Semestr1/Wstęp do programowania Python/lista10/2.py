@@ -1,0 +1,1 @@
+#dla kazdej pary slow znajdzmy jakis punkt startowy, czyli wezmy pierwsze dwie litery slowa i odszukajmy je w drugim slowie i przesunmy o odpowiednia ilosc w szyfrze cezara drugie slowo, jesli beda rowne to sa para cesarska, jesli nie to nie sa.
