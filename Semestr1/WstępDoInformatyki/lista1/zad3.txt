@@ -1,0 +1,17 @@
+a)
+wejście: n, ciąg n liczb
+wyjście: suma ciągu n liczb
+b)
+start
+wczytaj n
+suma = 0
+while(n > 0){
+	wczytaj a
+	suma = suma + a
+	n--
+}
+wypisz suma
+koniec
+c) n+1 -> liczba n oraz długość ciągu
+d) O(n)
+

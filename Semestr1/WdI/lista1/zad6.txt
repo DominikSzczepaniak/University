@@ -1,0 +1,12 @@
+a)
+wejście: liczba n
+wyjście: suma liczb od 1 do n
+b)
+start
+wczytaj n
+wynik = ((1+n) * n) / 2
+wypisz wynik
+koniec
+c) 1 - tylko liczba n
+d) 3
+

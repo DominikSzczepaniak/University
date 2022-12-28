@@ -1,0 +1,25 @@
+a) wejście: słowa s oraz T oraz liczby n i m
+wyjście: liczba wystąpień słowa s w tekście T
+b)
+wczytaj n,m
+wczytaj T,s
+A - tablica zawierajaca slowo T
+B - tablica zawierajaca slowo s
+i = 1
+wynik = 0
+dopoki(i <= n-m+1){
+	j = 0
+	jest = true
+	dopoki(j < m){
+		jeżeli(T[i+j] != s[j]){
+			jest = false;
+			j = m;
+		}
+	}		
+	if(jest){
+		wynik+=1
+	}
+}
+wypisz wynik
+c) n + m + 2 - dlugosci tekstow oraz 2 zmienne n i m
+d) (n-m+1) * m

@@ -1,0 +1,22 @@
+a)
+wejście: a, b
+wyjście: najmniejsza wspólna wielokrotność liczb a i b
+b)
+start
+wczytaj a i b
+j = 1
+jeżeli(a < b){
+	j = b
+}
+else{
+	j = a
+}
+dopóki(Prawda){
+	jeżeli(a * (j/a) == j oraz b * (j/b) == j){
+		wypisz j
+		koniec
+	}
+	j = j+1
+}
+c) 2 - liczby a i b
+d) a * b jeżeli będą podane dwie liczby pierwsze

@@ -1,0 +1,8 @@
+instrukcje warunkowe
+i/o
+zmienne i zbudowane z nich stuktury danych (tablice)
+wlasne funkcje?
+petle (dopoki)
+
+
+bardziej chodzi o idee niz kod.

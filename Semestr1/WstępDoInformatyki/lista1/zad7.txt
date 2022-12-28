@@ -1,0 +1,18 @@
+a) 
+wejście: tekst T, liczba n, litera x
+wyjście: ilość wystąpień litery x w słowie T
+b) 
+start
+wczytaj T, n i x
+wynik = 0
+dopóki(n > 0){
+	jeżeli(T[n] == x){
+		wynik = wynik + 1
+	}
+}
+wypisz wynik
+koniec
+c) 
+2 + n - długość tekstu oraz zmienne n oraz x
+d) długość słowa T - O(n)
+
