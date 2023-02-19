@@ -1,7 +1,0 @@
-do tymczasowej zmiennej z zapisac wartosc x, do zmiennej x zapisac wartosc y, do zmiennej y zapisac wartosc z
-
-wczytaj x, y
-z = x
-x = y
-y = z
-
