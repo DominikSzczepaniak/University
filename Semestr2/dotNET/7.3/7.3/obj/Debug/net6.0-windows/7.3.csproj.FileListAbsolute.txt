@@ -1,0 +1,40 @@
+C:\Users\szcze\Documents\7.3\7.3\bin\Debug\net6.0-windows\7.3.exe
+C:\Users\szcze\Documents\7.3\7.3\bin\Debug\net6.0-windows\7.3.deps.json
+C:\Users\szcze\Documents\7.3\7.3\bin\Debug\net6.0-windows\7.3.runtimeconfig.json
+C:\Users\szcze\Documents\7.3\7.3\bin\Debug\net6.0-windows\7.3.dll
+C:\Users\szcze\Documents\7.3\7.3\bin\Debug\net6.0-windows\7.3.pdb
+C:\Users\szcze\Documents\7.3\7.3\bin\Debug\net6.0-windows\WinFormsControlLibrary1.dll
+C:\Users\szcze\Documents\7.3\7.3\bin\Debug\net6.0-windows\WinFormsControlLibrary1.pdb
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.AssemblyReference.cache
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\_7._3.Form1.resources
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.GenerateResource.cache
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.AssemblyInfoInputs.cache
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.AssemblyInfo.cs
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.CoreCompileInputs.cache
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.CopyComplete
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.dll
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\refint\7.3.dll
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.pdb
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\7.3.genruntimeconfig.cache
+C:\Users\szcze\Documents\7.3\7.3\obj\Debug\net6.0-windows\ref\7.3.dll
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\bin\Debug\net6.0-windows\7.3.exe
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\bin\Debug\net6.0-windows\7.3.deps.json
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\bin\Debug\net6.0-windows\7.3.runtimeconfig.json
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\bin\Debug\net6.0-windows\7.3.dll
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\bin\Debug\net6.0-windows\7.3.pdb
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\bin\Debug\net6.0-windows\WinFormsControlLibrary1.dll
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\bin\Debug\net6.0-windows\WinFormsControlLibrary1.pdb
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.AssemblyReference.cache
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\_7._3.Form1.resources
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.GenerateResource.cache
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.AssemblyInfoInputs.cache
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.AssemblyInfo.cs
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.CoreCompileInputs.cache
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.csproj.CopyComplete
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.dll
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\refint\7.3.dll
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.pdb
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\7.3.genruntimeconfig.cache
+C:\Users\szcze\Desktop\sharing mac\7.3\7.3\obj\Debug\net6.0-windows\ref\7.3.dll

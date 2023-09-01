@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "7.3/1.0.0": {
+        "dependencies": {
+          "WinFormsControlLibrary1": "1.0.0"
+        },
+        "runtime": {
+          "7.3.dll": {}
+        }
+      },
+      "WinFormsControlLibrary1/1.0.0": {
+        "runtime": {
+          "WinFormsControlLibrary1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "7.3/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WinFormsControlLibrary1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

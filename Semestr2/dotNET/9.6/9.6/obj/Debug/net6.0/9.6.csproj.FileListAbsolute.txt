@@ -1,0 +1,15 @@
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\bin\Debug\net6.0\9.6.exe
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\bin\Debug\net6.0\9.6.deps.json
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\bin\Debug\net6.0\9.6.runtimeconfig.json
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\bin\Debug\net6.0\9.6.dll
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\bin\Debug\net6.0\9.6.pdb
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.csproj.AssemblyReference.cache
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.AssemblyInfoInputs.cache
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.AssemblyInfo.cs
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.csproj.CoreCompileInputs.cache
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.dll
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\refint\9.6.dll
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.pdb
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\9.6.genruntimeconfig.cache
+C:\Users\szcze\Desktop\sharing mac\9.6\9.6\obj\Debug\net6.0\ref\9.6.dll

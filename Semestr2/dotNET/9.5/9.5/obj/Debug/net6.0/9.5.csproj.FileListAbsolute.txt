@@ -1,0 +1,5 @@
+C:\Users\szcze\Desktop\sharing mac\9.5\9.5\obj\Debug\net6.0\9.5.csproj.AssemblyReference.cache
+C:\Users\szcze\Desktop\sharing mac\9.5\9.5\obj\Debug\net6.0\9.5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szcze\Desktop\sharing mac\9.5\9.5\obj\Debug\net6.0\9.5.AssemblyInfoInputs.cache
+C:\Users\szcze\Desktop\sharing mac\9.5\9.5\obj\Debug\net6.0\9.5.AssemblyInfo.cs
+C:\Users\szcze\Desktop\sharing mac\9.5\9.5\obj\Debug\net6.0\9.5.csproj.CoreCompileInputs.cache

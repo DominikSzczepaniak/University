@@ -1,0 +1,17 @@
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.csproj.AssemblyReference.cache
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\_7._1.Form1.resources
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.csproj.GenerateResource.cache
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.AssemblyInfoInputs.cache
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.AssemblyInfo.cs
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.csproj.CoreCompileInputs.cache
+C:\Users\szcze\Documents\7.1\7.1\bin\Debug\net6.0-windows\7.1.exe
+C:\Users\szcze\Documents\7.1\7.1\bin\Debug\net6.0-windows\7.1.deps.json
+C:\Users\szcze\Documents\7.1\7.1\bin\Debug\net6.0-windows\7.1.runtimeconfig.json
+C:\Users\szcze\Documents\7.1\7.1\bin\Debug\net6.0-windows\7.1.dll
+C:\Users\szcze\Documents\7.1\7.1\bin\Debug\net6.0-windows\7.1.pdb
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.dll
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\refint\7.1.dll
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.pdb
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\7.1.genruntimeconfig.cache
+C:\Users\szcze\Documents\7.1\7.1\obj\Debug\net6.0-windows\ref\7.1.dll
