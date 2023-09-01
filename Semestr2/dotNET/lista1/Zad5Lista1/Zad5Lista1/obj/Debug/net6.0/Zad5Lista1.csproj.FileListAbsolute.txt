@@ -1,0 +1,15 @@
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.csproj.AssemblyReference.cache
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.AssemblyInfoInputs.cache
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.AssemblyInfo.cs
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.csproj.CoreCompileInputs.cache
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/bin/Debug/net6.0/Zad5Lista1
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/bin/Debug/net6.0/Zad5Lista1.deps.json
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/bin/Debug/net6.0/Zad5Lista1.runtimeconfig.json
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/bin/Debug/net6.0/Zad5Lista1.dll
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/bin/Debug/net6.0/Zad5Lista1.pdb
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.dll
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/refint/Zad5Lista1.dll
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.pdb
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/Zad5Lista1.genruntimeconfig.cache
+/Users/dominik/Projects/Zad5Lista1/Zad5Lista1/obj/Debug/net6.0/ref/Zad5Lista1.dll

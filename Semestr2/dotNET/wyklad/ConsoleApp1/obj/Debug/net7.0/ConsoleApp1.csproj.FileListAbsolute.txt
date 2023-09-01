@@ -1,0 +1,15 @@
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/bin/Debug/net7.0/ConsoleApp1
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/bin/Debug/net7.0/ConsoleApp1.deps.json
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/bin/Debug/net7.0/ConsoleApp1.runtimeconfig.json
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/bin/Debug/net7.0/ConsoleApp1.dll
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/bin/Debug/net7.0/ConsoleApp1.pdb
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.csproj.AssemblyReference.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.AssemblyInfoInputs.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.AssemblyInfo.cs
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.csproj.CoreCompileInputs.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.dll
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/refint/ConsoleApp1.dll
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.pdb
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ConsoleApp1.genruntimeconfig.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/wyklad/ConsoleApp1/obj/Debug/net7.0/ref/ConsoleApp1.dll

@@ -1,0 +1,15 @@
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/bin/Release/net6.0/Zad5Lista1
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/bin/Release/net6.0/Zad5Lista1.deps.json
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/bin/Release/net6.0/Zad5Lista1.runtimeconfig.json
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/bin/Release/net6.0/Zad5Lista1.dll
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/bin/Release/net6.0/Zad5Lista1.pdb
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.csproj.AssemblyReference.cache
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.AssemblyInfoInputs.cache
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.AssemblyInfo.cs
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.csproj.CoreCompileInputs.cache
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.dll
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/refint/Zad5Lista1.dll
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.pdb
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/Zad5Lista1.genruntimeconfig.cache
+/Users/dominik/Documents/Współdzielone (C#)/Zad5Lista1/Zad5Lista1/obj/Release/net6.0/ref/Zad5Lista1.dll

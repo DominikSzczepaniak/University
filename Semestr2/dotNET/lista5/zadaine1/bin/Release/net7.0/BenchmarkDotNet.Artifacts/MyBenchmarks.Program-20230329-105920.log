@@ -1,0 +1,7 @@
+// Validating benchmarks:
+// Benchmark Program.DoWork1: DefaultJob [x=1, y=3]
+//    * Benchmarked method `DoWork1` is static. Benchmarks MUST be instance methods, static methods are not supported.
+
+// Benchmark Program.DoWork2: DefaultJob [x=1, y=3]
+//    * Benchmarked method `DoWork2` is static. Benchmarks MUST be instance methods, static methods are not supported.
+

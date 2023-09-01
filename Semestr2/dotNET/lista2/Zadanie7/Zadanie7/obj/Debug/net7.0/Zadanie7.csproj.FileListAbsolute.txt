@@ -1,0 +1,15 @@
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.csproj.AssemblyReference.cache
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.AssemblyInfoInputs.cache
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.AssemblyInfo.cs
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.csproj.CoreCompileInputs.cache
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/bin/Debug/net7.0/Zadanie7
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/bin/Debug/net7.0/Zadanie7.deps.json
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/bin/Debug/net7.0/Zadanie7.runtimeconfig.json
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/bin/Debug/net7.0/Zadanie7.dll
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/bin/Debug/net7.0/Zadanie7.pdb
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.dll
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/refint/Zadanie7.dll
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.pdb
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/Zadanie7.genruntimeconfig.cache
+/Users/dominik/Documents/Współdzielone (C#)/Lista2/Zadanie7/Zadanie7/obj/Debug/net7.0/ref/Zadanie7.dll

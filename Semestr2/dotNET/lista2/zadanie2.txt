@@ -1,0 +1,50 @@
+static - nie moze byc uzyta w finalizatorach i indekserach, w klasach nie mozna stworzyc kilku obiektow danej klasy (nie mozna uzyc new). czyli np. jak ma sie klase Test z metoda Wypisz(), to aby wywolac ta metode uzywa sie Test.Wypisz(), zamiast tworzyc nowy obiekt.
+Klasa ktora ma bardzo duzo metod static jest klasa Math.
+
+Przy polach, odwolujemy sie podobnie czyli NazwaKlasy.zmienna. Istnieje tylko jedna kopia tego elementu klasy, niezaleznie od ilosci obiektow. 
+
+
+sealed - blokuje dziedziczenie przez inne klasy
+
+
+abstract class - mowi o tym, ze klasa ma byc podstawa innej klasy a nie byc klasa sama w sobie. Nie mozemy stworzyc obiektow klasy abstract. 
+
+abstract method - metoda ktora nie moze miec ciala, jej implementacja powinna byc w klasie ktora dziedziczy klase abstrakcyjna
+
+
+virtual i override - metoda klasy ktora moze byc modyfikowana przez klase ktora ja dziedziczyla.
+np:
+class Shape
+{
+	int x;
+	int y;
+	public const double PI = Math.PI;
+	public virtual int Area()
+	{
+		return x*y;
+	}
+}
+
+class Circle : Shape 
+{
+	public override int Area()
+	{
+		return PI*x*y;
+	}
+}
+
+
+partial class - implementacja części klasy. czyli np. w kilku plikach kilku deweloperow moze jednoczesnie zaimplementowac rozne czesci klasy, ktore ostatecznie w glownym pliku polacza sie razem w pelna klase.
+
+
+readonly - wartosc ktorej nie mozna zmieniac w trakcie dzialania programu, ale mozna zmienic przy kompilacji, przeciwnie do const. 
+
+
+
+in - przekazanie przez referencje, ale nie mozna modyfikowac wartosci
+
+ref - przekazanie przez referencje, ale mozna modifykowac wartosci, ale wymaga wartosci zmiennej przed przekazaniem
+
+out - przekazanie przez referencje, ale mozna przekazac zmienna bez wartosci (czyli nadac wartosc dopiero w jakiejs funkcji)
+
+

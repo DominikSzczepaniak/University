@@ -1,0 +1,15 @@
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/bin/Debug/net7.0/zadanie3
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/bin/Debug/net7.0/zadanie3.deps.json
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/bin/Debug/net7.0/zadanie3.runtimeconfig.json
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/bin/Debug/net7.0/zadanie3.dll
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/bin/Debug/net7.0/zadanie3.pdb
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.csproj.AssemblyReference.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.AssemblyInfoInputs.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.AssemblyInfo.cs
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.csproj.CoreCompileInputs.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.dll
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/refint/zadanie3.dll
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.pdb
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/zadanie3.genruntimeconfig.cache
+/Users/dominik/Desktop/Studia/Semestr2/dotNET/lista3/zadanie3/obj/Debug/net7.0/ref/zadanie3.dll
