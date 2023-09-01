@@ -1,0 +1,281 @@
+#lang racket
+(require rackunit)
+
+(provide (struct-out column-info)
+         (struct-out table)
+         (struct-out and-f)
+         (struct-out or-f)
+         (struct-out not-f)
+         (struct-out eq-f)
+         (struct-out eq2-f)
+         (struct-out lt-f)
+         table-insert
+         table-project
+         table-sort
+         table-select
+         table-rename
+         table-cross-join
+         table-natural-join)
+
+(define-struct column-info (name type) #:transparent)
+
+(define-struct table (schema rows) #:transparent)
+
+(define cities
+  (table
+   (list (column-info 'city    'string)
+         (column-info 'country 'string)
+         (column-info 'area    'number)
+         (column-info 'capital 'boolean))
+   (list (list "Wrocław" "Poland"  293 #f)
+         (list "Warsaw"  "Poland"  517 #t)
+         (list "Poznań"  "Poland"  262 #f)
+         (list "Berlin"  "Germany" 892 #t)
+         (list "Munich"  "Germany" 310 #f)
+         (list "Paris"   "France"  105 #t)
+         (list "Rennes"  "France"   50 #f))))
+
+(define countries
+  (table
+   (list (column-info 'country 'string)
+         (column-info 'population 'number))
+   (list (list "Poland" 38)
+         (list "Germany" 83)
+         (list "France" 67)
+         (list "Spain" 47))))
+
+(define (empty-table columns) (table columns '()))
+
+;====================================================================================
+; Wstawianie
+
+(define (check-right row tab)
+  (cond
+    [(and (= (length row) 2) (= 2 (length (table-schema tab))))
+    (if
+     (and (string? (first row)) (number? (second row)))
+         2
+         (error "Złe typy komórek"))]
+    [(and (= 4 (length row)) (= 4 (length (table-schema tab))))
+     (if (and (string? (first row)) (string? (second row)) (number? (third row)) (boolean? (fourth row)))
+          4
+          (error "Złe typy komórek"))]
+    [else (error "Zła ilość komórek")]))
+
+(define (table-insert row tab)
+  (cond
+    [(= 2 (check-right row tab)) (table (table-schema countries) (cons row (table-rows countries)))]
+    [(= 4 (check-right row tab)) (table (table-schema cities) (cons row (table-rows cities)))]))
+
+;====================================================================================
+; Projekcja
+
+(define (exist-column-name col tab)
+  (define (iter tab)
+    (if (null? tab)
+        #f
+        (if (equal? col (column-info-name (first tab)))
+            #t
+            (iter (rest tab)))))
+  (iter (table-schema tab)))
+        
+(define (col-positions cols tab xs)
+  (define (col-position col tab val)
+    (if (null? tab)
+        null
+        (if (equal? col (column-info-name (first tab)))
+            val
+            (col-position col (rest tab) (+ 1 val)))))
+  (if (null? cols)
+      xs
+      (col-positions (rest cols) tab (cons (col-position (first cols) (table-schema tab) 0) xs))))
+
+
+(define (table-project cols tab)
+  (define (check-exist cols tab)
+    (if (null? cols)
+        #t
+        (if (equal? #t (exist-column-name (first cols) tab))
+            (check-exist (rest cols) tab)
+            #f)))
+  (define existing_columns (check-exist cols tab))
+  (define positions (col-positions cols tab '()))
+  (define (add-solutions tab positions)
+    (define (iter-rows val tab-values positions xs)
+      (define sizeOfTab-values (length tab-values))
+      (define (iter-columns val row newpositions listt)
+        (if (null? newpositions)
+            listt    
+            (iter-columns (- val 1) row (cdr newpositions) (append (list (list-ref row (car newpositions))) listt))))
+      (if (null? tab-values)
+          xs
+          (iter-rows (+ 1 val) (rest tab-values) positions (append xs (list (iter-columns (- sizeOfTab-values 1) (first tab-values) positions (list)))))))
+    (iter-rows 0 (table-rows tab) positions (list)))
+  (define (add-schema tab positions)
+    (define (iter tab-schema newpositions xs)
+      (if (null? newpositions)
+          xs
+          (iter tab-schema (cdr newpositions) (append xs (list (list-ref tab-schema (car newpositions)))))))
+    (iter (table-schema tab) positions '()))
+  (define tablerows (add-solutions tab positions))
+  (define tableschema (add-schema tab positions))
+  (if (null? cols)
+      null
+      (if (equal? #f existing_columns)
+          (error "Jedna z nazw kolumn nie istnieje w tej tabeli")
+          ;positions)))
+          (table tableschema tablerows))))
+
+
+(check-equal? (table-project '(city country) cities) (table
+ (list
+  (column-info 'country 'string)
+  (column-info 'city 'string))
+ (list
+  (list "Wrocław" "Poland")
+  (list "Warsaw" "Poland")
+   (list "Poznań" "Poland")
+   (list "Berlin" "Germany")
+   (list "Munich" "Germany")
+   (list "Paris" "France")
+   (list "Rennes" "France"))))
+;====================================================================================
+; Sortowanie
+(define (procedure-type type)
+  (cond
+    [(equal? type 'number) <]
+    [(equal? type 'string) string<?]
+    [(equal? type 'boolean) (lambda (x y) (and y (not x)))]
+    [(equal? type 'symbol) (lambda (x y) (string<? (symbol->string x) (symbol->string y)))]))
+
+(define (schema-type col tab-schema)
+  (if (null? tab-schema)
+      (error "Nie ma takiej kolumny")
+      (if (equal? col (column-info-name (first tab-schema)))
+          (column-info-type (first tab-schema))
+          (schema-type col (rest tab-schema)))))
+
+(define (schema-val col tab-row tab-schema)
+  (if (null? tab-row)
+      (error "Nie ma takiej wartosci")
+      (if (equal? col (column-info-name (first tab-schema)))
+          (first tab-row)
+          (schema-val col (rest tab-row) (rest tab-schema)))))
+
+(define (table-compare cols tab-row tab-schema)
+  (if (null? cols)
+      #f
+      (cond
+        [(equal? (schema-val (first cols) (first tab-row) tab-schema)
+                 (schema-val (first cols) (rest tab-row) tab-schema))
+         (table-compare (rest cols) tab-row tab-schema)]
+        [else ((procedure-type (schema-type (first cols) tab-schema))
+               (schema-val (first cols) (first tab-row) tab-schema)
+               (schema-val (first cols) (rest tab-row) tab-schema))])))
+          
+(define (table-sort cols tab)
+  (if (null? cols)
+      tab
+      (if (cons? cols)
+          (table
+           (table-schema tab)
+           (sort (table-rows tab)
+                 (lambda (x y) (table-compare cols (cons x y) (table-schema tab)))))
+          (table
+           (table-schema tab)
+           (sort (table-rows tab)
+                 (lambda (x y) (table-compare (list cols) (cons x y) (table-schema tab))))))))
+
+;====================================================================================
+; Selekcja
+
+(define-struct and-f (l r))
+(define-struct or-f (l r))
+(define-struct not-f (e))
+(define-struct eq-f (name val))
+(define-struct eq2-f (name name2))
+(define-struct lt-f (name val))
+
+(define (check form tab-row tab-schema)
+  (cond
+    [(and-f? form) (and (check (and-f-l form) tab-row tab-schema) (check (and-f-r form) tab-row tab-schema))]
+    [(or-f? form) (or (check (or-f-l form) tab-row tab-schema) (check (or-f-r form) tab-row tab-schema))]
+    [(not-f? form) (not (check (not-f-e form) tab-row tab-schema))]
+    [(eq-f? form) (equal? (schema-val (eq-f-name form) tab-row tab-schema) (eq-f-val form))]
+    [(eq2-f? form) (equal? (schema-val (eq2-f-name form) tab-row tab-schema) (schema-val (eq2-f-name2 form) tab-row tab-schema))]
+    [(lt-f? form ) (< (schema-val (lt-f-name form) tab-row tab-schema) (lt-f-val form))]))
+
+(define (build-select form tab-row tab-schema)
+  (if (null? tab-row)
+      null
+      (if (equal? #t (check form (first tab-row) tab-schema))
+          (cons (first tab-row) (build-select form (rest tab-row) tab-schema))
+          (build-select form (rest tab-row) tab-schema))))
+
+
+(define (table-select form tab)
+  (table (table-schema tab) (build-select form (table-rows tab) (table-schema tab))))
+  
+
+;====================================================================================
+; Zmiana nazwy
+
+(define (table-rename col ncol tab) 
+  (define (iter-schema col ncol tab-schema i)
+    (define (change-schema pos newName tab-schema answer iter-i)
+      (if (= iter-i (length tab-schema))
+          answer
+          (if (= iter-i pos)
+              (change-schema pos newName tab-schema (append answer (list (column-info newName (column-info-type (list-ref tab-schema pos))))) (+ 1 iter-i))
+              (change-schema pos newName tab-schema (append answer (list (list-ref tab-schema iter-i))) (+ iter-i 1)))))
+    (if (= i (length tab-schema))
+        tab-schema
+        (if (equal? (column-info-name (list-ref tab-schema i)) col)
+            (change-schema i ncol tab-schema '() 0)
+            (iter-schema col ncol tab-schema (+ i 1)))))
+  (table (iter-schema col ncol (table-schema tab) 0) (table-rows tab)))
+
+;====================================================================================
+; Złączenie kartezjańskie
+
+(define (join tab-row)
+  (if (null? tab-row)
+      null
+      (cons (append (first (first tab-row)) (second (first tab-row))) (join (rest tab-row)))))
+
+(define (table-cross-join tab1 tab2)
+  (if (or (null? (table-rows tab1)) (null? (table-rows tab2)))
+      (table (append (table-schema tab1) (table-schema tab2)) (list))
+      (table (append (table-schema tab1) (table-schema tab2)) (join (cartesian-product (table-rows tab1) (table-rows tab2))))))
+
+
+;====================================================================================
+; Złączenie
+
+(define (intersect l1 l2)
+   (remove-duplicates
+    (for/list ((i l1)
+               #:when (member i l2))
+      i)))
+
+(define (rename-all common num tab2)
+  (if (null? (rest common))
+      (table-rename (column-info-name (first common)) num tab2)
+      (table-rename (column-info-name (first common)) num (rename-all (rest common) (+ num 1) tab2))))
+
+(define (select-all common num tab2)
+  (if (null? (rest common))
+      (table-select (eq2-f (column-info-name (first common)) num) tab2)
+      (table-select (or (eq2-f (column-info-name (first common)) num) (select-all (rest common) (+ num 1) tab2)) tab2)))
+
+(define (common-list common)
+  (if (null? common)
+      null
+      (cons (column-info-name (first common)) (common-list (rest common)))))
+
+(define (table-natural-join tab1 tab2)
+  (table-project (common-list (remove-duplicates (append (table-schema tab1) (table-schema tab2))))
+                 (select-all (intersect (table-schema tab1) (table-schema tab2)) 0
+                             (table-cross-join tab1
+                                               (rename-all (intersect (table-schema tab1) (table-schema tab2)) 0 tab2)))))
+

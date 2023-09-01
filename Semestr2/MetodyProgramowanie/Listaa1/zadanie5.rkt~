@@ -1,0 +1,6 @@
+#lang racket
+;and zwroci 5 jesli wyrazenie jest prawdziwe,
+;w przeciwnym przypadku zwroci wyrazenie
+;jesli and zwroci wyrazenie falszywe to or je pominie i zwroci 5
+;jesli and zwroci 5 to or zwroci 
+(or (and (< 4 3) 1) 5) 

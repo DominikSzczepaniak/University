@@ -1,0 +1,184 @@
+#lang racket
+
+(require rackunit)
+(require data/heap)
+(provide sim? wire?
+         (contract-out
+          [make-sim        (-> sim?)]
+          [sim-wait!       (-> sim? positive? void?)]
+          [sim-time        (-> sim? real?)]
+          [sim-add-action! (-> sim? positive? (-> any/c) void?)]
+
+          [make-wire       (-> sim? wire?)]
+          [wire-on-change! (-> wire? (-> any/c) void?)]
+          [wire-value      (-> wire? boolean?)]
+          [wire-set!       (-> wire? boolean? void?)]
+
+          [bus-value (-> (listof wire?) natural?)]
+          [bus-set!  (-> (listof wire?) natural? void?)]
+
+          [gate-not  (-> wire? wire? void?)]
+          [gate-and  (-> wire? wire? wire? void?)]
+          [gate-nand (-> wire? wire? wire? void?)]
+          [gate-or   (-> wire? wire? wire? void?)]
+          [gate-nor  (-> wire? wire? wire? void?)]
+          [gate-xor  (-> wire? wire? wire? void?)]
+
+          [wire-not  (-> wire? wire?)]
+          [wire-and  (-> wire? wire? wire?)]
+          [wire-nand (-> wire? wire? wire?)]
+          [wire-or   (-> wire? wire? wire?)]
+          [wire-nor  (-> wire? wire? wire?)]
+          [wire-xor  (-> wire? wire? wire?)]
+
+          [flip-flop (-> wire? wire? wire? void?)]))
+
+; questions:
+; what are some example events? (sim-add-action!)
+; they are meant to be functions that returns anything, do we even care about them or just about simulation time?
+; are events (sim-add-action!) done in 0 seconds? (they only start and instantly end at the same time?), because it's not precisied for self-made events
+; but precised for gate events - they take 1 second or 2 second for xor
+; if we do AND / OR etc. on two wires and they have two different events what we do? AND / OR etc. on events aswell or do we just combine them?
+
+; example wire-on-change! event?
+
+; ==============================
+; event struct & methods
+
+(struct event (time operation))
+
+(define (event<=? e1 e2)
+  (if (<= (event-time e1) (event-time e2))
+      e1
+      e2))
+; ==============================
+; sim struct & methods
+(struct sim (eventq time) #:transparent #:mutable)
+
+(define (make-sim)
+  (sim (make-heap event<=?) 0))
+
+(define (get-all-events-up-to-t t h answer) ;-> input (t heap '()) -> output list of events that ends before t
+  (let ((first-heap (heap-min h))
+        (remove-first (heap-remove-min! h)))    
+    (if (> (event-time first-heap) t)
+        answer
+        (get-all-events-up-to-t t remove-first (append answer first-heap)))))  
+
+(define (sim-wait! s t)
+  
+  (error "TODO:\n 1. Chronological events
+ 2. On event start set time of simulation to time of start (event time in heap)
+ 3. While some event are doing other can show up (event1 start at 1 and lasts 3 seconds, event2 starts at 3)
+ - check if event will end before the next one starts. (queue?)
+ 
+ "))
+
+(define (simq s)
+  (sim-eventq s))
+
+(define (sim-add-action! s t f)
+  (heap-add! (sim-eventq s) (event (+ (sim-time s) t) f)))
+
+; ==============================
+; wire struct & methods
+
+(struct wire (val sim events) #:mutable #:transparent)
+
+(define (make-wire s)
+  (wire #f s (list)))
+
+(define (wire-on-change! w f)
+  (set-wire-events! w (append (wire-events w) (list f))))
+
+(define (wire-value w)
+  (wire-val w))
+
+(define (wire-set! w value)
+  (set-wire-val! w value))
+
+(define (wire<=? w1 w2)
+  (if (<= (wire-val w1) (wire-val w2))
+      w1
+      w2))
+
+; ==============================
+; GATES
+; TODO: TESTS
+
+(define (gate-not outW w1)
+  (set! outW (wire-not w1)))
+
+(define (gate-and outW w1 w2)
+  (set! outW (wire-and w1 w2)))
+
+(define (gate-nand outW w1 w2)
+  (set! outW (wire-nand w1 w2)))
+
+(define (gate-or outW w1 w2)
+  (set! outW (wire-or w1 w2)))
+
+(define (gate-nor outW w1 w2)
+  (set! outW (wire-nor w1 w2)))
+
+(define (gate-xor outW w1 w2)
+  (set! outW (wire-xor w1 w2)))
+
+; ==============================
+; WIRE LOGIC
+; TODO: TEST
+
+(define (wire-not w)
+  (wire (not (wire-val w)) (wire-sim w)) (wire-events w))
+
+(define (wire-and w1 w2)
+  (wire (and (wire-val w1) (wire-val w2)) (wire-sim w1)))
+
+(define (wire-nand w1 w2)
+  (wire (not (and (wire-val w1) (wire-val w2))) (wire-sim w1)))
+
+(define (wire-or w1 w2)
+  (wire (or (wire-val w1) (wire-val w2)) (wire-sim w1)))
+
+(define (wire-nor w1 w2)
+  (wire (not (or (wire-val w1) (wire-val w2))) (wire-sim w1)))
+
+(define (wire-xor w1 w2)
+  (wire (and (or (wire-val w1) (wire-val w2)) (not (and (wire-val w1) (wire-val w2)))) (wire-sim w1)))
+
+; ==============================
+;testing
+(define s1testing (make-sim))
+(define w1testing (make-wire s1testing))
+(wire-on-change! w1testing (lambda () #t))
+(wire-on-change! w1testing (lambda () #f))
+(check-equal? (wire-value w1testing) #f)
+(wire-set! w1testing #t)
+(check-equal? (wire-value w1testing) #t)
+
+(sim-add-action! s1testing 3 (lambda () #t))
+;(check-equal? (heap-min (simq s1testing)))
+; ==============================
+; SCHEMA:
+
+(define (bus-set! wires value)
+  (match wires
+    ['() (void)]
+    [(cons w wires)
+     (begin
+       (wire-set! w (= (modulo value 2) 1))
+       (bus-set! wires (quotient value 2)))]))
+
+(define (bus-value ws)
+  (foldr (lambda (w value) (+ (if (wire-value w) 1 0) (* 2 value)))
+         0
+         ws))
+
+(define (flip-flop out clk data)
+  (define sim (wire-sim data))
+  (define w1  (make-wire sim))
+  (define w2  (make-wire sim))
+  (define w3  (wire-nand (wire-and w1 clk) w2))
+  (gate-nand w1 clk (wire-nand w2 w1))
+  (gate-nand w2 w3 data)
+  (gate-nand out w1 (wire-nand out w3)))

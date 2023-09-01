@@ -1,0 +1,17 @@
+#lang racket
+(require rackunit)
+(define (abc a b c)
+  (if (> a b)
+      (if (> b c)
+          (+ (* a a) (* b b))
+          (+ (* a a) (* c c))
+      )
+      (if (> a c)
+          (+ (* b b) (* a a))
+          (+ (* b b) (* c c)))
+      )
+  )
+
+(check-equal? (abc 4 5 6) 61)
+(check-equal? (abc 7 8 2) 113)
+(check-equal? (abc 2 3 1) 13)
