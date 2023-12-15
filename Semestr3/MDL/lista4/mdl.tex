@@ -1,0 +1,168 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\title{MDL 4 30.10}
+\author{Dominik Szczepaniak}
+\begin{document}
+
+\maketitle
+Zrobione:
+\begin{tabular}{|| c c c c c c c c c c c||}
+    \hline
+    1D & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 13  \\
+    \hline
+    Y & Y & Y & Y & Y & Y & Y & Y & Y
+\end{tabular}
+
+\bgroup\obeylines
+
+\section{Zadanie 1}
+Rekurencyjne rozwiązanie:
+Załóżmy, że n okręgów dzieli płaszczyzne na $r_n$ regionów. Dodajemy jeden okrąg (on przecina każdy pozostały okrąg w dwóch miejscach), więc mamy 2n przecięć. Jeśli p0 i p1 są kolejnymi przecięciami to łuk z p0 do p1 dzieli jeden z $r_n$ regionów na dwa. Zrobimy to 2n razy i mamy:
+$r_{n+1} = r_n + 2n$
+
+
+Rozważmy przykład idealny: nowy okrąg n przecina n-1 pozostałych okręgów w 2 punktach oraz nie ma takiego punktu gdzie trzy okręgi się spotykają. Załóżmy graf G(V, E) gdzie V jest zbiorem punktów przecięć okręgów a E jest zbiorem łuków które łączą dwa punkty V. 
+Każdy okrąg ma 2(n-1) punktów przecięć, mamy n okręgów i każdy punkt przecięcia należy do 2 okręgów. W takim razie ilość tych punktów równa jest
+$V = \frac{1}{2}*(2(n-1))*n = n*(n-1)$
+Każdy wierzchołek jest stopnia 4. Z zadania o uscisnieciach rąk(każda krawędź musi łączyć dwa wierzchołki, więc każda krawędź dodaje 2 do wyniku sumy stopnii wszystkich wierzchołków, wiec $\sum_{v \in V}{} deg(v) = 2E => E = \frac{1}{2} \sum{v \in V}{} deg(v)$) mamy:
+$E = \frac{1}{2} * \sum_{v \in V}{} deg(v) = \frac{1}{2} * \sum_{v \in V}{} 4 = \frac{1}{2} * 4V = 2V = 2n*(n-1)$
+Z twierdzenia Eulera o grafach planarnych:
+V - E + F = 2
+Gdzie F to ilosc regionow uformowanych przez graf planarny. Wtedy
+$F = 2 + E - V = 2 + 2n*(n-1) - n(n-1) = 2 + 2n^2 - 2n - n^2 + n = n^2 - n + 2$
+
+Dowód eulera o grafach planarnych:
+Niech $G = (V,E)$ będzie grafem, użyjemy indukcji na krawędziach. Dla E = 0 mamy 1 wierzchołek i mamy jedno podzielenie płaszczyzny, więc 1-0+1 = 2 czyli zachodzi. Teraz załóżmy dla kroku indukcyjnego, że |E| = n no i V - E + F = 2. Rozwazmy graf gdzie |E| = n+1.
+
+1. Drzewo. Wtedy V = E+1 czyli V = n+2. Drzewa nie maja podziału płaszczyzny (bo nie ma cykli), więc F = 1.
+Takze V - E + F = 2 => n+2 - n-1 + 1 = 2-1+1 = 2 czyli prawda.
+
+2. Graf z cyklami. Niech p będzie krawędzią z cyklem. Wtedy $G' = (V, E/p)$ (graf z usunieta krawedzia p). Wtedy mamy E' = E - 1. Skoro p było w cyklu to dzieliło płaszczyzne, więc usunięcie tego usuwa jedno podzielenie płaszczyzny (F' = F - 1). Skoro G ma n+1 krawędzi, to G' ma n i z indukcyjnej hipotezy V' - E' + F' = 2. Po podstawieniu E' = E-1, V' = V, F' = F-1 mamy 
+$V - E+1 + F-1 = 2 => V - E + F = 2$ 
+Robiąc to indukcyjnie wiele razy (aż dojdziemy do grafu bez cykli powyższe wyrażenie jest prawdziwe bo otrzymamy drzewo).
+Czyli twierdzenie zachodzi, także V-E+F = 2.
+
+
+\section{Zadanie 2}
+Na każdy schodek możemy wejść albo z poprzedniego albo z przedpoprzedniego, więc mamy $F_n = F_{n-1} + F_{n-2}$.
+Także dla n stopni mamy n-tą liczbę fibonacciego.
+\section{Zadanie 3}
+Jeśli wyjmiemy jedno pole koloru białego i czarnego to mamy 62 pola - 31 białych i 31 czarnych, więc układadamy domina tak, aby leżało na jednym czarnym i jednym białym polu.
+\section{Zadanie 4}
+Niech będą 3 wiersze.
+Mamy dwa kolory więc z zasady szufladkowej w każdym wierszu będą 2 kolory takie same.  
+3 pola możemy pokolorować na $\binom{3}{2}$ = 3 sposobów. 
+Jeśli odwrócimy kolory to dla 6 kolumn może być każda kolumna innego koloru.
+Ale jeśli dodamy jeszcze jedną kolumnę no to muszą być przynajmniej dwie kolumny tego samego koloru, stąd dla 3x7 zachodzi i dla żadnej z mniejszych nie zajdzie.
+
+Dla 3x6 kontprzykład:
+.XXX..
+X.X.X.
+XX...X
+\section{Zadanie 5}
+Dla 3x6 nie zachodziło 
+Dla dwóch wierszy nie będzie odpowiedzi, bo potrzeba nam przynajmniej 3 wierszy aby stworzyć prostokąt. Rozpatrzyliśmy już 3 wiersze, więc spójrzmy na 4.
+Żeby było mniej pól łącznie to liczba kolumn musi być równa 4 lub 5 (dla 6 jest więcej pól, a dla 3 nie ma rozwiązania)
+W takim razie 4x4:
+kontprzykład
+CZCZ 
+CCZZ 
+ZCZC
+ZZCC
+4x5:
+kontprzykład
+CZCZ 
+CCZZ 
+ZCZC
+ZZCC
+CZZC 
+Dla 5 kolumn możemy wybrać tylko 3 i 4, ale to wiemy z poprzedniego zadania ze nie zachodzi. Także nie ma co dalej patrzeć, bo dla 6 mamy 3, a to jest to samo co 3x6.
+Także 3x6 to najmniejsza ilość pól która da nam prostokąt. 
+
+
+\section{Zadanie 6}
+Możemy rozłożyc ludzi albo na przemian: wtedy jakiś chłopak ma wokół siebie dwie dziewczyny - sprzeczność.
+Możemy rozłożyć ludzi w dwa bloki - wtedy jakaś dziewczyna będzie miała wokół siebie dwie dziewczyny. 
+Aby udało się rozłożyć tak jak chcemy potrzebowalibyśmy ciągu CCDCC... czyli na każdą dziewczynę przypada dwóch chłopaków. Tutaj niestety nie możemy tego dostać bo jest ich po równo.
+
+Zasada szufladkowa na 13 siedzeń?
+
+Załóżmy, że nie będzie takiej osoby. Wtedy po obu stronach będą chłopacy. Najoptymalniejszy sposób to, żeby tą osobą była dziewczyna. Wtedy pozostają 23 wolne miejsca i 12 dziewczyn oraz 11 chłopaków. Oczywiście nie możemy układać ich na przemian, bo wtedy jakiś chłopak będzie miał dookoła siebie dwie dziewcyzny. W takim razie musimy zrobić dwa duże bloki. No ale to też jest sprzeczne, bo wtedy jakaś dziewczyna będzie miała dookoła siebie dziewczyny. 
+\section{Zadanie 7}
+Wsród n+1 muszą być przynajmniej dwie kolejne liczby, a te są względnie pierwsze.
+Weźmy dwie liczby kolejne k i k+1 
+Załóżmy, że nie są względnie pierwsze 
+Wtedy nwd(k, k+1) = x, x>1
+Wtedy x dzieli k i x dzieli k+1 
+Czyli takze x dzieli (k+1) - k = 1
+No ale skoro x dzieli jeden to x = 1, co jest sprzeczne
+Wiec k i k+1 musza byc wzglednie pierwsze. 
+
+\section{Zadanie 8}
+
+Reszty z dzielenia z n:
+będzie istnieć albo
+2 szufladki po 2 przedmioty 
+1 szufladka z 3 przedmiotami 
+jeśli ich różnica jest podzielna przez 2n to mamy to co chcieliśmy, jeśli nie jest to w takim razie dodanie n do tej różnicy da nam liczbę podzielną przez 2n.
+Są one postaci k = z mod n 
+czyli postaci k = z + cn mod 2n
+Gdzie c = {0, 1}
+Rozpatrzmy przypadki:
+k1 = z + c1 * n mod 2n
+k2 = z + c2 * n mod 2n 
+
+1. c1,c2 = 0, 1
+Wtedy różnica przystaje n mod 2n 
+No ale możemy dobrać taką resztę z dzielenia j, że z + j + n = 0 mod 2n (wiemy, że istnieje, bo była w jakiejś szufladce)
+TO WYKAZAĆ TROCHE LEPIEJ
+2. c1, c2 = 0, 0
+Wtedy oczywiście róznica przystaje do 0 mod 2n
+3. c1, c2 = 1, 1
+Wtedy też różnica przystaje do 0 mod 2n
+4. c1, c2 = 1, 0
+Analogicznie do 1. 
+
+
+\section{Zadanie 13}
+$9^{8^{7^{6^{5^{4^{3^{2^{1}}}}}}}}$
+Wypiszmy kolejne reszty:
+9
+81
+29
+61
+49
+41
+69
+21
+89
+01
+09 <- tu się zapętlamy, więc cykl ma 10 wyrazów
+
+Także musimy się dowiedzieć jaką reszte z dzielenia przez 10 ma $8^{7^{6^{5^{4^{3^{2^{1}}}}}}}$
+Wypiszmy teraz reszty 8:
+8
+4
+2
+6
+8 <- pętla 
+Cykl długości 4
+
+Czyli reszta z dzielenia przez 4 liczby $7^{6^{5^{4^{3^{2^{1}}}}}}$
+Reszty 7 z dzielenia przez 4:
+3
+1
+3 <- cylk długości 2
+Czyli reszta z dzielenia przez 2 liczby $6^{5^{4^{3^{2^{1}}}}}$
+6 ma tylko jedną resztę - 6, w takim razie reszta równa się 0.
+Także z siódemek wychodzi 3.
+Z ósemek 3 liczba to 2
+Wtedy z 9 jest 81.
+Wynik więc to 81
+
+
+\egroup
+\end{document}

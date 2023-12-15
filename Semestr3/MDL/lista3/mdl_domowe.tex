@@ -1,0 +1,26 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\title{MDL 26.10 Zadanie domowe}
+\author{Dominik Szczepaniak}
+\begin{document}
+
+\maketitle
+\bgroup\obeylines
+\section{Zadanie 7}
+Wybieramy n+1 liczb spośród kolejnych 2n liczb naturalnych.
+Zauważmy, że każda liczba jest zapisana jako albo $2^k$ * liczba nieparzysta. Liczby nieparzyste są ze zbioru {1,3,5,...,2n-1}. Więc co najwyżej możemy wziąc n takich wartości. 
+Teraz włóżmy nasze n+1 liczb do odpowiednich szufladek która mówi o największym nieparzystym dzielniku. Zauważmy, że jeśli wzięliśmy n+1 liczb to musi istnieć szufladka, która ma co najmniej 2 elementy.
+Wejdźmy więc do tej szufladki. Obie te liczby są postaci $2^k * l$, gdzie l to ta największa liczba nieparzysta, która dzieli tą liczbę.
+Pierwszą liczbą niech będzie $2^k * l$, a drugą $2^m * l$ i niech k>m (równie nie mogą być, bo każda liczba ma być różna).
+Oznaczmy te liczby jako a i b.
+Więc 
+a = $2^k * l$, 
+b = $2^m * l$ 
+$\frac{a}{b} = \frac{2^k * l}{2^m * l}$ => $a = 2^{k-m} * b$
+Także b dzieli a. 
+
+\egroup
+\end{document}

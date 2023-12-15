@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{MDL 8 30.11}
+\author{Dominik Szczepaniak}
+\begin{document}
+\maketitle
+\bgroup\obeylines
+
+\section{Zadanie 1}
+Weźmy takie dwa punkty 
+$P_1 = (3, 4)$
+$P_2 = (4, 3)$
+I przesuńmy je o wektor $V = [1, 2]$
+Wtedy:
+$P_1' = (4, 6)$
+$P_2' = (5, 5)$
+Jeśli dodamy je po współrzędnych to mamy:
+$P_3 = P_1 + P_2 = (7, 7)$
+$P_3' = P_1' + P_2' = (9, 11)$ co nie do końca się zgadza. Jeśli wykonamy jakiekolwiek operacje na punktach przy pomocy wektorów to nie zachowujemy przemienności operacji.
+
+\section{Zadanie 2}
+a) Chcemy pokazać, że wielomian Bersteina jest nieujemny w przedziale [0, 1]
+Wielomian bersteina zdefiniowany jest wzorem:
+$B{_{i}}^{n}(t) = \binom{n}{i}*t^i*(1-t)^{n-i}$ dla $i \in \set{0, \dots, n}$
+            $= 0 dla i < 0 oraz i > n$
+Wiemy, że $\binom{n}{i}$ jest naturalny, więc to możemy sobie pominąć w określaniu znaku.
+Spójrzmy tylko na $t^i * (1-t)^{n-i}$
+Skoro $t \in [0, 1]$ to $t^i$ jest zawsze dodatnie oraz $(1-t)^{n-1}$ jest zawsze dodatnie. 
+
+b) Chcemy pokazać, że jeśli damy prostą w dowolnym punkcie u w przedziale [0, 1] to wielomiany Bersteina będą się sumować do 1. 
+Indukcja nie działa (albo ciężka) -> coś innego 
+
+c) 
+
+d)
+\section{Zadanie 3}
+Udowodnij, że n wielomianów Bernesteina tworzy baze wielomianów n-tego stopnia.
+Tworzy baze -> chcemy pokazać, że dla dowolnego wielomianu n-tego stopnia możemy go przedstawić za pomocą skończonej ilości wielomianów bernsteina n-tego stopnia.
+Weźmy dowolny wielomian n-tego stopnia:
+$w(x) = [a1, a2, \dots, a_n] * [x^n, x^{n-1}, \dots, x^1, x^0]$
+Z definicji:
+$B{_{i}}^{n}(x) = \binom{n}{i}*x^i*(1-x)^{n-i}$ dla $i \in \set{0, \dots, n}$
+
+
+https://math.stackexchange.com/questions/2761669/showing-bernstein-polynomial-is-a-basis
+\section{Zadanie 4}
+$W_K^{(0)} = W_k$ dla $0 \leq k \leq n$
+$W_K^{(1)} = (1-t)*W_k^{(i-1)} + tW_{k+1}^{i-1}$ dla $i \in \set{1, 2, \dots, n}; k \in \set{0, 1, \dots, n-i}$
+Wtedy $P_n(t) = W_0^{n}$
+
+
+\egroup
+\end{document}

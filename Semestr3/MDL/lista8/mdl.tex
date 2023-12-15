@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{listings}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{MDL 8 30.11}
+\author{Dominik Szczepaniak}
+\begin{document}
+
+\maketitle
+Zrobione:
+\begin{tabular}{|| c c c c c c c c c c c||}
+    \hline
+    1 & 2 & 4 & 5 & 7 & 8 & 9   \\
+    \hline
+    Y & N & Y & Y & N & Y & Y 
+\end{tabular}
+
+\bgroup\obeylines
+\section{Zadanie 1}
+a) Z wykładu $\prod_{i=1}^{\infty} {\frac{1}{1-x^i}}$
+b) $\prod_{i=1}^{\infty} {{1+x^{2i-1}}}$
+c) $\prod_{i=1}^{m-1} {\frac{1}{1-x^i}}$
+d) $\prod_{i=1}^{\infty} {{1+x^{2^i}}}$
+\section{Zadanie 2}
+SKIP
+\section{Zadanie 4}
+Zakładam, że identyczny to znaczy, że wszystkie krawędzie są takie same w tym grafie.
+Zakładam też ze graf jest podany jako lista sąsiedztwa
+\begin{lstlisting}
+def is_identical(G, H):
+    if(len(G) != len(H)):
+        return False
+    visited = [False] * len(G)
+    for v in range(1, len(G+1)):
+        n=0
+        for adj in G[v]:
+            visited[adj] = True 
+            n+=1
+        for adj in H[v]:
+            if(!visited[adj]):
+                return False
+            visited[adj] = False 
+            n-=1
+        if(n!=0):
+            return False
+    return True
+\end{lstlisting}
+Przechodzimy po każdym wierzchołku i jego krawędziach w grafie G a później w grafie H, wiec amortyzuje się to do n+m (bo jest 2n wierzchołków i łączna liczba krawędzi nie przekracza m).
+
+\section{Zadanie 5}
+a) 
+W macierzowej to jest po prostu suma na kolumnie dla tego wierzchołka, w listowej jest to długość listy sąsiedztwa.
+$O(n) vs O(1)$
+b)
+Wszystkie krawędzie grafu to dla macierzowej po prostu przejście po całej macierzy, czyli $n^2$.
+Dla listowej jest to przejście po wszystkich krawędziach dwa razy (bo jeśli w 2 była 1, to w 1 będzie 2, czyli 2x).
+$O(n^2) vs O(m)$
+c)
+W macierzowej po prostu odniesienie się do tablicy w tym punkcie
+W listowej trzeba w najgorszej opcji przejść po wszystkich sąsiadach u, których może być v.
+$O(1) vs O(n)$
+d)
+W macierzowej przestawienie wartości z 1 na 0 w odpowiednim miejscu tablicy.
+W listowej jest to w najgorszej opcji przejście przez wszystkich sąsiadów i usunięcie v.
+$O(1) vs O(n)$
+e) 
+W macierzowej jest to przestawienie z 0 na 1.
+W listowej jest to pushback dla u.
+$O(1) vs O(1)$
+
+\section{Zadanie 7}
+Weźmy $G = {V, E} = {{1 2}, {}}$
+Wtedy
+$G_1 = {V, E} = {{2}, {}}$
+$G_2 = {V, E} = {{1}, {}}$
+$G_1$ i $G_2$ są spójne, a G nie jest, czyli teza nie zachodzi.
+
+
+
+
+
+\section{Zadanie 8}
+Załóżmy nie wprost, że istnieją dwie równe najdłuższe scieżki i nie przechodzą przez ten sam wierzchołek. Niech jedna droga będzie z (v1, u1) a druga (v2, u2). Weźmy wtedy drogę z v1 do v2 i przedłużmy tą drogę do u2. Skoro (v2, u2) jest nadłuższą trasą która nie ma żadnego wspólnego wierzchołka z (v1, u1), a graf jest spójny do możemy przedłużyć tą trasę idąc z v1 do v2 a później znowu tą samą trasą. 
+Mamy sprzeczność, bo ta trasa jest dłuższa, więc dwie najdłuższe ścieżki mają wspólny wierzchołek.
+
+\section{Zadanie 9}
+Weźmy dowolny graf G. Załóżmy, że nie jest spójny. Weźmy dowolne dwa wierzchołki i nazwijmy je v i u. Załóżmy, że te wierzchołki nie mają między sobą krawędź w G. W takim razie w G' istnieje krawędź między nimi. 
+Załóżmy teraz, że te wierzchołki mają między sobą krawędź w G. W takim razie są w tym samym komponencie w grafie G. Skoro G nie jest spójny to możemy znaleźć taki wierzchołek w, który nie należy do tego komponentu (czyli nie ma drogi między nimi, czyli nie ma krawędzi między nimi). Wtedy w G' będzie istniec zarówno krawędź vw jak i uw, czyli droga z v to u istnieje przez krawędź w. Możemy zastosować powyższe myślenie dla każdej pary wierzchołków, przez co wszystkie wierzchołki będą miały drogę do siebie, co dowodzi, że G' jest wtedy spójny. 
+
+
+
+
+
+
+\egroup
+\end{document}

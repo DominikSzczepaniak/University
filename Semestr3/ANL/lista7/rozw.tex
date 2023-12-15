@@ -1,0 +1,33 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\begin{document}
+\bgroup\obeylines
+\section{Zadanie 1}
+a)
+Z definicji wielomian interpolujący to taki wielomian który przechodzi przez każdy węzeł w jego wartości w funkcji.
+
+Niech p będzie unikalnym wielomianem o stopniu maksymalnie n-1 który przechodzi przez punkty $(x_1, 1), \dots, (x_n, 1)$ Wtedy $p(x) = \sum_{i=1}^{n} L_i(x)$
+Wielomian q(x) = 1 jest stopnia zerowego i też przechodzi przez te punkty oraz suma = 1.
+b)
+$\sum_{k=0}^n \Lambda_k(2023) \prod_{i=0}^{j-1}(x_k - f(i)) = 0 (j = 1, 2, \dots, n)$
+
+$\sum_{k=0}^n (\prod_{j=0, j!=k}^{n} (\frac{2023-x_j}{x_k-x_j})) \prod_{i=0}^{j-1}(x_k - f(i)) = 0 (j = 1, 2, \dots, n)$
+W nawiasie mamy wielomian interpolacyjny Lagrange'a. Oznaczmy go jako $L_k(x)$. W punktcie $x = x_k$ przyjmuje on wartość 1, a w pozostałych węzłach wartość 0. Dlatego
+$L_k(x_k) = 1 oraz L_k(x_j) = 0$ dla $j != k$
+Wstawiając to do wyrażenia otrzymujemy:
+$\sum_{k=0}^n (L_k(2023) \prod_{i=0}^{j-1}(x_k - f(i)) = 0 (j = 1, 2, \dots, n))$
+Teraz ponieważ dla każdego k $L_k(2023) != 0$ to całkowity iloczyn będzie różny od zera tylko wtedy gdy każdy z czynników iloczynu będzie równy 0.
+
+Jeśli f jest funkcją która była interpolowana i wyszło, że dla x = 0 mamy y = 2023, to weźmy ten węzeł jako x_0 = 0. Wtedy iloczyn jest równy 0 i z tego suma też. 
+
+
+
+
+
+
+
+\egroup
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{listings}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{Zadanie domowe lista 8}
+\author{Dominik Szczepaniak}
+\begin{document}
+\maketitle
+
+\section{Zadanie 4}
+Zakładam, że identyczny to znaczy, że wszystkie krawędzie są takie same w tym grafie.
+Zakładam też ze graf jest podany jako lista sąsiedztwa
+\begin{lstlisting}
+def is_identical(G, H):
+    if(len(G) != len(H)):
+        return False
+    visited = [False] * len(G)
+    for v in range(1, len(G+1)):
+        n=0
+        for adj in G[v]:
+            visited[adj] = True 
+            n+=1
+        for adj in H[v]:
+            if(!visited[adj]):
+                return False
+            visited[adj] = False 
+            n-=1
+        if(n!=0):
+            return False
+    return True
+\end{lstlisting}
+Przechodzimy po każdym wierzchołku i jego krawędziach w grafie G a później w grafie H, wiec amortyzuje się to do n+m (bo jest 2n wierzchołków i łączna liczba krawędzi nie przekracza m).
+
+\end{document}

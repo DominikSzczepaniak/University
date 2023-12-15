@@ -1,0 +1,10 @@
+zadanie 1 (1 pkt): 1
+zadanie 2 (1 pkt): 1
+zadanie 3 (1 pkt): 1
+zadanie 4 (1 pkt): 1
+zadanie 5 (2 pkt): 0 SKIP
+zadanie 6 (1 pkt): 1
+zadanie 7 (1 pkt): 0 SKIP
+zadanie 8 (2 pkt): 2
+zadanie 9 (1 pkt): 1
+LACZNIE: 8/11 pkt

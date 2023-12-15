@@ -1,0 +1,150 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\begin{document}
+\bgroup\obeylines
+Punkty: 7/11     (-2 za 1, -2 za 5)
+
+\section{Zadanie 1 2P}
+%TODO
+a) Jeśli $x^3$ jest ujemne i wartości $x^3$ i $\sqrt(x^6 + 2023^2)$ są bliskie sobie. Wtedy odjęcie może spowodować utrate liczb znaczących.
+Czyli mamy rownosc 
+$x^3 + \frac{x^6-2023^2}{\sqrt{x^6-2023^2}}$
+Dla bardzo dużej liczby ujemnej x dostajemy wartości takie same, ale jednak nie jest to problematyczne, ponieważ funkcja pow(0, -1) zwróci nam infinity, czyli dość prawdziwą wartość.
+
+
+b) Jeśli $log_2{x}$ jest bliskie 2. Wtedy odejmowanie utnie cyfry znaczące i możemy dostać 0.
+$log_2{x} - 2$ traci wartości znaczące dla $x = 2^2 + \epsilon$ dla małego $\epsilon$.
+Wtedy możemy do rozpisać jako:
+$log_2{x} - 2 = log_2{x} - log_2{2^2} = \frac{ln(x)}{ln(2)} - \frac{ln(2^2)}{ln(2)} = \frac{ln(x)-ln(2^2)}{ln(2)} = ln(\frac{x}{2^2}) * \frac{1}{ln(2)}$
+
+c) Problemem może się okazać, gdy wartość $\pi / 2 - x - arctan(x)$ będzie bardzo bliska 0, ale nie będzie równa 0, wtedy cyfry znaczące zostaną ucięte przy odejmowaniu, co da nam wynik 0, a tak naprawde nie będzie zerem. 
+
+Oczywiście dla $\pi / 2$ nie mamy poprawnego skończenia dziesiętnego, więc jeśli x będzie bardzo bliskie $\pi / 2$ to wynik będzie bardzo bliski 0, ale nie będzie równy 0.
+
+
+
+
+\section{Zadanie 2 1P}
+Używanie wzoru $\frac{-b - \sqrt{b^2-4ac}}{2a}$ nie jest optymalne, poniewaz dla wysokich wartosci b i malych wartosci a, c wartosc pod pierwiastkiem bedzie równa b. W takim przypadku utracimy cyfry znaczące dla $-b + \sqrt{b^2-4ac}$ (bo wynik będzie bardzo bliski zera). Możemy więc liczyć rozwiązanie za pomocą wzorów Viete'a:
+x1 = $-b - \sqrt{b^2-4ac}$
+$x1x2 = \frac{c}{a}$ => $x2 = \frac{c}{a*x1} = \frac{c}{-ab - a \sqrt{b^2-4ac}}$
+
+\section{Zadanie 3 1P}
+Względna zmiana danych jest dana wzorem:
+$|\frac{(x+\delta) - x}{x}| = |\frac{\delta}{x}|$
+Względna zmiana wyniku jest dana wzorem:
+$|\frac{f(x+\delta)-f(x)}{f(x)}|$
+
+Wskaźnik uwarunkowania:
+Cond(x) = $\frac{\text{względna zmiana wyniku}}{\text{względna zmiana danych}}$ = $|\frac{f(x + \delta) - f(x)}{f(x)}| * |\frac{x}{\delta}|$ = $|\frac{f(x+\delta) - f(x)}{\delta}| * |\frac{\delta}{f(x)}| * |\frac{x}{\delta}|$ = $|\frac{x*f'(x)}{f(x)}|$
+
+\section{Zadanie 4 2P}
+Zadanie jest zle uwarunkowane jeśli lim Cond(f(x)) = $\infty$
+
+a) $f(x) = (x+2023)^7$
+$f'(x) = 7(x+2023)^6$
+$Cond(f(x)) = |\frac{x * 7(x+2023)^6}{(x+2023)^7}|$ = $|\frac{7x}{x+2023}|$
+zadanie źle uwarunkowane dla $x = -2023$
+
+b) $f(x)=cos(3x)$
+$f'(x) = -3sin(3x)$
+$Cond(f(x)) = |\frac{x * -3*sin(3x)}{cos(3x)}|$ = $|-3x * tan(3x)|$
+zadanie źle uwarunkowane dla $x = \frac{\pi}{6} + k*\pi \text{ dla k} \in {Z}$
+
+c) $f(x) = (1+x^6)^{-1}$
+$f'(x) = \frac{6*x^5}{(1+x^6)^2}$
+$Cond(f(x)) = |\frac{x * \frac{6*x^5}{(1+x^6)^2}}{(1+x^6)^{-1}}|$ = $|\frac{6x^6}{1+x^6}|$ = $|\frac{6}{\frac{1}{x^6} + 1}|$
+
+Dla x dążącego do $\infty$ wyrażenie dąży do 6.
+Dla x dążącego do $-\infty$ wyrażenie dąży do 6.
+Dla x dążącego do 0 wyrażenie dąży do $\frac{6}{\infty+1}$ = 0.
+Także zadanie jest dobrze uwarunkowane.
+
+\section{Zadanie 5 2P}
+%TODO
+
+
+\section{Zadanie 6 1P}
+Czy poniższy algorytm obliczania wartości wyrażenia 
+$w(x) := x + 4x^{-1} (x \neq 0)$ jest algorytmem numerycznie poprawnym:
+$u:=x;$
+$v:=4/x;$
+$return(u+v)$
+
+$x+\frac{4}{x} => (x+\frac{4+\epsilon_1}{x})(1+\epsilon_2)$
+$(x+\frac{4+\epsilon_1}{x})$ - błąd wprowadzania danych
+$(1+\epsilon_2)$ - błąd wyniku
+Dla poprawnego numerycznie wyniku mamy:
+$(x + \frac{4}{x})(1+E)$ = $(x+\frac{4+\epsilon_1}{x})(1+\epsilon_2)$
+Po wpisaniu danych nasz błąd wynosi:
+$x+\frac{4+\epsilon_1}{x}$ = $(x+\frac{4}{x})(1+\delta)$
+$x + \frac{4}{x} + \frac{\epsilon}{x} = x + \frac{4}{x} + \delta(x+\frac{4}{x})$      $/:(x+\frac{4}{x})$   
+$\frac{\epsilon}{x} = \delta(x+\frac{4}{x})$ => $\delta = \frac{\epsilon}{x} * \frac{1}{x+\frac{4}{x}}$
+$\delta \leq 2^{-t} * \frac{1}{x+\frac{4}{x}} \leq 2^{-t}$
+Wraz ze wzrostem x błąd maleje, podobnie dla malejących x
+
+Wiemy więc, że błąd na "na wejściu" jest niewiększy niż $2^{-t}$, oznacza to, że:
+$(x+\frac{4+\epsilon_1}{x})(1+\epsilon_2) = (x+\frac{4}{x})(1+\delta)(1+\epsilon_2)$ = $(x+\frac{4}{x})(1+\theta)$, gdzie $|\theta| \leq 2*2^{-t}$
+
+Wykazaliśmy więc, że wynik wejściowy jest bliski dokładnemu wynikowi, więc algorytm jest poprawny numerycznie.
+\section{Zadanie 7 2P}
+%czy to działa nie wiem, najwyżej dostane grzyba i chuj w to
+Algorytm jest numerycznie poprawny jeśli wynik jego działania w arytmetyce zmiennoprzecinkowej może być zinterpretowany jako mały zaburzony wynik dokładny dla mało zaburzonych danych wejściowych.
+
+Chcąc wyznaczyć wartość A(a) w świecie liczb zmiennopozycyjnych otrzymamy
+$fl(A(a)) = (A(a * (1 + \beta)) * (1 + \alpha))$
+gdzie $(1 + \beta)$ oznacza małe zaburzenie danych, a $(1 + \alpha)$ małe zaburzenie wyniku
+
+Mamy w zadaniu podany algorytm liczący iloczyn liczb maszynowych x1, x2, ..., xn
+$rd(x_k) = x_k$, $1 \leq k \leq n$
+I = x[n]
+for(int k = n-1; k>=1; k--){
+    I = I * x[k];
+}
+return I
+
+Mamy więc
+
+$fl(x_n * x_{n-1} * ... * x_2 * x_1)$ = $x_1*x_2(1+\delta_2)*x_3*(1+\delta_3)*...*x_n*(1+\delta_n)$
+gdzie 
+$|\delta_k| \leq 2^{-t}$
+stąd mamy, że:
+$|fl(x_1*x_2*x_3*...*x_n) - x_1*x_2*...*x_n| = \epsilon|x_1*x_2*...*x_n|$
+gdzie 
+$\epsilon = |(1+\delta_2)(1+\delta_3)...(1+\delta_n) - 1|$
+$(-1 \text{ bo } x_1)$
+stąd mamy, że 
+$\epsilon \leq (1+2^{-t})^{n-1} - 1$
+
+Przyjmijmy j = n-1 i załóżmy, że $j * 2^{-t} < 0.1$ (co jest oczywiście sensowne, bo n musiałoby być naprawdę bardzo bardzo duże, żeby ta nierówność nie zachodziła) Wtedy:
+$ln(1+2^{-t})^j = j*ln(1+2^{-t}) < j2^{-t}$ 
+więc, jak zdejmiemy logarytm to
+$(1+2^{-t})^j < e^{j*2^{-t}}$
+Weźmy teraz szereg taylora z liczby e:
+$e^x = \sum_{n=0}^{\infty} [\frac{x^n}{n!}] = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + ...$
+Mamy:
+$(1+2^{-t})^j-1 < j*2^{-t} + \frac{(j*2^{-t})^2}{2!} + \frac{(j*2^{-t})^3}{3!} + ...$
+$(1+2^{-t})^j-1 < j*2^{-t} (1 + \frac{1}{2}*j*2^{-t} + (\frac{1}{2}*j*2^{-t})^2 + ...)$
+$(1+2^{-t})^j-1 < j*2^{-t}*(1 + \frac{0.05}{1-0.05}) < 1.06*j*2^{-t}$
+Tak więc mamy:
+$\epsilon < 1.06*(n-1)*2^{-t}$, jeśli $(n-1)*2^{-t} < 0.1$
+Także algorytm jest numerycznie poprawny dopóki powyższa równość zachodzi.
+
+No ale skoro $rd(x_k) = x_k$, a z def rd(x) mamy:
+$|\frac{x-rd(x)}{x}| < 2^{-t}$
+to mamy, że:
+$|\frac{x_k-x_k}{x_k}| < 2^{-t}$
+czyli
+$|\frac{0}{x_k}| < 2^{-t}$
+czyli
+$0 < 2^{-t}$
+co jest prawidzwe, także algorytm jest numerycznie poprawny.
+
+
+
+
+\egroup
+\end{document}

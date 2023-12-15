@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zgłoszenie Zadań</title>
+</head>
+<body>
+  <h1>Zgłoszenie Zadań</h1>
+  <% if (typeof error !== 'undefined' && error !== null) { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+  <form action="/" method="post">
+    <label for="firstName">Imię:</label>
+    <input type="text" name="firstName" required><br>
+    <label for="lastName">Nazwisko:</label>
+    <input type="text" name="lastName" required><br>
+    <label for="course">Nazwa zajęć:</label>
+    <input type="text" name="course" required><br>
+    <label for="tasks">Wyniki kolejnych 10 zadań:</label>
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 1">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 2">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 3">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 4">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 5">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 6">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 7">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 8">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 9">
+    <input type="text" name="tasks[]" placeholder="Punkty za zadanie 10">
+    <br>
+    <input type="submit" value="Zatwierdź">
+  </form>
+</body>
+</html>

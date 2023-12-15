@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasek Zgłoszenia</title>
+</head>
+<body>
+  <h1>Pasek Zgłoszenia</h1>
+  <p>Imię: <%= firstName %></p>
+  <p>Nazwisko: <%= lastName %></p>
+  <p>Nazwa zajęć: <%= course %></p>
+  <p>Wyniki zadań:</p>
+  <ul>
+    <% for (let i = 0; i < tasks.length; i++) { %>
+      <li>Zadanie <%= i + 1 %>: <%= tasks[i] || 0 %> punktów</li>
+    <% } %>
+  </ul>
+</body>
+</html>

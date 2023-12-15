@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  
+  <!-- Przykładowa lista rozwijalna -->
+  <label for="selectBox">Wybierz opcję:</label>
+  <select id="selectBox">
+    <% options.forEach(option => { %>
+      <option><%= option %></option>
+    <% }); %>
+  </select>
+
+  <!-- Lista wyboru typu radio -->
+  <fieldset>
+    <legend>Wybierz opcję:</legend>
+    <% options.forEach(option => { %>
+      <label>
+        <input type="radio" name="radioOption" value="<%= option %>">
+        <%= option %>
+      </label>
+    <% }); %>
+  </fieldset>
+
+  <!-- Lista wyboru typu checkbox -->
+  <fieldset>
+    <legend>Wybierz opcje:</legend>
+    <% options.forEach(option => { %>
+      <label>
+        <input type="checkbox" name="checkboxOption" value="<%= option %>">
+        <%= option %>
+      </label>
+    <% }); %>
+  </fieldset>
+
+  <a href="/">Powrót do strony głównej</a>
+</body>
+</html>

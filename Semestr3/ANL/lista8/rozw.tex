@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{MDL 8 30.11}
+\author{Dominik Szczepaniak}
+\begin{document}
+\maketitle
+\bgroup\obeylines
+
+\section{Zadanie 4}
+
+\section{Zadanie 5}
+PWO++ -> NSpline3(x, y, z), dane x:=[x0, x1, ..., xn] dla $n \leq 100$
+$s(z_0), s(z_1), \dots, s(z_m), m < 200$ - 200 wartości 
+z0 z1 z2 z3
+ |  | |  |
+-----------... 
+|    |    |  
+x0   x1   x2 
+Zmienmy to ustawienie w:
+$s_i = y_i + y[i, i+\frac{1}{3}](x-x_i) + y[i, i+\frac{1}{3}, i+\frac{2}{3}](x-x_i)(x-x_{i+\frac{1}{3}}) + y[i, i+\frac{1}{3}, i+\frac{2}{3}, i+1](x-x_i)(x-x_{i+\frac{1}{3}})(x-x_{i+\frac{2}{3}})$
+Oznaczmy kolejne $y_i$ jako $b_i$
+$s'_i = b_1 + b_2((x-x_i)+(x-x_{i+\frac{1}{3}})) + b_3((x-x_i)(x-x_{i+\frac{1}{3}}) + (x-x_{i+\frac{1}{3}})(x-x_{i+\frac{2}{3}}) + (x-x_i)(x-x_{i+\frac{2}{3}}))$
+\egroup
+\end{document}

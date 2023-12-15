@@ -1,0 +1,243 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{MDL 7 24.11}
+\author{Dominik Szczepaniak}
+\begin{document}
+
+\maketitle
+Zrobione:
+\begin{tabular}{|| c c c c c c c c c c c||}
+    \hline
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11  \\
+    \hline
+    Y & Y & Y & Y & Y & Y & Y & N & Y & Y & Y
+\end{tabular}
+
+\bgroup\obeylines
+\section{Zadanie 1}
+$<s_n> = <1, 1, 1, 1,...> * <a1, a2, a3, a4, ...>$
+$<s_n> = \frac{1}{1-x} * A(x) = \frac{A(x)}{1-x}$
+\section{Zadanie 2}
+a)
+$<a_n> = <0, 1, 4, 9, ...>$
+Obliczenie pochodnej daje nam taki wzór:
+$<f_0, f_1, f_2, ...> <-> F(X) => <f_1, 2f_2, 3f_3, ...> = F'(X)$
+W takim razie niech $<b_n> = <1, 1, 1, 1, ...> = \frac{1}{1-x}$
+$<c_n> = (\frac{1}{1-x})' = \frac{1}{(1-x)^2} = <1, 2, 3, 4, ...>$
+Musimy przesunąć teraz $c_n$ w prawo:
+$<d_n> = \frac{x}{(1-x)^2} = <0, 1, 2, 3, 4, ...>$
+Teraz znowu pochodna:
+$(\frac{x}{(1-x)^2})' = \frac{1+x}{(1-x)^3} = <1, 2, 4, 9, 16, ...>$
+No i znowu przesuwamy w prawo:
+$\frac{x(1+x)}{(1-x)^3}$ 
+I to jest ostateczny wynik, więc:
+$<a_n> = \frac{x(1+x)}{(1-x)^3}$ 
+
+b)
+Do potęgi trzeciej to obliczenie kolejnej pochodnej na $n^2$, a później przesunięcie w prawo:
+$(\frac{x(1+x)}{(1-x)^3})' = \frac{x^2+4x+1}{(1-x)^4}$
+$\frac{x^2+4x+1}{(1-x)^4} * x = \frac{x^3+4x^2+x}{(1-x)^4}$
+Czyli wynik: $\frac{x^3+4x^2+x}{(1-x)^4}$
+\section{Zadanie 3}
+$\binom{n+k}{k}$
+Kolejne wyrazy:
+$<1, \binom{k+1}{k}, \binom{k+2}{k}, \binom{k+3}{k}, ...>$
+$G(X) = \sum_{k=0}^{\infty} \binom{n+k}{k}*x^k$
+Wiemy, że:
+$\sum_{k=0}^{\infty} \binom{n}{k}x^k = (1+x)^n$
+Wiemy też, że:
+$\binom{n}{k} = (-1)^k * \binom{-n+k-1}{k}$
+Z tego:
+$\binom{n+k}{k} = (-1)^k * \binom{-n-1}{k}$
+Czyli:
+$G(X) = \sum_{k=0}^{\infty} \binom{n+k}{k}*x^k = \sum_{k=0}^{\infty} (-1)^k * \binom{-n-1}{k} *x^k= \sum_{k=0}^{\infty} \binom{-(n+1)}{k} * (-x)^k = (1+(-x))^{-(n+1)} = \frac{1}{{1-x}^{n+1}}$
+\section{Zadanie 4}
+$\sequence{a_n} = n$ dla parzystych i $\sequence{a_n} = \frac{1}{n}$ dla nieparzystych
+$\sequence{a_n} = \sequence{0, 1, 2, \frac{1}{3}, 4, \frac{1}{5}, 6, ...}$
+$\sequence{b_n} = \sequence{0, 0, 2, 0, 4, 0, 6, ...}$
+$\sequence{c_n} = \sequence{0, 1, 0, \frac{1}{3}, 0, \frac{1}{5}, 0, ...}$
+
+$\sequence{b_n}$ to ciąg 0, 1, 2, 3, 4, ... z usuniętym co drugim wyrazem.
+Ciąg $\sequence{1,2,3,4,...} = \frac{1}{(1-x)^2}$
+Przesuńmy go w prawo:
+$\frac{1}{(1-x)^2} * x = \frac{x}{(1-x)^2} = \sequence{0, 1, 2, 3, 4, ...}$
+Usuwanie co drugiego wyrazu: $\frac{A(x)+A(-x)}{2}$
+Wychodzi: $\frac{\frac{x}{(1-x)^2} + \frac{-x}{(1+x)^2}}{2}$
+
+Ciąg $\sequence{c_n}$ to ciąg z podpunktu b z usuniętymi miejscami.
+
+$\sequence{c_n} = -ln(1-x)$
+Usuńmy teraz co drugi wyraz.
+$\frac{A(x) - A(-x)}{2} = \frac{-ln(1-x) - -ln(1+x)}{2}$
+
+$\sequence{a_n} = \sequence{b_n} + \sequence{c_n} = \frac{\frac{x}{(1-x)^2} + \frac{-x}{(1+x)^2}}{2} + \frac{-ln(1-x) - -ln(1+x)}{2}$
+
+b) 
+CZEMU CAŁKOWANIE $\sequence{0, 1, 2, 3, 4, 5, ...}$ NIE DZIAŁA?
+
+$G(x) = \sum_{n=1}^{\infty} a_nx^n$
+$(n+1)*a_{n+1} = n*a_n$ 
+Pomnożenie przez $x^n$ oraz zsumowanie dla każdego $n \geq 1$ daje:
+$G'(x) - a_1 = \sum_{n=1}^{\infty} (n+1)*a_{n+1}x^n = \sum_{n=1}^{\infty} n*a_n*x^n = xG'(x)$
+$G'(x) = \frac{1}{1-x}$
+$G(x) = -ln(1-x)$
+
+
+\section{Zadanie 5}
+$G(x) = a_0x^0 + a_1x^1 + a_2x^2 + a^3x^3 + ...$
+Szukamy takiego $Z(x)$, że:
+$Z(x) = a_0x^0 - a_1x^1 - a_2x^2 + a_3x^3 - a_4x^4 - a_5x^5 + a_6x^6 + ...$
+Czyli $x^3k$ parzyste, a reszta nieparzysta
+Spójrzmy na piewriastki zespolone stopnia 3 z 1:
+$\sqrt[3]{1} = \set{\sqrt[3]{1}(cos(\frac{0+2k\pi}{3}) + i*sin(\frac{0+2k\pi}{3})), k={0,1,2}}$
+$k=0: z_0 = cos(0) + isin(0) = 1$
+$k=1: z_1 = cos(\frac{2\pi}{3}) + isin(\frac{2\pi}{3}) = -\frac{1}{2}+i*\frac{\sqrt{3}}{2}$
+$k=2: z_2 = cos(\frac{4\pi}{3}) + isin(\frac{4\pi}{3}) = -\frac{1}{2}-i*\frac{\sqrt{3}}{2}$
+
+$\sqrt[3]{1} = \set{1, -\frac{1}{2}+i*\frac{\sqrt{3}}{2}, -\frac{1}{2}-i*\frac{\sqrt{3}}{2}}$
+Zauważmy od razu, że przez to, że sinus się powtarza co 2pi, to dla k co 3 mamy ten sam wynik, więc możemy rozpatrywać tylko k=0, k=1, k=2.
+Niech ten set to będzie odpowiednio $\set{1, k, l}$ dla uproszczenia pisania. Mamy:
+$l + k = k + l = -1$
+$(l^2+k^2) = (-\frac{1}{2}+i\frac{\sqrt{3}}{2})^2 + (-\frac{1}{2}-i\frac{\sqrt{3}}{2})^2 = (-\frac{1}{2}+i\frac{\sqrt{3}}{2})^2 + (-(\frac{1}{2}+i\frac{\sqrt{3}}{2}))^2 = (\frac{i\sqrt{3}-1}{2})^2 + (\frac{-i\sqrt{3}-1}{2}) = (\frac{i\sqrt{3}-1}{2})^2 + (\frac{-1(i\sqrt{3}+1)}{2}) = \frac{-2i\sqrt{3}-2}{4} + \frac{1 * (2i\sqrt{3}-2)}{4} = \frac{-4}{4} = -1$
+$(l^3+k^3) = 1 + 1 = 2$
+Więc dla $(l^{3p}+k^{3p}) = 2; l^{3p+1}+k^{3p+1} = -1; l^{3p+2}+k^{3p+2}=-1$ dla $k \in \mathbb{N}$
+$Z(1) = a_0 + a_1 + a_2 + ... $
+$Z(k) = a_0 + a_1k + a_2k^2 + a_3k^3 + a_4k^4 + a_5k^5 + a_6k^6 ...$
+$Z(l) = a_0 + a_1l + a_2l^2 + a_3l^3 + a_4l^4 + a_5l^5 + a_6l^6 ...$
+$Z(k) + Z(l) = 2a_0 + 2a_1(k+l) + 2a_2(k^2+l^2) + a_3(k^3+l^3) ...$
+$= 2a_0 - 2a_1 - 2a_2 + 2a_3 - 2a_4 - 2a_5 + 2a_6 ...$
+
+$2*Z(1) + Z(k) + Z(l) = a_0(2+2) + a_1(-2 + 2) + a_2(-2+2) + a_3(2+2) + ...$ 
+$= 4a_0 + 4a_3 + 4a_6 + ...$
+W takim razie
+$\sequence{a_0, 0, 0, a_3, 0, 0, a_6} = \frac{2*Z(1)+Z(k)+Z(l)}{4}$
+
+\section{Zadanie 6}
+Szukamy funkcji przesuniętej o k miejsc w prawo. 
+W takim razie
+$A(x) = a_0x^0 + a_1x^1 + a_2x^2 + ... $
+chcemy
+$B(x) = a_kx^0 + a_{k+1}x^1 + a_{k+2}x^2 + ...$
+W takim razie musimy się pozbyć wszystkich wyrazów w A(x) między pierwszym, a $a_k$.
+Czyli odejmijmy:
+$A(x) - (a_0x^0+a_1x^1+...+a_{k-1}x^{k-1}) = a_kx^k+a_{k+1}^x{k+1} + ...$
+Widać, że potęga przy x jest za duża, więc musimy ją zmniejszyć - dzielimy ją przez $x^k$. W takim razie nasz ostateczny wzór to:
+$\frac{A(x) - (a_0x^0+a_1x^1+...+a_{k-1}x^{k-1})}{x^k}$.
+
+\section{Zadanie 7}
+${1, 2, 3, 4, 5, 6, 7, 8, 9, 10}$
+Dla 1 możemy wybierać między {1+r, n}
+Dla 2 między {2+r, n}
+Dla l między {l+r, n}
+Dla r=4 w powyzsyzm przykladzie na 7 nie mamy wyników ktore nie byly juz wczesniej zliczone. Więc idziemy max do n+1-r-(k-1), bo tam będzie jeden wynik tylko. Czemu -(k-1) - bo jeśli dla przykładu tutaj r = 4 i k=2 to możemy wziąć 6 i 10, ale jak k=3 to musimy wybrać jakąś 3, a już była zliczona.
+Więc mamy dla każdej liczby sposób wybóru k-1 liczb spośród {l+r, n}. Liczb w tym zbiorze jest n+1 - l - r
+
+$\sum_{i=1}^{n+1-r-(k-1)} \binom{n+1-i-r}{k-1}$
+
+\section{Zadanie 8}
+Definicja O(n): $f(x) \in O(g(x)) <=> lim_{n->\infty} \abs{\frac{f(x)}{g(x)}} < \infty$
+a) $lim \frac{n^2}{n^3} = lim{1}{n} = \infty$ - nie
+b) $lim \frac{n^3}{n^{2.99}} = lim n^{0.01}$ - tak 
+c) $lim \frac{2^{n+1}}{2^n} = lim 2$ - tak
+d) $lim \frac{(n+1)!}{n!} = lim n+1 = \infty$ - nie
+e) $lim \frac{log_2(n)}{\sqrt{n}} = lim \frac{\frac{1}{nln2}}{\frac{1}{2\sqrt{n}}} = lim \frac{2}{ln2} * lim \frac{1}{\sqrt{n}} = 0$ - tak
+f) poprzednie tylko na odwrot, więc $\infty$ - nie
+\section{Zadanie 9}
+a) 
+Mamy, ze jeśli f(n) = O(g(n)) i g(n) = O(h(n)) to f(n) = O(h(n)).
+No dobra to z def. $\abs{\frac{f(x)}{g(x)}} < \infty$ i $\abs{\frac{g(x)}{h(x)}} < \infty$.
+Z tego możemy się dowiedzieć, że rząd f $\leq$ rząd g, oraz rząd g $\leq$ rząd h. W takim razie rząd f $\leq$ rząd h, czyli lim < $\infty$
+b) 
+f(n) = O(g(n)) w.t.w gdy g(n) = $\Omega(f(n))$.
+Z dużego O wiemy, ze rząd f $\leq$ rząd g, czyli $f(n) \leq c*g(n)$. Z definicji Omega mamy $g(n) \geq c*f(n)$. Łącząc oba te wnioski mamy, że:
+$f(n) \leq c_1 g(n) <=> g(n) >= c_2 * f(n)$
+c)
+f(n) = $\Theta(g(n))$ w.t.w. gdy g(n) = $\Theta(f(n))$:
+Definicja $\Theta$ mówi o tym, że funkcja f jest dokładnie rzędu funkcji g. Stąd wynika symetria, a więc funkcja g jest dokładnie rzędu f, co udowadnia twierdzenie.
+\section{Zadanie 10}
+Definicja małego o, to że $f(n) \in o(g(n))$ jeśli $lim_{n->infty} \frac{f(n)}{g(n)} = 0$
+Wynik powstały z dzielenia f(n) przez g(n) jest dzieleniem wielomianu mniejszego stopnia przez wielomian większego stopnia, więc będzie granica równa 0, co kończy dowód.
+\section{Zadanie 11}
+% https://math.stackexchange.com/questions/409518/how-many-resulting-regions-if-we-partition-mathbbrm-with-n-hyperplanes
+Mieliśmy na wykładzie zadanie o dwóch wymiarach w których mówiliśmy, że aby zmaksymalizować liczbę obszarów linie nie mogą przechodzić przez ten sam punkt i być równoległe. W trzech wymiarach mówiliśmy, że płaszczyzny nie mogą przechodzić przez tą samą linie przecięcia. 
+Zgeneralizujmy to dla n wymiarów i m hiperpłaszczyzn przecinających. 
+
+Rozważmy najpierw dwa wymiary.
+Załóżmy, że mamy rozwiązanie maksymalne. Obrócmy je tak, aby żadna linia nie była równoległa z osią Ox. Rozważmy teraz punkt który leży najniżej w dowolnym regionie.
+Jeśli obszar jest ograniczony od dołu, to ten punkt musi istnieć, jest unikalny i jest przecięciem dwóch linii. Z poprzedniej listy wiemy, że jest relacja między ilością punktów a ilościa regionów i jest ona równa $\binom{m}{2} = \frac{m^2+m}{2}$ (Zauważmy, że na poprzedniej liście tam było jeszcze + 1, ale tutaj tego nie ma, ponieważ liczy się ilość PUNKTÓW, a nie regionów. Regionów jest o 1 więcej niż punktów.)
+Co jeśli ten region nie jest ograniczony od dołu? Ile jest takich regionów? Rozważmy najniższy lewy punkt dowolnego obszaru. Jeśli obszar jest ograniczony z lewej strony, to punkt musi istnieć, jest unikalny i jest to punkt przecięcia oryginalnych n linii z linią Ox. Jest relacja między ilościa takich punktów, a ilością regionów które są nieograniczone z dołu, ale ograniczone z lewej - jest ich $\binom{n}{1} = m$ (To jest każdy region nieograniczony z dołu, czyli ilość linii bo każda linia ma prawy bok, więc tworzy jakiś lewy region dla lim nieskończoność)
+Teraz ile jest regionów nieograniczonych z dołu i lewej? No oczywiście jeden - tylko ten na maksa po lewej i na dole. Czyli totalna ilość podziału jest równa $\binom{m}{2} + \binom{m}{1} + \binom{m}{0}$
+
+Teraz spójrzmy na trzy wymiary. Regiony zmieniamy na przestrzenie, punkty na linie. Ograniczenia są takie same, ale wymiary się zmieniły, więc zamiast 2 jest 3, zamiast 1 jest 2, zamiast 0 jest 1, no i dodajemy nowe ograniczenie przestrzenią ze "środka".
+Teraz spójrzmy na trzy wymiary. Znowu obróćmy go, żeby żadna płaszczyzna nie była równoleżna do innej płaszczyzny wymyślonej przez nas (najlepiej całkowicie poziomej). Ile jest teraz regionów, które nie są ograniczone przez żadną płaszczyzne od dołu? %Dla 2 płaszczyzn jest ich 3. Dla 1 płaszczyzny 1. Dla 3 - 5.  
+Jeśli region jest ograniczony od dołu to musi istnieć płaszczyzna która oddziela te regiony, jest ona unikalna i jest przecięciem regionów. Takich płaszczyzn jest $\binom{m}{3}$ - dla jednej dajemy tą płaszczyzne pionowo. Dla dwóch dajemy te płaszczyzny też pionowo i dopiero dla trzech możemy odciąć dół. Potrzebujemy wybrać 3 płaszczyzny żeby odciąć dół.
+-------------
+W DWÓCH WYMIARACH MAMY NAJPIERW ILE JEST OGRANICZONYCH Z DOŁU 
+PÓŹNIEJ ILE NIEOGRANICZONYCH Z DOŁU I OGRANICZONYCH Z LEWEJ 
+PÓŹNIEJ ILE NIEOGRANICZONYCH Z DOŁU I NIEOGRANICZONYCH Z LEWEJ 
+-----------
+W TRZECH WYMIARACH MAMY NAJPIERW ILE JEST OGRANICZONYCH Z DOŁU $\binom{m}{3}$
+PÓŹNIEJ NIEOGRANICZONYCH Z DOŁU I OGRANICZONYCH Z LEWEJ
+PÓŹNIEJ NIEOGRANICZONYCH Z DOŁU I NIEOGRANICZONYCH Z LEWEJ I OGRANICZONYCH ZE ŚRODKA 
+PÓŹNIEJ NIEOGRANICZONYCH Z DOŁU I NIEOGRANICZONYCH Z LEWEJ I NIEOGRANICZONYCH ZE ŚRODKA 
+---------------------
+W kolejnym wymiarze mamy, że dochodzi nam wymiar ograniczenia, więc ilość ograniczania zwiększa się o jeden krok. Także mamy później $\binom{m}{2}$, $\binom{m}{1}$, $\binom{m}{0}$.
+W dwóch wymiarach mamy od lewej, prawej, dołu, góry.
+W trzech mamy od lewej, prawej, dołu, góry oraz jakby od środka i zewnętrznej.
+Wynik dla trzech wymiarów to więc $\binom{m}{3} + \binom{m}{2} + \binom{m}{1} + \binom{m}{0}$
+Dla czterech wymiarów? Znowu zwiększamy wymiar.
+W ogólności więc mamy 
+$\sum_{i=0}^{n} \binom{m}{i}$
+I to jest nasz wynik
+
+Niech A(m, n) oznacza ilośc podziałów $R^m$ przestrzeni za pomocą n linii. 
+$A(m, n) = A(m, n-1) + A(m-1, n-1)$
+A(0, 0) = 0
+To jest zwiększenie poprzedniej liczby regionów o ilość podziału regionu jedno mniej wymiarowego.
+Czyli np. w dwóch wymiarach to jest, że na każdą linię tworzy się jeden nowy region.
+Każda hiperpłaszczyzna ma w sobie A(m-1, n-1) regionów.
+
+
+
+Dla dwóch wymiarów mieliśmy wzór $\frac{n^2+n+2}{2}$
+Dla trzech wymiarów mieliśmy wzór $\frac{n^3+5n+6}{6}$
+Twierdzę, że 
+$A(m, n) = \sum_{i=0}^m \binom{n}{i}$
+
+Pokażmy indukcyjnie po m. 
+Dla m = 2:
+$A(2, n) = \sum_{i=0}^2 \binom{n}{i} = \binom{n}{0} + \binom{n}{1} + \binom{n}{2} = \frac{n!}{n!} + \frac{n!}{(n-1)!} + \frac{n!}{(n-2)!} = 1 + n + n(n-1) = \frac{n^2+n+2}{2}$
+
+Załóżmy, że dla m zachodzi.
+Wtedy:
+$A(m+1, n) = A(m+1, n-1) + A(m, n-1)$
+$A(m+1, n) - A(m+1, n-1) = A(m, n-1)$
+$A(m+1, n) - A(m+1, n-1) = \sum_{i=0}^m \binom{n-1}{i}$
+$\sum_{i=0}^{m+1} \binom{n}{i} - \sum_{i=0}^{m+1} \binom{n-1}{i} = \sum_{i=0}^m \binom{n-1}{i}$
+Wiemy, że $\binom{n}{i} - \binom{n-1}{i} = \binom{n-1}{i-1}$ Mamy więc:
+$\sum_{i=0}^{m+1} \binom{n-1}{i-1} = \sum_{i=0}^m \binom{n-1}{i}$
+Zauważmy, że to to samo, gdyż dla i=0 jest niezdefiniowane, czyli równe 0, a dla kolejnych wyrazów mamy prawą stronę.
+
+
+
+
+
+
+
+
+\egroup
+\end{document}
