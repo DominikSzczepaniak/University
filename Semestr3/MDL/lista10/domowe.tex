@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{listings}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{MDL DOMOWE 10 20.12}
+\author{Dominik Szczepaniak}
+\begin{document}
+
+\maketitle
+
+\bgroup\obeylines
+\section{Zadanie 4}%done
+
+Dowód indukcyjny:
+Co iterację drzewo T jest jakimś podgrafem MST $M$, dla ilości wierzchołków = 1 to jest prawda, bo nie zawiera żadnych krawędzi.
+
+Załóżmy teraz indukcyjnie, że dla n wierzchołków T jest podgrafem MST $M$ i algorytm Prima wybiera krawędź e do dodania do T. Jeśli $e \in M$ to skoro T jest podgrafem $M$ to po dodaniu krawędzi $e, T$ jest dalej podgrafem $M$. 
+Załóżmy więc, że e nie należy do M. Dodajmy więc e do M i tworzymy jakiś cykl. Skoro e ma jeden punkt końcowy w T i drugiego końca nie mamy (bo dodajemy tą krawędź algorytmem Prima) to musi być jakaś inna krawędź e' w tym cyklu, która ma tylko jeden punkt końcowy w T (bo drzewo rozpinające jeszcze nie jest skończone). Więc algorytm Prima mógł dodać e', ale zamiast tego wybrał e, więc w(e) <= w(e'). Więc jeśli dodamy e do M i usuniemy krawędź e' to dostajemy nowe drzewo rozpinające M', gdzie w(M') <= w(M) i zawiera T z krawędzią e, co dalej podtrzymuje indukcję, bo T jest podgrafem jakiegoś MST.
+(Zauważmy, że w(e') = w(e), bo w przeciwnym przypadku w(M') < w(M), więc M nie byłoby M)
+
+
+\egroup
+\end{document}

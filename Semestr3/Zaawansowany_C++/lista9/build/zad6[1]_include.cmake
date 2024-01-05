@@ -1,0 +1,5 @@
+if(EXISTS "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6[1]_tests.cmake")
+  include("/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6[1]_tests.cmake")
+else()
+  add_test(zad6_NOT_BUILT zad6_NOT_BUILT)
+endif()

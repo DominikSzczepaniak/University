@@ -1,0 +1,3 @@
+/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista10/build/CMakeFiles/MojProjekt.dir
+/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista10/build/CMakeFiles/edit_cache.dir
+/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista10/build/CMakeFiles/rebuild_cache.dir

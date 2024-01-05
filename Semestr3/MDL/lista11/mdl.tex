@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{listings}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{MDL 10 30.11}
+\author{Dominik Szczepaniak}
+\begin{document}
+
+\maketitle
+
+\bgroup\obeylines
+\section{Zadanie 1}  %done
+Toposort:
+\begin{lstlisting}
+int n; 
+vector<vector<int>> adj; 
+vector<bool> visited(n, false); 
+vector<int> ans;
+
+void dfs(int v) {
+    visited[v] = true;
+    for (int u : adj[v]) {
+        if (!visited[u])
+            dfs(u);
+    }
+    ans.push_back(v);
+}
+
+void topological_sort() {
+    for (int i = 0; i < n; ++i) {
+        if (!visited[i]) {
+            dfs(i);
+        }
+    }
+    reverse(ans.begin(), ans.end());
+    
+}
+\end{lstlisting}
+Czemu O(n+m) - bo odwiedzamy kazdy wierzcholek maksymalnie raz (visited) i przegladamy kazda krawedz maksymalnie raz stad N+M.
+Czemu porzadkuje tak jak chce zadanie?
+Jesli odpalimy jakiegos dfs dla wierzcholka v to najpierw dojdziemy do wszystkich wierzcholkow w jego poddrzewie. Nazwijmy dowolny z tych wierzcholkow u. Tak więc dodamy u przed v. Także jesli dajemy push back, to v będzie gdzieś dalej niż u. Także jeśli istnieje jakaś krawędź (i, j) to i>j bo j nalezy do poddrzewa i, więc jest dalej w grafie, więc jest blizej poczatku tablicy, czyli wystarczy odwrocic tablice aby sie zgadzalo.
+
+\section{Zadanie 2} %done nie jestem pewny, polecenie jest troche chujowo napisane, bo sciezka M-powiekszajaca istnieje wzgledem jakiegos matchingu, zakladam ze jest nim M?
+% Fajny opis tego algosa:
+% https://wazniak.mimuw.edu.pl/index.php?title=Zaawansowane_algorytmy_i_struktury_danych/Wyk%C5%82ad_7#scie%C5%BCka_powi%C4%99kszaj%C4%85ca
+
+Ścieżką powiększającą nazwiemy ścieżkę prostą p taką, że jej krawędzie są na przemian skojarzone i wolne, a końce są wolne.
+
+Dla grafu dzwudzielnego G = $(V_1 \cup V_2, E)$ oraz skojarzenia M zdefiniujmy skierowany graf $G_M = (V_1 \cup V_2, E_T)$ jako:
+$E_M = \set{(v_1, v_2) \in E, v_1 \in V_1, v_2 \in V_2} \cup \set{(v_2, v_1) \in T, v_1 \in V_1, v_2 \in V_2}$
+Czyli jest to zbior wszystkich krawedzi z $V_1 do V_2$ + zbior krawedzi skojarzonych z $V_2 do V_1$
+DLA KAZDEJ KRAWDZI $(v_1, v_2) musi zachodzic v_1 < v_2$
+
+
+Algorytm:
+1. $V_1' - zbior wierzcholkow wolnych w V_1$
+2. $V_2' - zbior wierzcholkow wolnych w V_2$
+3. skonstruuj graf skierowany $G_M = (V_1 \cup V2, E_T)$
+4. znajdz sciezke p z $V_1' do V_2' w G_T$
+5. jeśli p nie istnieje to:
+    zwróć null (brak ścieżki)
+6. usuń cykle z p tak, aby p była ścieżką prostą
+7. zwróć p (p to ścieżka powieszkająca w G)
+
+Przykład:
+Dostajemy graf:
+1 2
+1 4
+2 3
+3 4
+4 5
+5 6
+5 8
+6 7
+7 8
+$V1 = \set{(1, 3, 5, 7)}$
+$V2 = \set{(2, 4, 6, 8)}$
+$M = \set{(2, 3), (4, 5), (7, 8)}$
+
+$V_1' \set{1}$
+$V_2' \set{6}$
+Wtedy $G_M = \set{(1, 2), (1,4),(3, 4),(5,6),(5,8),(7,8)} \cup \set{(4,5)}$
+ścieżka 1->6 w $G_M = (1,4)(4,5)(5,6)$
+cykli nie ma 
+jest to sciezka powiekszajaca :)
+
+Lemat:
+Powyższy algorytm znajduje ścieżkę p wtedy i tylko wtedy gdy w G istnieje ścieżka powiększająca względem M, ponadto znaleziona ścieżka jest powiększająca.
+
+Dowód:
+Załóżmy, że ścieżka p istnieje. Z konstrukcji algorytmu wiemy, że jest to ścieżka która 
+a) zaczyna się w wierzchołku wolnym bo zaczynamy w wierzcholku wolnym
+b) Z $V_1$ do $V_2$ idzie krawędzią wolną bo $V_1' i V_2'$ zawiera tylko wierzcholki wolne, wiec nie moze byc miedzy nimi skojarzenia
+c) Z $V_2$ do $V_1$ wraca krawędzią skojarzoną, bo w $G_M$ sa tylko krawedzie skojarzone z $V_2 do V_1$
+d) kończy się w $V_2$ krawędzią wolną, bo konczymy w wierzcholku wolnym
+
+Ścieżka p spełnia wszystkie warunki dla ścieżki powiększającej oprócz bycia ścieżką prostą. Jeżeli p przechodzi dwa razy przez ten sam wierzchołek $v \in V_1$ to wchodzi do niego dwa razy krawędzią skojarzoną (bo jest to graf dwudzielny, a krawdzie z $V_2$ do $V_1$ sa tylko skojarzone w $G_M$), a wychodzi krawędzią nieskojarzoną (bo krawedzie z $V_1 do V_2 w G_M$ sa tylko nieskojarzone). Jeżeli teraz usuniemy kawałek ścieżki pomiędzy tymi dwoma wejściami do v (linia 7) to powyższe cztery warunki nadal będą zachodzić. Możemy więc, zachowując je, zamienić ścieżkę p na ścieżkę prostą.
+%Natomiast jeżeli w grafie G jest ścieżka powiększająca względem M, to możemy ją wprost przetłumaczyć na ścieżkę w grafie $G_M$. 
+
+\section{Zadanie 3} %TODO, ciezkie w chuj P=>L
+
+% https://github.com/atiluj/University/blob/master/SEM3/MDL/L12/lista12-rozw.pdf 
+Minimalne cięcie to podzbiór krawędzi których usunięcie rozspaja graf a usunięcie żadnego podzbioru krawędzi w nim zawartego nie rozspaja grafu. Czyli to taki zbiór, że jeśli zdecydujemy się usunąć wszystkie krawędzie z tego zbioru oprócz jednej to graf dalej będzie spójny. Czyli rozspoimi graf wtedy i tylko wtedy gdy usuniemy wszystkie krawędzie z minimalnego cięcia, inaczej dalej będzie spójny.
+
+Mamy pokazać, że graf spójny ma cykl Eulera wtw gdy każde minimalne cięcie zawiera parzystą liczbę krawędzi.
+
+L=>P:
+Załóżmy, że w grafie spójnym jeśli graf zawiera cykl Eulera to minimalne cięcie ma parzystą ilość krawędzi.
+Jeśli graf zawiera cykl Eulera to stopień każdego wierzchołka musi być parzysty. Z wykładu to wiemy.
+
+Załóżmy nie wprost, że ilość krawędzi w minimalnym cięciu jest nieparzysta.
+a) Załóżmy, że istnieje tylko jedna krawędź w minimalnym cięciu. Wtedy jeśli ją usuniemy i dostaniemy dwie spójne składowe S1 i S2 to jeśli nasz cykl Eulera przebiegał przez tą krawędź z S1 do S2 to nie wrócimy już z S2 do S1, więc nie może istnieć cykl Eulera. 
+b) Załóżmy teraz ogólnie, że ilość krawędzi jest nieparzysta. Wtedy mamy podobny przypadek co wyżej - w ostatnim kroku (jeśli jest 2n+1 krawędzi, to po 2n krokach zostaje jedna krawędź) nie wrócimy do spójnej składowej w której zaczęliśmy, więc nie zrobimy cyklu, także ilość krawędzi musi być parzysta.
+
+
+P=>L:
+Załóżmy, że jeżeli w grafie spójnym minimalne cięcie ma parzystą ilość krawędzi to graf zawiera cykl Eulera.
+nie wiem kurwa nie da sie chyba tego
+
+
+
+
+\section{Zadanie 5}%done
+1. Równy stopień wejścia i wyjścia dla każdego wierzchołka.
+2. Wszystkie wierzchołki muszą należeć do tej samej silnej spójnej składowej. 
+Ad.2 
+Załóżmy, że są jakieś dwa wierzchołki między którymi nie istnieje ścieżka (czyli nie są w silniej spójnej składowej). Jeśli zaczniemy w jednym z nich to w szczególności nie odwiedzimy drugiego, czyli nie stworzymy cyklu Eulera.
+
+L => P
+Pokażmy, że istnieje cykl Eulera w grafie skierowanym to stopień wejścia i wyjścia każdego wierzchołka jest równy.
+Jeśli istnieje cykl to mamy albo opcje taką, że cykl składa się ze ścieżki albo z drogi.
+Jeśli składa się ze ścieżki to stopnie są równe 1.
+Jeśli składa się z drogi to jest jakaś część tego cyklu w której wierzchołki są powtórzone. Jeśli usuniemy wierzchołki w tej części drogi to podzielimy graf na dwa podgrafy w których mamy cykle eulera. Teraz znowu jeśli te cykle składają się ze ścieżki to można je po prostu podzielić znowu na dwa, i tak w nieskończoność aż otrzymamy jakąś ilość (bo ilość krawędzi jest skończona) ścieżek, a w ścieżce wszystkie wierzchołki mają stopnie równe 1.
+
+Czyli jak mamy:
+v1 v2 v3 v4 v2 v5 v6 v2 v7 v8 v1 
+to dzielimy na:
+v1 v2 v5 v6 v2 v7 v8 v1 
+v2 v3 v4 v2 
+dzielimy teraz pierwszy znowu na: 
+v1 v2 v7 v8 v1 
+v2 v5 v6 v2
+v2 v3 v4 v2 
+i wtedy każdy ma stopień 1 czyli równe w każdym grafie, czyli suma jest równa dalej.
+
+L <= P
+Jeśli dla każdego v jest, że stopnie wejścia i wyjścia są równe to istnieje cykl Eulera.
+Jeśli dla każdego v stopnie wyjścia i wejścia są równe to musi istnieć droga z v do v. (Dowód niżej). Zakładając, że to jest prawdziwe weźmy dowolne v i znajdźmy cykl C1 który kończy się w v. Usuńmy wszystkie krawędzie które należą do tego cyklu z naszego grafu. W naszym nowym grafie dalej zachodzi, że indeg(v) = outdeg(v), więc weźmy kolejny wierzchołek v', taki że jego cykl C2 przechodzi przez jakiś punkt C1 i znowu usuńmy krawędzie z grafu. Róbmy tak tak długo aż nie będzie żadnej krawędzi w grafie.
+Czyli znajdujemy cykl C1, później kolejny cykl C2, C3, ..., Cn i łączymy je w taki sposób, że idziemy cyklem C1 później przechodzimy cykl C2, wracamy na C1 albo przechodzimy C3 jeśli C3 był w C2 i tak w kółko aż przejdziemy wszystkie cykle.
+
+Dowód 
+Zacznijmy w v i wybierzmy jakąkolwiek wychodząca krawędź (v, u), jeśli indeg(u) = outdeg(u) to wybierzmy jakąś wychodzącą krawędź u i kontynuujmy odwiedzane krawędzi. Za każdym razem gdy wybieramy jakąś krawędź usuwajmy ją. Dla każdego wierzchołka (oprócz v) mamy tak, że wchodząc usuwamy krawędź wchodzącą do niego, a wychodząc usuwamy krawędź wychodzącą, więc dalej indeg(x) = outdeg(x) dla jakiegoś wierzchołka x. Ponieważ zawsze istnieje krawędź wychodząca ostatnią krawędzią będzie krawędź wchodząca do v, ponieważ gdy zaczynaliśmy nie usunęliśmy krawędzi do v.
+
+% https://www.cut-the-knot.org/arithmetic/combinatorics/EulerCyclesInDigraph.shtml
+\section{Zadanie 6} %done
+Nie ma takich digrafów.
+Zauważmy, że takie grafy możemy rozumieć jako permutację, w której nie ma cyklu. W permutacji mamy, że dla każdej liczby przypisujemy jej inną liczbę - czyli jedna krawędź wyjściowa, oraz, że każda liczba jest przypisana innej liczbie - jedna krawędź wejściowa. 
+No ale jeśli w permutacji nie ma cyklu, to nie możemy wybrać żadnej takiej permutacji, ponieważ aby permutacja nie miała cyklu to jakaś liczba musi nie wystąpić, a to jest niemożliwe bo w permutacji każda liczba ma jedno przypisanie.
+Zauważmy, że dla 
+1 2 3
+1 2 3
+Jest cykl, bo 1->1 tworzy cykl.
+\section{Zadanie 7} %done
+Nie.
+Koń zawsze przebywa 3 kwadraty pionowo i jeden poziomo albo 3 poziomo i jeden pionowo. Skoro przebywa 3 pionowo/poziomo zachowuje ten sam kolor, ale idac jeden obok zmienia kolor. Czyli zawsze skacze z czarnego pola na białe albo na odwrót. No a skoro mamy 25 pól planszy to jeśli zaczniemy ruch z pola którego jest mniej (jednego jest 13, innego 12), to po 11*2 ruchach zabraknie nam pola którego nie odwiedziliśmy.
+\section{Zadanie 8} %done
+W treści zadania brakuje, że ilość wierzchołków jest parzysta, więc załóżmy to, bo jeśli nie to dla 3 wierzchołków nie będzie perfekcyjnego matchingu.
+
+Pokażmy najpierw, że istnieje skojarzenie największe.
+Weźmy jakiś podzbiór wierzchołków A i oznaczmy go przez A'. Oznaczmy przez $E_A'$ krawędzie które mają jakiś koniec w A. Każda krawędź która ma koniec w A, ma też koniec w N(A), niech $E_{N(A)}$ oznacza krawędzie które mają koniec w N(A). Zauważmy, że N(A) jest podzbiorem B, a A' podzbiorem A, więc pierwsza cześć warunku Halla jest spełniona. 
+Ponieważ graf jest k-regularny to $E_A = k*|A|$ oraz $E_{N(A)} = k*|N(A)|$, no ale $E_A$ zawiera się w $E_{N(A)}$, więc $|A| \leq |N(A)|$ a z tego mamy wszystko spełnione wszystkie warunki warunku Halla, więc mamy skojarzenie doskonałe.
+\section{Zadanie 9} %done
+% https://www.youtube.com/watch?v=oKouTMqz57c 21 minuta
+
+Przekształcamy prostokąt na graf G = $(A \cup B, E)$, 
+gdzie A to zbiór liczb $\set{1, 2, 3, ..., n}$ (numery kolumn)
+a B to zbiór liczb $\set{1,2,...,n}$ (liczby którymi wypełnimy nowy wiersz)
+$a \in A$ łączy krawędź z $b \in B$ gdy liczba b nie wystąpiła w kolumnie a, więc 
+$\forall a \in A (N(a)) = n-m >= 1$
+Zauważmy, że liczbę możemy wpisać w kolumny w których jeszcze nie wystąpiła, czyli n-m.
+Zatem warunek Halla:
+$\forall A' \in A |N(A')| >= |A'|$ oraz $\forall B' \in B |N(B')| >= |B'|$
+jest spełniony, więc istnieje skojarzenie doskonałe, czyli wypełniony prostokąt.
+
+\section{Zadanie 10} %done
+Dowód indukcyjny: Dla dowolnego turnieju o n wierzchołkach istnieje ścieżka hamiltona.
+Indukcja po ilości wierzchołkow (n): 
+Dla n=1 mamy po prostu jeden wierzchołek, więc to jest ścieżka hamiltona.
+Załóżmy, że dla n zachodzi, pokażmy dla n+1:
+
+Ponieważ dla n wierzchołków z założenia była ścieżka hamiltona, a nowy (n+1) wierzchołek jest w turnieju połączony z każdą parą wierzchołków krawędzią a do b lub b do a, to mamy trzy opcje:
+a) ten wierzchołek ma tylko krawędzie wychodzące - to znaczy żadna krawędź nie wchodzi do niego - wtedy ten wierzchołek będzie pierwszym wierzchołkiem w ścieżce hamiltona - pójdziemy nim do pierwszego wierzchołka w ścieżce hamiltona dla n wierzchołków (ścieżki z założenia indukcyjnego) 
+b) ten wierzchołek ma tylko krawędzie wchodzące - wtedy przedłużamy naszą ścieżkę o ten wierzchołek.
+c) ten wierzchołek ma krawędzie wychodzące i wchodzące:
+Niech $V_a$ oznacza zbiór wierzchołków, gdzie istnieje krawędź skierowana z naszego nowego wierzchołka do wierzchołka w zbiorze, a przez $V_b$ wierzchołki które mają krawędź skierowaną do naszego nowego wierzchołka. Ponieważ $|V_a|$ < n oraz $|V_b|$ < n (bo założenie, że te zbiory nie są równe n). Zauważmy, że zbiory $V_a$ oraz $V_b$ tworzą turnieje - pomiędzy wszystkimi wierzchołkami w tym zbiorze istnieje krawędź $(v_i, v_j)$ lub $(v_j, v_i)$. Także z indukcji wiemy, że istnieje ścieżka hamiltona zarówno w $V_a$ oraz $V_b$. W takim razie skonstruujmy nową ścieżkę w taki sposób, że przedłużymy ścieżkę hamiltona w $V_b$ o nasz nowy wierzchołek, a później dodamy ścieżke hamiltona z $V_a$. 
+
+\egroup
+\end{document}

@@ -1,0 +1,16 @@
+SerializationTest.PrimitiveType 10 0.000413879
+SerializationTest.StringType 10 0.000350104
+SerializationTest.ArrayType 9 0.000382528
+SerializationTest.SerializableType 6 0.000521208
+SerializationTest.SerializableObjectType 6 0.000528028
+SerializationTest.CharType 5 0.000663192
+SerializationTest.ShortType 5 0.00063255
+SerializationTest.LongType 5 0.000691833
+SerializationTest.FloatType 5 0.000751942
+SerializationTest.DoubleType 5 0.000676542
+SerializationTest.LongDoubleType 5 0.00062545
+SerializationTest.BoolType 5 0.000666192
+SerializationTest.SerializableObjectTypeArray 5 0.000718392
+SerializationTest.VectorType 4 0.00100751
+SerializationTest.SerializableObjectTypeVector 2 0.00182185
+---

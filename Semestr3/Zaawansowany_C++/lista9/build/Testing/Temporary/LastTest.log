@@ -1,0 +1,408 @@
+Start testing: Dec 20 19:19 CET
+----------------------------------------------------------
+1/15 Testing: SerializationTest.PrimitiveType
+1/15 Test: SerializationTest.PrimitiveType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.PrimitiveType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.PrimitiveType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.PrimitiveType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.PrimitiveType
+[       OK ] SerializationTest.PrimitiveType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.PrimitiveType" end time: Dec 20 19:19 CET
+"SerializationTest.PrimitiveType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/15 Testing: SerializationTest.StringType
+2/15 Test: SerializationTest.StringType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.StringType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.StringType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.StringType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.StringType
+[       OK ] SerializationTest.StringType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.StringType" end time: Dec 20 19:19 CET
+"SerializationTest.StringType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/15 Testing: SerializationTest.CharType
+3/15 Test: SerializationTest.CharType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.CharType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.CharType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.CharType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.CharType
+[       OK ] SerializationTest.CharType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.CharType" end time: Dec 20 19:19 CET
+"SerializationTest.CharType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/15 Testing: SerializationTest.ShortType
+4/15 Test: SerializationTest.ShortType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.ShortType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.ShortType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.ShortType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.ShortType
+[       OK ] SerializationTest.ShortType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.ShortType" end time: Dec 20 19:19 CET
+"SerializationTest.ShortType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/15 Testing: SerializationTest.LongType
+5/15 Test: SerializationTest.LongType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.LongType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.LongType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.LongType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.LongType
+[       OK ] SerializationTest.LongType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.LongType" end time: Dec 20 19:19 CET
+"SerializationTest.LongType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/15 Testing: SerializationTest.FloatType
+6/15 Test: SerializationTest.FloatType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.FloatType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.FloatType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.FloatType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.FloatType
+[       OK ] SerializationTest.FloatType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.FloatType" end time: Dec 20 19:19 CET
+"SerializationTest.FloatType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/15 Testing: SerializationTest.DoubleType
+7/15 Test: SerializationTest.DoubleType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.DoubleType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.DoubleType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.DoubleType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.DoubleType
+[       OK ] SerializationTest.DoubleType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.DoubleType" end time: Dec 20 19:19 CET
+"SerializationTest.DoubleType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/15 Testing: SerializationTest.LongDoubleType
+8/15 Test: SerializationTest.LongDoubleType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.LongDoubleType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.LongDoubleType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.LongDoubleType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.LongDoubleType
+[       OK ] SerializationTest.LongDoubleType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.LongDoubleType" end time: Dec 20 19:19 CET
+"SerializationTest.LongDoubleType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/15 Testing: SerializationTest.BoolType
+9/15 Test: SerializationTest.BoolType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.BoolType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.BoolType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.BoolType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.BoolType
+[       OK ] SerializationTest.BoolType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.BoolType" end time: Dec 20 19:19 CET
+"SerializationTest.BoolType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/15 Testing: SerializationTest.VectorType
+10/15 Test: SerializationTest.VectorType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.VectorType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.VectorType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.VectorType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.VectorType
+[       OK ] SerializationTest.VectorType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.VectorType" end time: Dec 20 19:19 CET
+"SerializationTest.VectorType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/15 Testing: SerializationTest.ArrayType
+11/15 Test: SerializationTest.ArrayType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.ArrayType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.ArrayType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.ArrayType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.ArrayType
+[       OK ] SerializationTest.ArrayType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.ArrayType" end time: Dec 20 19:19 CET
+"SerializationTest.ArrayType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/15 Testing: SerializationTest.SerializableType
+12/15 Test: SerializationTest.SerializableType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.SerializableType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.SerializableType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.SerializableType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.SerializableType
+[       OK ] SerializationTest.SerializableType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.SerializableType" end time: Dec 20 19:19 CET
+"SerializationTest.SerializableType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/15 Testing: SerializationTest.SerializableObjectType
+13/15 Test: SerializationTest.SerializableObjectType
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.SerializableObjectType" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.SerializableObjectType" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.SerializableObjectType
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.SerializableObjectType
+[       OK ] SerializationTest.SerializableObjectType (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.SerializableObjectType" end time: Dec 20 19:19 CET
+"SerializationTest.SerializableObjectType" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/15 Testing: SerializationTest.SerializableObjectTypeVector
+14/15 Test: SerializationTest.SerializableObjectTypeVector
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.SerializableObjectTypeVector" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.SerializableObjectTypeVector" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.SerializableObjectTypeVector
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.SerializableObjectTypeVector
+[       OK ] SerializationTest.SerializableObjectTypeVector (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.SerializableObjectTypeVector" end time: Dec 20 19:19 CET
+"SerializationTest.SerializableObjectTypeVector" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/15 Testing: SerializationTest.SerializableObjectTypeArray
+15/15 Test: SerializationTest.SerializableObjectTypeArray
+Command: "/Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/zad6" "--gtest_filter=SerializationTest.SerializableObjectTypeArray" "--gtest_also_run_disabled_tests"
+Directory: /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build
+"SerializationTest.SerializableObjectTypeArray" start time: Dec 20 19:19 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/dominik/Desktop/University/Semestr3/Zaawansowany_C++/lista9/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = SerializationTest.SerializableObjectTypeArray
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SerializationTest
+[ RUN      ] SerializationTest.SerializableObjectTypeArray
+[       OK ] SerializationTest.SerializableObjectTypeArray (0 ms)
+[----------] 1 test from SerializationTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"SerializationTest.SerializableObjectTypeArray" end time: Dec 20 19:19 CET
+"SerializationTest.SerializableObjectTypeArray" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 20 19:19 CET
