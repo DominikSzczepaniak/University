@@ -1,7 +1,6 @@
 package calendar_app;
 
 import javax.swing.*;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -40,6 +39,6 @@ public class MonthListModel extends AbstractListModel {
         cal.set(year, month, 1);
         while (index-- != 0)
             cal.add(Calendar.DAY_OF_MONTH, 1);
-        return "" + new SimpleDateFormat("MMMM", Locale.ENGLISH).format(cal.getTime()) + " " + cal.get(Calendar.DAY_OF_MONTH) + " " + new SimpleDateFormat("EEE", Locale.ENGLISH).format(cal.getTime());
+        return "" + DateHelper.yearFormat(cal) + " " + DateHelper.dayOfMonth(cal) + " " + DateHelper.dayOfWeek(cal);
     }
 }

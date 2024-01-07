@@ -1,10 +1,9 @@
-package W9;
+package calendar_app;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -15,9 +14,9 @@ public class GUI extends JFrame {
     private JPanel rootPanel;
     private JPanel monthsInYearTab;
     private JPanel daysInMonthTab;
-    private JList nextMonthList;
-    private JList currentMonthList;
-    private JList previousMonthList;
+    private JList nextMonth;
+    private JList currentMonth;
+    private JList previousMonth;
     private JSpinner yearSpinner;
     private JSlider monthSlider;
     private JToolBar toolbar;
@@ -25,7 +24,7 @@ public class GUI extends JFrame {
 
     private GregorianCalendar calendar;
 
-    private MonthUI months[];
+    private MonthGUI months[];
 
     public GUI(String title) throws HeadlessException {
         super(title);
@@ -36,39 +35,35 @@ public class GUI extends JFrame {
         monthSlider.setValue(calendar.getTime().getMonth() + 1);
 
 
-        months = new MonthUI[12];
+        months = new MonthGUI[12];
 
-        populateYearPanel();
-
-        registerListeners();
-
+        createYearPanel();
+        createListeners();
         fireContentsChanged();
     }
 
     private void createUIComponents() {
         currentYearPanel = new JPanel(new GridLayout(3, 4, 5, 5));
-        previousMonthList = new JList(new MonthListModel());
-        currentMonthList = new JList(new MonthListModel());
-        nextMonthList = new JList(new MonthListModel());
+        previousMonth = new JList(new MonthListModel());
+        currentMonth = new JList(new MonthListModel());
+        nextMonth = new JList(new MonthListModel());
 
-        previousMonthList.setCellRenderer(new MonthCellRenderer());
-        currentMonthList.setCellRenderer(new MonthCellRenderer());
-        nextMonthList.setCellRenderer(new MonthCellRenderer());
+        previousMonth.setCellRenderer(new MonthCellRenderer());
+        currentMonth.setCellRenderer(new MonthCellRenderer());
+        nextMonth.setCellRenderer(new MonthCellRenderer());
 
-        previousMonthList.setBackground(Color.decode("#d2ddd9"));
-        currentMonthList.setBackground(Color.decode("#efe7e1"));
-        nextMonthList.setBackground(Color.decode("#d2ddd9"));
+        previousMonth.setBackground(Color.pink);
+        currentMonth.setBackground(Color.white);
+        nextMonth.setBackground(Color.pink);
 
-        previousMonthList.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-        currentMonthList.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-        nextMonthList.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        previousMonth.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        currentMonth.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        nextMonth.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
 
         yearSpinner = new JSpinner(new SpinnerNumberModel(1, 1, null, 1));
     }
 
-
-
-    private void registerListeners() {
+    private void createListeners() {
         yearSpinner.addChangeListener(e -> {
             if ((int) yearSpinner.getValue() < 1)
                 return;
@@ -81,7 +76,7 @@ public class GUI extends JFrame {
             fireContentsChanged();
         });
 
-        previousMonthList.addMouseListener(new MouseAdapter() {
+        previousMonth.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 if (calendar.get(Calendar.YEAR) == 1 && calendar.get(Calendar.MONTH) == Calendar.JANUARY)
@@ -89,42 +84,22 @@ public class GUI extends JFrame {
                 calendar.add(Calendar.MONTH, -1);
                 fireContentsChanged();
             }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                previousMonthList.setBackground(Color.decode("#a0e8b8"));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                previousMonthList.setBackground(Color.decode("#d2ddd9"));
-            }
         });
 
-        nextMonthList.addMouseListener(new MouseAdapter() {
+        nextMonth.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
                 calendar.add(Calendar.MONTH, 1);
                 fireContentsChanged();
             }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                nextMonthList.setBackground(Color.decode("#a0e8b8"));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                nextMonthList.setBackground(Color.decode("#d2ddd9"));
-            }
         });
     }
 
-    private void populateYearPanel() {
+    private void createYearPanel() {
         Date originalDate = calendar.getTime();
         calendar.set(calendar.get(Calendar.YEAR), Calendar.JANUARY, 1);
         for (int i = 0; i < 12; i++) {
-            months[i] = new MonthUI(calendar, this);
+            months[i] = new MonthGUI(calendar, this);
             currentYearPanel.add(months[i]);
             calendar.add(Calendar.MONTH, 1);
         }
@@ -136,7 +111,7 @@ public class GUI extends JFrame {
         Date originalDate = calendar.getTime();
         calendar.set(calendar.get(Calendar.YEAR), Calendar.JANUARY, 1);
 
-        for (MonthUI month : months) {
+        for (MonthGUI month : months) {
             month.updateMonthUI(calendar);
             calendar.add(Calendar.MONTH, 1);
         }
@@ -146,17 +121,17 @@ public class GUI extends JFrame {
 
     private void updateMonthLists() {
         Date now = calendar.getTime();
-        ((MonthListModel) currentMonthList.getModel()).changeDate(now);
+        ((MonthListModel) currentMonth.getModel()).changeDate(now);
 
         if (now.getYear() + 1900 != 1 || now.getMonth() != 0) {
             now.setMonth(now.getMonth() - 1);
-            ((MonthListModel) previousMonthList.getModel()).changeDate(now);
+            ((MonthListModel) previousMonth.getModel()).changeDate(now);
         } else
-            ((MonthListModel) previousMonthList.getModel()).changeDate(null);
+            ((MonthListModel) previousMonth.getModel()).changeDate(null);
         if (now.getYear() != 1 || now.getMonth() != 1)
             now.setMonth(now.getMonth() + 1);
         now.setMonth(now.getMonth() + 1);
-        ((MonthListModel) nextMonthList.getModel()).changeDate(now);
+        ((MonthListModel) nextMonth.getModel()).changeDate(now);
 
     }
 
@@ -165,7 +140,7 @@ public class GUI extends JFrame {
         updateMonthLists();
 
         calendarTabbedPane.setTitleAt(0, "" + yearSpinner.getValue());
-        calendarTabbedPane.setTitleAt(1, new SimpleDateFormat("MMMM", Locale.ENGLISH).format(calendar.getTime()));
+        calendarTabbedPane.setTitleAt(1, DateHelper.yearFormat(calendar));
         yearSpinner.setValue(calendar.get(Calendar.YEAR));
         monthSlider.setValue(calendar.get(Calendar.MONTH) + 1);
 
@@ -175,21 +150,5 @@ public class GUI extends JFrame {
         calendarTabbedPane.setSelectedIndex(i);
     }
 
-    class MonthCellRenderer extends JLabel implements ListCellRenderer {
-        public MonthCellRenderer() {
-            setHorizontalAlignment(CENTER);
-        }
-
-        @Override
-        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            String string = (String) value;
-            if (string.contains("Sun"))
-                setForeground(Color.RED);
-            else
-                setForeground(Color.BLACK);
-            setText(string);
-            return this;
-        }
-    }
 
 }

@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -24,15 +23,14 @@ public class MonthGUI extends JPanel {
         this.setBackground(Color.GREEN);
         date = calendar.getTime();
 
-        name = new JLabel(new SimpleDateFormat("MMMM", Locale.ENGLISH).format(calendar.getTime()));
+        name = new JLabel(DateHelper.yearFormat(calendar));
         name.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        String week[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+        String weekDays[] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         JPanel weekPanel = new JPanel(new GridLayout(1, 7, 2, 2));
-        for(var i : week){
-            weekPanel.add(new JLabel(i));
+        for(String day : weekDays){
+            weekPanel.add(new JLabel(day));
         }
-
 
         dayTable = new JPanel(new GridLayout(6, 7, 2, 2));
 

@@ -10,11 +10,12 @@ public class DayGUI extends JPanel {
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        if (weekDay == 6)
-            this.setBackground(Color.RED);
-
         number = new JLabel("#");
         number.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        if (weekDay == 6)
+            number.setForeground(Color.RED);
+
 
         this.add(number);
     }

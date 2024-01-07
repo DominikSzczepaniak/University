@@ -10,7 +10,6 @@ public class App {
             GUI gui = new GUI("CalendarApp");
             gui.pack();
             gui.setSize(new Dimension(1200, 900));
-            gui.setLocationRelativeTo(null);
             gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             gui.setVisible(true);

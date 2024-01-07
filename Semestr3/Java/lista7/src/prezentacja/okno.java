@@ -113,7 +113,10 @@ public class okno extends JFrame {
                 statusLabel.setText("Wczytano poprzednią gre");
             }
         }
+        createListeners();
+    }
 
+    private void createListeners(){
         newGameItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -282,8 +285,6 @@ public class okno extends JFrame {
                         "Data: 16.12.2023");
             }
         });
-
-
     }
 
     private class MapPanel extends JPanel{
