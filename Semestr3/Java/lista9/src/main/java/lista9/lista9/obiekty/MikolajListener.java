@@ -1,5 +1,5 @@
 package lista9.lista9.obiekty;
 
-public interface mikolajListener {
+public interface MikolajListener {
     void mikolajPolozylPrezent();
 }

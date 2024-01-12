@@ -1,4 +1,4 @@
 package lista9.lista9.obiekty;
 
-public class Prezent {
+public class Prezent extends ObiektNaPlanszy{
 }
