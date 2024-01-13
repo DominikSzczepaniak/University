@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.Circle?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          hgap="5" vgap="5">
+
+    <!-- Placeholder dla pustego pola -->
+    <Rectangle width="40" height="40" fill="WHITE" fx:id="pustePole" />
+
+    <!-- Placeholder dla pola z prezentem -->
+    <Rectangle width="40" height="40" fill="BLUE" fx:id="prezent" />
+
+    <!-- Placeholder dla pola z dzieckiem -->
+    <Circle radius="20" fill="YELLOW" fx:id="dziecko" />
+
+    <!-- Placeholder dla pola z Mikołajem -->
+    <Circle radius="20" fill="RED" fx:id="mikolaj" />
+
+</GridPane>
