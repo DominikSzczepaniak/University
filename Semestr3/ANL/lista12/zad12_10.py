@@ -11,6 +11,9 @@ def f2(x):
 def f3(x):
     return Math.sin(5*x - Math.pi/3)
 
+def f4(x):
+    return (1/(1+25*x**2))
+
 print("Funkcja f1:")
 for i in range(1, 21):
     print("m = ", i, " ", biblioteka.romberg(f1, -3, 2, i))
@@ -20,6 +23,7 @@ for i in range(1, 21):
 print("Funkcja f3:")
 for i in range(1, 21):
     print("m = ", i, " ", biblioteka.romberg(f3, -3, 2, i))
+print("Funkcja f4:")
 
 
 
