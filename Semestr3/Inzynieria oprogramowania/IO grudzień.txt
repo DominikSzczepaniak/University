@@ -1,0 +1,295 @@
+Zadanie 1
+
+
+1. Historia: Tworzenie Nowego Projektu
+Przypadek Testowy 1: Poprawne Tworzenie Nowego Projektu
+Stan Początkowy: Użytkownik zalogowany do systemu.
+Akcja: Użytkownik otwiera aplikację.
+Akcja: Przechodzi do sekcji "Nowy Projekt".
+Akcja: Wprowadza następujące informacje o projekcie:
+Nazwa: "Projekt A"
+Opis: "Projekt testowy do celów demonstracyjnych"
+Data Rozpoczęcia: dzisiejsza data
+Data Zakończenia: za 30 dni
+Akcja: Przypisuje do projektu 2 członków zespołu.
+Wynik: Nowy projekt "Projekt A" został utworzony i widoczny dla przypisanych członków zespołu.
+Przypadek Testowy 2: Błędne Tworzenie Nowego Projektu (brak wymaganych informacji)
+Stan Początkowy: Użytkownik zalogowany do systemu.
+Akcja: Użytkownik otwiera aplikację.
+Akcja: Przechodzi do sekcji "Nowy Projekt".
+Akcja: Wprowadza tylko nazwę projektu, pomijając pozostałe wymagane informacje.
+Wynik: System wyświetla komunikat o błędzie i informuje użytkownika o konieczności uzupełnienia wszystkich wymaganych pól.
+2. Historia: Dodawanie Zadania do Projektu
+Przypadek Testowy 1: Poprawne Dodawanie Zadania do Projektu
+Stan Początkowy: Istnieje projekt "Projekt A" z przypisanymi członkami zespołu.
+Akcja: Użytkownik wybiera istniejący projekt "Projekt A".
+Akcja: Przechodzi do sekcji "Dodaj Zadanie".
+Akcja: Wprowadza opis zadania, priorytet, termin wykonania i przypisuje członka zespołu.
+Opis: "Zadanie testowe"
+Priorytet: Wysoki
+Termin wykonania: za 10 dni
+Wynik: Zadanie jest dodane do projektu "Projekt A", a członkowie zespołu są poinformowani o nowym zadaniu.
+Przypadek Testowy 2: Błędne Dodawanie Zadania do Projektu (brak opisu zadania)
+Stan Początkowy: Istnieje projekt "Projekt A" z przypisanymi członkami zespołu.
+Akcja: Użytkownik wybiera istniejący projekt "Projekt A".
+Akcja: Przechodzi do sekcji "Dodaj Zadanie".
+Akcja: Pomija wprowadzenie opisu zadania.
+Wynik: System wyświetla komunikat o błędzie i informuje użytkownika o konieczności dodania opisu zadania.
+3. Historia: Śledzenie Postępu Zadania
+Przypadek Testowy 1: Poprawne Śledzenie Postępu Zadania
+Stan Początkowy: Zadanie "Zadanie testowe" jest przypisane do projektu "Projekt A".
+Akcja: Użytkownik otwiera projekt "Projekt A".
+Akcja: Przechodzi do sekcji "Zadania".
+Akcja: Sprawdza status i postęp zadania "Zadanie testowe".
+Akcja: Aktualizuje status zadania na "W trakcie" na podstawie postępu prac.
+Wynik: Zespół ma aktualne informacje o postępie zadania w projekcie "Projekt A".
+Przypadek Testowy 2: Błędne Śledzenie Postępu Zadania (brak aktualizacji)
+Stan Początkowy: Zadanie "Zadanie testowe" jest przypisane do projektu "Projekt A".
+Akcja: Użytkownik otwiera projekt "Projekt A".
+Akcja: Przechodzi do sekcji "Zadania".
+Akcja: Sprawdza status i postęp zadania "Zadanie testowe".
+Wynik: Użytkownik zamyka projekt bez aktualizacji postępu. System nie rejestruje zmian w statusie zadania.
+
+
+Zadanie 2
+
+
+1. Historia: Tworzenie Nowego Projektu
+Przypadek Testowy 1: Poprawne Tworzenie Nowego Projektu
+Stan Początkowy: Użytkownik zalogowany do systemu.
+    Akcja: Użytkownik otwiera aplikację.
+    Akcja: Przechodzi do sekcji "Nowy Projekt".
+    Akcja: Wprowadza następujące informacje o projekcie:
+        Nazwa: "Projekt A"
+        Opis: "Projekt testowy do celów demonstracyjnych"
+        Data Rozpoczęcia: dzisiejsza data
+        Data Zakończenia: za 30 dni
+    Akcja: Przypisuje do projektu 2 członków zespołu.
+    Wynik: Nowy projekt "Projekt A" został utworzony i widoczny dla przypisanych członków zespołu.
+Przypadek Testowy 2: Błędne Tworzenie Nowego Projektu (brak wymaganych informacji)
+Stan Początkowy: Użytkownik zalogowany do systemu.
+    Akcja: Użytkownik otwiera aplikację.
+    Akcja: Przechodzi do sekcji "Nowy Projekt".
+    Akcja: Wprowadza tylko nazwę projektu, pomijając pozostałe wymagane informacje.
+    Wynik: System wyświetla komunikat o błędzie i informuje użytkownika o konieczności uzupełnienia wszystkich wymaganych pól.
+2. Historia: Dodawanie Zadania do Projektu
+Przypadek Testowy 1: Poprawne Dodawanie Zadania do Projektu
+Stan Początkowy: Istnieje projekt "Projekt A" z przypisanymi członkami zespołu.
+    Akcja: Użytkownik wybiera istniejący projekt "Projekt A".
+    Akcja: Przechodzi do sekcji "Dodaj Zadanie".
+    Akcja: Wprowadza opis zadania, priorytet, termin wykonania i przypisuje członka zespołu.
+        Opis: "Zadanie testowe"
+        Priorytet: Wysoki
+        Termin wykonania: za 10 dni
+    Wynik: Zadanie jest dodane do projektu "Projekt A", a członkowie zespołu są poinformowani o nowym zadaniu.
+Przypadek Testowy 2: Błędne Dodawanie Zadania do Projektu (brak opisu zadania)
+Stan Początkowy: Istnieje projekt "Projekt A" z przypisanymi członkami zespołu.
+    Akcja: Użytkownik wybiera istniejący projekt "Projekt A".
+    Akcja: Przechodzi do sekcji "Dodaj Zadanie".
+    Akcja: Pomija wprowadzenie opisu zadania.
+    Wynik: System wyświetla komunikat o błędzie i informuje użytkownika o konieczności dodania opisu zadania.
+3. Historia: Śledzenie Postępu Zadania
+Przypadek Testowy 1: Poprawne Śledzenie Postępu Zadania
+Stan Początkowy: Zadanie "Zadanie testowe" jest przypisane do projektu "Projekt A".
+    Akcja: Użytkownik otwiera projekt "Projekt A".
+    Akcja: Przechodzi do sekcji "Zadania".
+    Akcja: Sprawdza status i postęp zadania "Zadanie testowe".
+    Akcja: Aktualizuje status zadania na "W trakcie" na podstawie postępu prac.
+    Wynik: Zespół ma aktualne informacje o postępie zadania w projekcie "Projekt A".
+Przypadek Testowy 2: Błędne Śledzenie Postępu Zadania (brak aktualizacji)
+Stan Początkowy: Zadanie "Zadanie testowe" jest przypisane do projektu "Projekt A".
+    Akcja: Użytkownik otwiera projekt "Projekt A".
+    Akcja: Przechodzi do sekcji "Zadania".
+    Akcja: Sprawdza status i postęp zadania "Zadanie testowe".
+    Wynik: Użytkownik zamyka projekt bez aktualizacji postępu. System nie rejestruje zmian w statusie zadania.
+
+
+Zadanie 3
+
+
+Etapy Beta Testowania:
+Przygotowanie (1 tydzień):
+Przygotowanie środowiska testowego, w tym specjalnej wersji produktu przeznaczonej do testów beta.
+Opracowanie dokumentacji dla uczestników beta testów, zawierającej instrukcje, oczekiwania, i formularze raportowe.
+Rekrutacja Uczestników (2 tygodnie):
+Ogłoszenie udziału w beta testach na stronie internetowej, w mediach społecznościowych, i innych kanałach.
+Proces zgłaszania uczestnictwa w beta testach.
+Wybór różnorodnej grupy uczestników, reprezentującej docelową grupę użytkowników.
+Wprowadzenie do Testów (1 dzień):
+Przesłanie uczestnikom instrukcji i linków do pobrania specjalnej wersji aplikacji.
+Przewidziane webinaria lub materiały instruktażowe, aby uczestnicy byli zaznajomieni z nowymi funkcjami.
+Przebieg Testów (2-4 tygodnie):
+Uczestnicy testują różne funkcje produktu zgodnie z dostarczonymi scenariuszami testowymi.
+Umożliwienie uczestnikom zgłaszania błędów, problemów i propozycji poprawek za pomocą specjalnych formularzy raportowych.
+Monitorowanie forum dyskusyjnego lub innych kanałów komunikacyjnych dla zbierania dodatkowych opinii.
+Monitorowanie i Raportowanie (cały okres testów):
+Codzienna analiza raportów błędów i opinii od uczestników.
+Regularne spotkania zespołu beta testów w celu omówienia zgłoszeń i podejmowania decyzji co do priorytetów.
+Poprawki i Aktualizacje (w trakcie testów):
+Szybkie poprawki błędów krytycznych i nieścisłości zgłaszanych przez uczestników.
+Okresowe aktualizacje aplikacji, w zależności od potrzeb.
+Zakończenie Beta Testów (1 tydzień):
+Zakończenie okresu testów i wyłączenie dostępu do specjalnej wersji aplikacji.
+Prośba o podsumowanie doświadczeń od uczestników w formie ankiet i/lub spotkań zespołu.
+Ewaluacja Wyników:
+Analiza Raportów:
+Szczegółowa analiza zgłoszonych błędów, problemów i sugestii.
+Priorytetyzacja błędów i problemów w oparciu o ich wpływ na użytkowników.
+Raport Zespołu Beta Testów:
+Sporządzenie raportu zawierającego podsumowanie beta testów, kluczowe obserwacje, wnioski i propozycje poprawek.
+Podjęcie Decyzji:
+Decyzje dotyczące poprawek do wprowadzenia przed oficjalnym wydaniem produktu.
+Dziękowanie Uczestnikom:
+Oficjalne podziękowanie dla uczestników beta testów, np. w postaci rabatów lub innych korzyści.
+Komunikacja:
+Regularna komunikacja z uczestnikami poprzez e-maile, fora dyskusyjne, czy spotkania wideo.
+Informowanie uczestników o postępach, wprowadzanych zmianach i terminie oficjalnego wydania.
+Kryteria Sukcesu:
+Otrzymanie cennej opinii i informacji zwrotnych od uczestników.
+Skuteczne poprawienie błędów i problemów zgłoszonych przez uczestników.
+Pozytywne reakcje uczestników na wprowadzone zmiany i poprawki.
+Uwagi Końcowe:
+Plan beta testowania powinien być elastyczny i dostosowywany w miarę potrzeb.
+Wszelkie wyniki i raporty powinny być dokładnie udokumentowane dla przyszłych referencji.
+Wdrożenie zmian na podstawie wyników beta testów przed oficjalnym wydaniem produktu.
+Przeprowadzenie beta testów zgodnie z tym planem powinno dostarczyć cennych informacji zwrotnych i umożliwić dostosowanie produktu do rzeczywistych potrzeb użytkowników.
+
+
+Zadanie 4
+
+
+1. Cel Zarządzania Jakością:
+Cel Główny: Zapewnienie, że oprogramowanie spełnia najwyższe standardy jakościowe, zgodnie z oczekiwaniami klienta i wymaganiami projektu.
+2. Procesy Zarządzania Jakością:
+2.1. Planowanie Jakości:
+Opracowanie strategii testów i planu jakości, uwzględniając cele projektu, dostępność zasobów i harmonogram.
+Określenie kryteriów akceptacyjnych oraz metryk jakości.
+2.2. Zapewnianie Jakości:
+Wdrożenie standardów i procedur związanych z jakością.
+Ustalanie procedur kontroli jakości w trakcie każdego etapu projektu.
+Regularne przeglądy kodu i testy jednostkowe dla zapewnienia zgodności z przyjętymi standardami.
+2.3. Testowanie:
+Opracowanie planu testów, obejmującego testy jednostkowe, integracyjne, systemowe, akceptacyjne i wydajnościowe.
+Automatyzacja testów w miarę możliwości, szczególnie dla testów regresyjnych.
+Monitorowanie postępu testów i raportowanie wyników.
+2.4. Zarządzanie Konfiguracją:
+Stworzenie i utrzymanie repozytorium kodu źródłowego.
+Regularne oznaczanie wersji oprogramowania.
+Zapewnienie zgodności z wymaganiami konfiguracji dla środowiska testowego i produkcyjnego.
+2.5. Zarządzanie Zmianami:
+Ustanowienie procesów zarządzania zmianami, obejmujących zgłaszanie, ocenę, implementację i monitorowanie zmian.
+Dokładne dokumentowanie każdej zmiany w kodzie, testach, i dokumentacji.
+3. Zespół Zarządzania Jakością:
+3.1. Rola: Kierownik Jakości:
+Odpowiedzialny za nadzór nad wszystkimi aspektami zarządzania jakością.
+Koordynacja działań zespołów testowych i programistycznego.
+Monitorowanie wskaźników jakości i raportowanie do zespołu zarządzania projektu.
+3.2. Zespół Testów:
+Odpowiedzialny za opracowanie i przeprowadzanie testów.
+Wykonywanie testów jednostkowych, integracyjnych, systemowych i akceptacyjnych.
+Raportowanie wyników i śledzenie postępu testów.
+4. Procesy Raportowania i Komunikacji:
+4.1. Raportowanie Wyników Testów:
+Przygotowywanie regularnych raportów dotyczących postępu testów, błędów i jakości oprogramowania.
+Prezentacja raportów zespołowi zarządzania projektu i klientowi.
+4.2. Komunikacja wewnątrz Zespołu:
+Organizowanie regularnych spotkań zespołu zarządzania jakością.
+Zapewnienie transparentności i otwartej komunikacji między członkami zespołu.
+5. Szkolenia i Doskonalenie Procesów:
+5.1. Szkolenia:
+Organizowanie szkoleń w zakresie najlepszych praktyk, nowych technologii i narzędzi związanych z zarządzaniem jakością oprogramowania.
+Zapewnienie, że zespół jest świadomy i bieżący w kwestiach związanych z jakością.
+5.2. Doskonalenie Procesów:
+Systematyczna ocena efektywności procesów zarządzania jakością.
+Wdrażanie ulepszeń w oparciu o wyniki retrospektyw i analizę przyczyn błędów.
+6. Narzędzia:
+6.1. Narzędzia Testowe:
+Wybór i wdrożenie odpowiednich narzędzi do testów automatycznych, zarządzania defektami i monitorowania jakości.
+6.2. Narzędzia Kontroli Wersji:
+Wykorzystanie narzędzi do kontroli wersji, takich jak Git, do zarządzania kodem źródłowym.
+6.3. Narzędzia do Zarządzania Projektami:
+Użycie narzędzi do zarządzania projektami, które pozwalają na monitorowanie postępu i przypisywanie zadań.
+7. Terminarz:
+Określenie etapów i terminów dla wszystkich procesów zarządzania jakością.
+8. Monitorowanie i Ewaluacja:
+Regularne monitorowanie wskaźników jakości, skuteczności testów i poprawek błędów.
+Ocena skutków działań wdrożonych w ramach zarządzania jakością.
+9. Uwagi Końcowe:
+Dokumentacja wszystkich procesów związanych z jakością oprogramowania.
+Systematyczna aktualizacja planu w zależności od zmian w projekcie.
+Podsumowując, plan zarządzania jakością oprogramowania powinien być elastyczny, dostosowując się do potrzeb projektu i wdrażając ciągłe doskonalenie procesów. Regularne przeglądy oraz dostosowania do ewentualnych zmian w projekcie pomogą utrzymać wysoką jakość oprogramowania przez cały cykl życia projektu.
+
+
+Zadanie 5
+
+
+1. Analiza Wymagań:
+1.1. Przegląd i Konsultacje:
+Zorganizowanie spotkania zespołu projektowego w celu szczegółowego zrozumienia wymagań.
+Przeprowadzenie konsultacji z różnymi interesariuszami, w tym przedstawicielami działów biznesowych i użytkownikami końcowymi.
+Dokładne uwzględnienie sugestii i opinii zbieranych podczas spotkań.
+1.2. Sporządzenie Dokładnych Wymagań:
+Opracowanie szczegółowego dokumentu wymagań, uwzględniającego zarówno wymagania funkcjonalne, jak i niefunkcjonalne.
+Weryfikacja i akceptacja wymagań przez zespół projektowy i interesariuszy.
+2. Projektowanie:
+2.1. Architektura Systemu:
+Przeprowadzenie warsztatów z zespołem programistycznym w celu wspólnego opracowania planu architektury systemu.
+Sporządzenie szczegółowego dokumentu architektonicznego, obejmującego podział na warstwy, komponenty i interfejsy.
+2.2. Projektowanie Interfejsu Użytkownika:
+Opracowanie interaktywnych prototypów interfejsu użytkownika, uwzględniających najnowsze trendy projektowania.
+Organizacja sesji testów użyteczności z potencjalnymi użytkownikami w celu uzyskania ich opinii.
+3. Implementacja:
+3.1. Rozwój Komponentów:
+Podział zadań na mniejsze moduły i przypisanie odpowiedzialności członkom zespołu programistycznego.
+Codzienny monitoring postępu prac, codzienne scrumy w celu identyfikacji ewentualnych problemów.
+3.2. Testowanie Jednostkowe:
+Implementacja testów jednostkowych dla każdego modułu.
+Wykorzystanie technik TDD (Test-Driven Development) tam, gdzie to możliwe.
+4. Testowanie:
+4.1. Testy Integracyjne:
+Stopniowe integrowanie poszczególnych modułów i przeprowadzanie testów integracyjnych.
+Identyfikacja i rozwiązywanie problemów związanych z integracją komponentów.
+4.2. Testy Systemowe:
+Opracowanie planu testów systemowych, uwzględniającego scenariusze użytkowania.
+Wykonywanie kompleksowych testów systemowych, z udziałem zespołu QA.
+5. Wdrożenie:
+5.1. Przygotowanie do Wdrożenia:
+Opracowanie planu wdrożenia, uwzględniającego wszelkie czynniki ryzyka.
+Przygotowanie dokumentacji użytkownika i szkolenie zespołu wsparcia.
+5.2. Wdrożenie na Środowisku Produkcyjnym:
+Stopniowe wdrażanie ostatecznej wersji produktu, z możliwością cofnięcia w przypadku wystąpienia problemów.
+Monitorowanie wydajności i stabilności systemu po wdrożeniu.
+Ocena Pracochłonności
+Analiza Wymagań (2 tygodnie):
+Zorganizowanie 3 spotkań konsultacyjnych (2 dni na każde), łącznie z analizą uzyskanych danych.
+Projektowanie (3 tygodnie):
+1,5 tygodnia na opracowanie planu architektury systemu.
+1,5 tygodnia na projektowanie interfejsu użytkownika, w tym iteracyjne testy użyteczności.
+Implementacja (8 tygodni):
+6 tygodni na rozwój komponentów.
+2 tygodnie na testy jednostkowe i ewentualne poprawki.
+Testowanie (6 tygodni):
+3 tygodnie na testy integracyjne.
+3 tygodnie na testy systemowe.
+Wdrożenie (2 tygodnie):
+1 tydzień na przygotowanie do wdrożenia.
+1 tydzień na stopniowe wdrożenie na środowisku produkcyjnym.
+Harmonogram
+Tydzień 1-2: Analiza Wymagań
+Konsultacje i przegląd wymagań.
+Tydzień 3-5: Projektowanie
+Plan architektury systemu.
+Projektowanie interfejsu użytkownika.
+Tydzień 6-13: Implementacja
+Rozwój komponentów.
+Testowanie jednostkowe.
+Tydzień 14-19: Testowanie
+Testy integracyjne.
+Testy systemowe.
+Tydzień 20-21: Wdrożenie
+Przygotowanie do wdrożenia.
+Wdrożenie na środowisku produkcyjnym.
+Uwagi Końcowe:
+Regularne spotkania zespołu projektowego i aktualizacje harmonogramu w miarę potrzeb.
+Stosowanie zasad iteracyjnego dostosowywania planu w zależności od napotkanych wyzwań i zmian w wymaganiach.
+Monitorowanie postępu w celu zapobiegania opóźnieniom oraz zachowanie elastyczności w zarządzaniu zmianami.

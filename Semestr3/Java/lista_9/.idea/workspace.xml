@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a5083fc3-74f7-4fde-9677-cd70d23850bd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ANL/lista12/deklaracja.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ANL/lista12/zad12_10.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../ANL/lista12/zad12_10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ANL/lista12/zad12_6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../ANL/lista12/zad12_6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/logika/Gra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/logika/MikolajZnalezionyListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/obiekty/Dziecko.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/obiekty/Mikolaj.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/obiekty/ObiektNaPlanszy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/obiekty/Para.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/obiekty/Plansza.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/obiekty/Prezent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/obiekty/PustyObiekt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/lista9/lista9/wyglad/Okno.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lista9/src/main/resources/lista9/lista9/wyglad/PlanszaFXML.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2bDeqTxhknEk3IEQEFjvopxwvK5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.38727272&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lista9.lista9.App" />
+      <module name="lista_9" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lista9.lista9.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-f644763e9732-a81d5c7c" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5083fc3-74f7-4fde-9677-cd70d23850bd" name="Changes" comment="" />
+      <created>1705754268037</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705754268037</updated>
+      <workItem from="1705754269053" duration="1278000" />
+      <workItem from="1705755574850" duration="35000" />
+      <workItem from="1705785778649" duration="1674000" />
+      <workItem from="1705787462626" duration="16000" />
+      <workItem from="1705787488980" duration="74000" />
+      <workItem from="1705929818042" duration="2107000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -4,6 +4,8 @@ a = -1
 b = 1
 def f(x):
     return 1/(1+25*x**2)
+# def f(x):
+#     return x**2
 
 MAX_N = 25
 W = np.zeros((MAX_N, MAX_N))

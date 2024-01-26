@@ -19,10 +19,10 @@ for i in range(1, 21):
     print("m = ", i, " ", biblioteka.romberg(f1, -3, 2, i))
 print("Funkcja f2:")
 for i in range(1, 21):
-    print("m = ", i, " ", biblioteka.romberg(f2, -3, 2, i))
+    print("m = ", i, " ", biblioteka.romberg(f2, -3, 3, i))
 print("Funkcja f3:")
 for i in range(1, 21):
-    print("m = ", i, " ", biblioteka.romberg(f3, -3, 2, i))
+    print("m = ", i, " ", biblioteka.romberg(f3, -3*Math.pi, Math.pi/6, i))
 print("Funkcja f4:")
 
 

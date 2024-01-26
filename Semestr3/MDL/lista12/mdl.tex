@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{listings}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b)
+\newcommand{\Mod}[1]{\ \mathrm{mod\ #1}}				% lekko zmodyfikowane modulo
+\newcommand{\comp}[1]{\overline{ #1 }} 					% dopełnienie zbioru 
+\newcommand{\annihilator}{\mathbf{E}}					% operator E
+\newcommand{\seqAnnihilator}[1]{\annihilator \left\langle #1 \right\rangle} % E(a_n)
+\newcommand{\sequence}[1]{\left\langle #1 \right\rangle} % <a_n>
+\title{MDL 12 11.01.2024}
+\author{Dominik Szczepaniak}
+\begin{document}
+
+\maketitle
+
+\bgroup\obeylines
+\section{Zadanie 1} %done
+Niech każdy kwadrat będzie innego koloru (pokolorujmy go dwoma kolorami). Wtedy możemy tylko iść z jednego koloru na drugi. Zauważmy, że mamy 14 kwadratów jednego koloru i 13 kwadratów drugiego koloru, z tym, że 14 kwadratów jest koloru tego co róg kostki, a środek kostki jest koloru innego niż ten co w rogu. W takim razie jeśli chcielibyśmy skończyć na środku to nie odwiedzimy 1 kwadratu.
+\section{Zadanie 2} %skip
+Podstawa indukcji 2:
+1->2->3->4->1  (kwadratowo)
+Cykl hamiltona istnieje.
+Z założenia w Qn istnieje cykl hamiltona, zatem istnieją dwa wierzchołki które mają wspólną krawędź, niech to będą v i w.
+Z konstrukcji Qn+1 wymiarowej kostki istnieją dwa Qn i Qn, t. że v ma krawędź z v' i w ma krawędź z w'. Skoro w Qn istniał cykl to istnieje ścieżka z v do w. Krawędź z w do w' nie znajduje się w tej ścieżce, bo nie była w Qn. Skoro w Qn' był cykl to istnieje ścieżka Hamiltona z w do w'. Z zał. konstrukcyjnego istnieje ściezka z v' do v i nie znajdowała się w Qn ani w Qn'. Jest ona inna niż krawędź od w do w'. Zatem istnieje ścieżka w tej kostce Qn+1 na mocy indukcji. 
+\section{Zadanie 3} %done
+Stwórzmy graf w którym jeśli uczniowie się przyjaźnią to mają krawędź do siebie.
+Twierdzenie Diraca - jeśli graf jest grafem prostym (nasz jest) o co najmniej trzech wierzchołkach i minimalnym stopniu >= n (nasz jest) to graf zawiera cykl hamiltona.
+W takim razie jeśli mamy cykl hamiltona <v1, v2, v3, ... vn> stwórzmy grupy biorać każdą dwójkę uczniów koło siebie w cyklu hamiltona. Drugim sposobem moze byc przesuniecie o 1 wyboru.
+
+Musimy rozpatrzeć przypadki gdy mamy n=1 (czyli dwóch uczniów). Skoro mamy dwóch uczniów i każdy musi mieć jednego przyjaciela to przyjaźnią sie wzajemnie.
+
+\section{Zadanie 5}%done
+Stwórzmy nowy graf H, taki że, tworzymy nowy wierzchołek w, który jest połączony z każdym wierzchołkiem w G. 
+Teraz zauważmy, że mamy tak:
+$deg_G(v) + deg_G(u) + 2 = deg_H(v) + deg_H(u) >= n-1 + 2 >= n+1$
+Z twierdzenia Ore'a wiemy więc, że graf H zawiera cykl hamiltona.
+W takim razie jeśli nasz graf zawiera cykl hamiltona to możemy zacząć ten cykl hamiltona w dowolnym wierzchołku. Zacznijmy więc ten cykl w wierzchołku w. Czyli mamy cykl wierzchołków typu:
+$<w, v_1, v_2, ..., v_{n-1}, v_n, w>$
+W takim razie jeśli usuniemy wierzchołek w, to dostaniemy:
+$<v_1, v_2, ..., v_{n-1}, v_n$> czyli ścieżke hamiltona. Czyli w grafie G istnieje ścieżka hamiltona.
+
+
+\section{Zadanie 6} %done
+Turniej to graf skierowany w ktorym kazda para wierzcholkow jest polaczona krawedzia a do b lub b do a. 
+Indukcja po ilości wierzchołków (n):
+n=1:
+Tak, jest pojedycznym wierzchołkiem więc jest królem.
+
+Załóżmy, że dla n zachodzi. Dla n+1:
+Jeśli dla turnieju o wielkości n istniał król, to nowy wierzchołek to mamy dwie możliwości:
+1. Król ma krawędź do nowego wierzchołka - wtedy dalej jest królem.
+2. Nowy wierzchołek ma połączenie do króla. 
+Teraz mamy dwa podprzypadki:
+a) Jeśli do tego wierzchołka wchodzi jakakolwiek inna krawędź z wierzchołka do którego król miał bezpośrednie połączenie to król dalej ma ścieżke o dl 2 do tego wierzchołka. 
+b) Jeśli do tego wierzchołka nie wchodzi żadna krawędź do której król miał bezpośrednie połączenie (dł 1) to ten wierzchołek ma krawędź do każdego z tych wierzchołków. No ale skoro ten wierzchołek ma takie same bezpośrednie połączenia co poprzedni król to może przejąć jego role, jeśli usuniemy króla, a jeśli ma dodatkowo połączenie do starego króla, to czyni go nowym królem, czyli w tym przypadku on będzie królem.
+
+\section{Zadanie 7} %trudne
+1. Pokażmy że nie istnieje dwóch króli 
+2. Pokażmy, że przy naszym warunkach nie może istnieć jeden król. 
+
+
+2. Indukcyjnie 
+n=3:
+Możemy mieć tylko graf a->b->c->a, a w nim znajduje się trzech króli, bo każdy wierzchołek jest królem.
+Załóżmy, że w turnieju nie istnieje jeden król, ale wiemy, że musi istnieć jakiś król. Z punktu 1, wiemy, że nie może być dwóch króli, w takim razie liczba króli >=3. 
+Oznaczmy tych króli przez po kolei $\set{a_1, a_2, ..., a_m}$.
+Mamy dwa przypadki:
+a) nasz nowy wierzchołek staje się królem 
+Wtedy może być taki graf, gdzie każdy ze starych królów dojdzie do jakiegoś wierzchołka w dwóch krokach, a nowy wierzchołek nie będzie miał bezpośredniego połączenia do tego wierzchołka oraz będzie miał tylko wierzchołki wchodzące do obecnych króli. Wtedy nie dojdzie do tego 
+b) wszyscy poprzedni królowie oprócz jednego tracą status króla
+
+\section{Zadanie 8} %done
+Algorytm będzie działał w sposób optymalny jeśli zminimalizuje liczbe chromatyczną grafu. 
+W takim razie wiemy, że istnieje jakieś kolorowanie które da minimalną liczbę chromatyczną grafu, czyli jakiś wierzchołek będzie jakiegoś koloru. W takim razie jeśli algorytm wybierze ten wierzchołek jako pierwszy i później będzie szedł dokładnie tak samo jak optymalne kolorowanie to pokoloruje optymalnie i zminimalizuje liczbę chromatyczną grafu.
+\section{Zadanie 9} %done
+Indukcja dla drugiego punktu. Niech k = liczbie chromatycznej grafu G 
+Dla k=1 musimy mieć (k * (k-1))/2 = (1 * 0) / 2 = 0 krawędzi, co jest prawdą.
+Krok indukcyjny. Załóżmy, że mamy graf pokolorowany k kolorami i jest k(k-1)/2 krawędzi. 
+Chcemy pokazać, że jak dodamy kolor, to musi być przynajmniej (k+1)*k / 2 krawędzi. 
+Różnica wynosi $k^2/2+k/2 - k^2/2 + k/2 = k$ krawędzi. 
+Czyli musimy pokazać, że jeśli dochodzi nowy kolor to musi dojść przynajmniej k krawędzi. To jest dość oczywiste, bo po prostu do każdego koloru musimy podłączyć nową krawędź, bo jeśli nie to można wybrać ten kolor który nie został podłączony i wtedy mamy poprawne kolorowanie grafu. 
+4 - 4*3 / 2 = 6 krawędzi 
+
+
+Mając jakieś kolorowanie musi być krawędź między każdymi dwoma zbiorami niezależnymi kolorów, inaczej pokolorowalibyśmy je na ten sam kolor.  
+Mamy k zbiorów niezależnych kolorów. Jeśli między zbiorami niezależnymi nie ma krawędzi to możnaby było je pokolorować na ten sam kolor, czyli musi być krawędź między każdymi dwoma zbiorami niezależnymi, czyli k*(k-1). Ponieważ jeśli mamy dwa zbiory niezależne a i b, to jeśli jest krawędź z a->b to jest też z b->a, czyli musimy jeszcze podzielić na 2, stąd k*(k-1) / 2.
+
+Jeśli to zachodzi dla algorytmu sekwencyjnego, to w szczegolnosci dla X(G), bo algorytm sekwencyjny moze wybrac dowolne k >= X(G).
+
+\section{Zadanie 10} %done
+Jeśli graf G nie jest spójny i mamy $G = G_1 \cup G_2 \cup ... \cup G_k$ to $X(G) = max(G_1, G_2, ..., G_k)$
+Także zajmijmy się tylko grafami spójnymi. 
+
+Z twierdzenie Brooks'a mamy, że dla każdego spójnego grafu nieskierowanego z maksymalnym stopniem k zachodzi, że X(G) jest co najwyżej k. Jeśli G jest kliką lub ma cykl długości nieparzystej to ma stopień k+1.
+Sprawdzanie czy jest kliką jest w czasie wielomianowym $n^2$ (dla każdego wierzchołka sprawdzamy czy jest krawędź do każdego innego).
+Sprawdzanie czy jest cykl o długości nieparzystej to algorytm BFS który zapisuje odwiedzane już wierzchołki i sprawdza długość trasy, czyli czas liniowy.
+
+
+1. Wybierz dowolny wierzchołek v w grafie.
+2. Rozpocznij od v i przemierzaj graf, odwiedzając każdy wierzchołek tylko raz.
+3. Jeśli natrafisz na wierzchołek, który już odwiedziłeś, to oznacza, że znalazłeś cykl, teraz wystarczy sprawdzić jakiej długości on jest (dfs).
+4. Jeśli odwiedzisz wszystkie wierzchołki w grafie, a nie znajdziesz cyklu, to oznacza, że graf nie posiada cyklu długości nieparzystej.
+
+Ten algorytm działa, ponieważ jeśli graf posiada cykl długości nieparzystej, to koniecznie musi istnieć cykl, który zaczyna się i kończy w tym samym wierzchołku. Algorytm sprawdza wszystkie ścieżki w grafie, aż znajdzie taki cykl.
+
+\section{Zadanie 11} %done
+Niech graf dwudzielny będzie postaci A $\cup$ B. 
+Niech do A trafiają wierzchołki o numerze nieparzystym, a do B wierzchołki o numerze parzystym.
+
+Tworzymy graf w taki sposob, ze:
+1 ma polaczenie z kazdym oprocz 2
+3 ma polaczenie z kazdym oprocz 4
+...
+k ma polaczenie z kazdym oprocz k+1 
+Wybieramy po kolei:
+1, 2, 3, ..., 2n
+Czemu dziala?
+1 i 2 dostana 1 bo start i nie maja polaczenia ze soba
+3 i 4 dostana 2 bo maja polaczenie odpowiednio z 2 i 1 
+5 i 6 dostana 3 bo maja polaczenia odpowiednio z <2, 4> i <1, 3>
+7 i 8 dostana 4 bo maja polaczenia odpowiednio z <2, 4, 6> i <1, 3, 5> itd.
+k i k+1 dostana k+1 / 2 
+
+Ostatnie k+1 bedzie postaci 2n, wiec dostanie n kolor, czyli to co chcieliśmy.
+
+
+\section{Zadanie 12} %done
+Z wykładu wiemy, że X(G) >= w(G), gdzie w to największa klitka w grafie.
+Mamy, że:
+$X(G) >= \frac{n}{a(G)}$
+i $X(G') >= w(G') = a(G)$, gdzie $a(G)$ oznacza rozmiar największego zbioru niezależnego (zbioru w którym żadne dwa wierzchołki nie mają między sobą krawędzi) w danym grafie, a $w(G)$ oznacza wielkość największej kliki. 
+Więc $X(G) * X(G') >= \frac{n}{a(G)} * a(G) = n$
+
+Pokazać musimy, że 
+1) $X(G) >= \frac{n}{a(G)}$ 
+Zauważmy, że graf składa się z X(G) zbiorów niezależnych, a moc zbiorów niezależnych sumuje się do n.
+W takim razie mamy:
+$n = \sum_{i=1}^{X(G)} |C_i|$, gdzie $C_i$ oznacza i-ty zbiór niezależny.
+No ale wiemy, że $|C_i| <= a(G)$, bo a(G) to największy zbiór niezależny.
+Mamy więc:
+$n = \sum_{i=1}^{X(G)} |C_i| <= \sum_{i=0}^{X(G)} a(G) = X(G)*a(G)$
+Czyli $X(G) >= \frac{n}{a(G)}$
+2) $w(G') = a(G)$ <- to jest z definicji obu. Jeśli a jest zbiorem w którym żadne dwa wierzchołki nie są połączone, a w jest zbiorem w którym każde dwa wierzchołki są połączone, to jeśli weźmiemy dopełnienie to mamy to samo.
+%todo: 10, 7
+\egroup
+\end{document}
