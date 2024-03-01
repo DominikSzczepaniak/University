@@ -1,18 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import Task from './Task';
 import './ToDoList.css';
 
 export default function List() {
-    const [tasks, setTasks] = useState([{ text: "Zadanie 1", confirmed: false, hidden: false }]);
+    const [tasks, setTasks] = useState([{ id: 0, text: "Zadanie 1", confirmed: false, hidden: false }]);
     const [filterActive, setFilterActive] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
+    const [id_count, setIdCount] = useState(1);
 
-    function addTask() { //czemu jak dodam przy filtracji i wyszukiwaniu to przy ponownym renderowaniu nie robi tego poprawnie i widac task ktory jest !confirmed ?
+    function addTask() { 
         const taskText = document.querySelector(".addTaskText") as HTMLTextAreaElement;
         if (taskText !== null && taskText.value !== "") {
             const newTaskText = taskText.value;
-            setTasks([...tasks, { text: newTaskText, confirmed: false, hidden: false }]);
+            setTasks([...tasks, { id: id_count, text: newTaskText, confirmed: false, hidden: false }]);
             taskText.value = "";
+            setIdCount(id_count + 1);
         }
     }
 
@@ -20,26 +22,10 @@ export default function List() {
         setFilterActive(!filterActive);
     }
 
-    function deleteTask(taskText: string) {
-        const updatedTasks = tasks.filter(t => {
-            if (t.text === taskText) {
-                return false;
-            }
-            return true;
-        });
-        setTasks(updatedTasks);
+    function deleteTask(taskId: number) {
+        const tasksWithoutDeleted = tasks.filter(t => t.id !== taskId);
+        setTasks(tasksWithoutDeleted);
     }
-
-    useEffect(() => { //filtracja
-        const updatedTasks = tasks.map(task => {
-            if (!task.confirmed) {
-                return { ...task, hidden: filterActive };
-            } else {
-                return { ...task, hidden: false };
-            }
-        });
-        setTasks(updatedTasks);
-    }, [filterActive, tasks]);
 
     function focusSearchBar() {
         const searchBar = document.querySelector(".searchBar input") as HTMLInputElement;
@@ -59,7 +45,7 @@ export default function List() {
             </div>
             <div className="todoList">
                 {tasks
-                .filter(task => !task.hidden)
+                .filter(task => (task.confirmed === filterActive || !filterActive))
                 .filter(task => task.text.toLowerCase().includes(searchTerm.toLowerCase()))
                 .map((task, index) => (
                     <Task key={index} task={task} setTasks={setTasks} tasks={tasks} deleteTask={deleteTask} />

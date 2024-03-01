@@ -17,8 +17,8 @@
     outline: none;
     border-radius: 30px;
     align-items: center;
-    text-align: c;
     border: 1px solid #e0e0e0;
+    background-color: white;
 }
 
 .searchBar input {
@@ -29,6 +29,7 @@
     margin: 0;
     box-sizing: border-box;
     font-size: calc(var(--font-size) * 1.2);
+    text-align: center;
 }
 
 .searchBar:hover input {

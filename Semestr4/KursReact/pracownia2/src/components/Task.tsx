@@ -3,24 +3,25 @@ import './Task.css';
 
 interface TaskProps {
     task: {
+        id: number;
         text: string;
         confirmed: boolean;
         hidden: boolean;
     };
-    setTasks: React.Dispatch<React.SetStateAction<{ text: string; confirmed: boolean; hidden: boolean; }[]>>;
-    tasks: { text: string; confirmed: boolean; hidden: boolean; }[];
-    deleteTask: (taskText: string) => void;
+    setTasks: React.Dispatch<React.SetStateAction<{ id: number; text: string; confirmed: boolean; hidden: boolean; }[]>>;
+    tasks: { id: number; text: string; confirmed: boolean; hidden: boolean; }[];
+    deleteTask: (taskId: number) => void;
 }
 
 export default function Task({ task, setTasks, tasks, deleteTask }: TaskProps) {
-    const { text, confirmed, hidden } = task;
-    function handleDeleteTask() { //powinienem dodac id?
-        deleteTask(text);
+    const { id, text, confirmed, hidden } = task;
+    function handleDeleteTask() { 
+        deleteTask(id);
     }
 
     function toggleConfirm() {
         const updatedTasks = tasks.map(t => {
-            if (t.text === text) {
+            if (t.id === id) {
                 return { ...t, confirmed: !t.confirmed };
             }
             return t;
