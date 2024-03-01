@@ -1,0 +1,44 @@
+.task{
+    width: 100%;
+    grid-template-areas: "confirmButton textDiv deleteButton";
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.confirmButton{
+    float: left;
+    height: 70px;
+    width: 70px;
+    border-radius: 80px;
+    grid-area: confirmButton;
+    background-color: yellow;
+    border: 10px solid black;
+} 
+
+.deleteButton{
+    float: right;
+    border-radius: 0px;
+    background-color: red;
+    height: 70px;
+    width: 70px;
+    grid-area: deleteButton;
+}
+
+
+.taskText{
+    width: 1350px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    background-color: green;
+    border-radius: 10px;
+    grid-area: textDiv;
+    border: 2px dotted red;
+    justify-content: center;
+    font-size: 40px;
+    line-height: 70px;
+    height: 70px;
+}
+

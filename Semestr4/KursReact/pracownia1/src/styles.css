@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+    background-color: gray;
+    color: #423c3c;
+  }
+  
+  .TitleSubtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #b3b6c9;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  
+  .Photo {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  
+  .Section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .skillsSection {
+    display: flex;
+    flex-direction: wrap;
+    flex-basis: auto;
+    flex-wrap: wrap;
+  }
+  

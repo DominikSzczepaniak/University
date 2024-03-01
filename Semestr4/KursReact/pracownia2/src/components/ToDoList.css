@@ -1,0 +1,62 @@
+.todoList{
+    background-color: yellow;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.searchBar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    cursor: text;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    align-items: center;
+    text-align: c;
+    border: 1px solid #e0e0e0;
+}
+
+.searchBar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: calc(var(--font-size) * 1.2);
+}
+
+.searchBar:hover input {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.5s ease-in-out;
+}
+
+.addButtonDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.addButton{
+    width: 150px;
+    height: 150px;
+    border-radius: 80px;
+    background-color: green;
+    border: 10px solid black;
+}
+
+.addTaskText{
+    font-size: 40px;
+    line-height: 75px;
+    height: 150px;
+    width: 1000px;
+    text-align: center;
+}
