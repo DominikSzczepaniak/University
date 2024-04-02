@@ -1,0 +1,17 @@
+public interface ListCustom<E> {
+    boolean add(E e);
+    boolean remove(Object o);
+    int size();
+    boolean isEmpty();
+}
+
+public interface AccessibleByIndex<E> extends ListCustom<E>{
+    E get(int index);
+    E set(int index, E element);
+    void add(int index, E element);
+    E remove(int index);
+}
+
+public interface List<E> extends Collection<E>, AccessibleByIndex<E> {
+
+}

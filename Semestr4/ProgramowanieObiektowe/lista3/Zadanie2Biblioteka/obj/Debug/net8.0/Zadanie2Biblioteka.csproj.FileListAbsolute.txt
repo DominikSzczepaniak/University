@@ -1,0 +1,12 @@
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/bin/Debug/net8.0/Zadanie2Biblioteka.deps.json
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/bin/Debug/net8.0/Zadanie2Biblioteka.dll
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/bin/Debug/net8.0/Zadanie2Biblioteka.pdb
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/Zadanie2Biblioteka.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/Zadanie2Biblioteka.AssemblyInfoInputs.cache
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/Zadanie2Biblioteka.AssemblyInfo.cs
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/Zadanie2Biblioteka.csproj.CoreCompileInputs.cache
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/Zadanie2Biblioteka.sourcelink.json
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/Zadanie2Biblioteka.dll
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/refint/Zadanie2Biblioteka.dll
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/Zadanie2Biblioteka.pdb
+/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista3_2/Zadanie2Biblioteka/obj/Debug/net8.0/ref/Zadanie2Biblioteka.dll

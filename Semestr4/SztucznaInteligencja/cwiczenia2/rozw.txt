@@ -1,0 +1,33 @@
+Zadanie 8:
+???????????
+===================
+
+Zadanie 10:
+Heurystyka polega na tym, że idziemy do jakiegoś punktu pośredniego i z tego punktu liczymy odległość do punktu końcowego. Dla punktów pośrednich robimy preprocessing i liczymy jaki jest koszt dojścia z tych punktów do innych.
+
+
+Heurystyka zwraca maksymalny koszt miedzy odlegloscia od naszego miejsca do punktu i z tego punktu do punktu końcowego.
+Czyli chcemy brac takie punkty ktore sa jak najbliżej nas i jak najdalej od punktu
+
+
+Heurystyka jest dopuszczalna (optymistyczna) jeżeli h(s) <= prawdziwy koszt dotarcia ze stanu s do stanu końcowego.
+
+weźmy jakiś Landmark L, miasto C i goal G.
+Wtedy, żeby nasza heurystyka była dopuszczalna musi zachodzić:
+C*(n, L) - C*(L, G) <= C*(n, G)
+No to to z nierówności trójkąta mamy, że:
+a + b >= c 
+a >= c - b 
+Jeśli a = C*(n, G)
+b = C*(L, G)
+c = C*(n, L)
+To mamy naszą tezę, czyli w nierówności trójkąta tak musi być.
+
+
+
+Nasza heurystyka daje największy wynik, gdy C*(n, L) jest duże i C*(L, G) jest małe. Czyli chcemy wybierać te L które są jak najdalej? (Czy jak najbliżej, jesli wrzucamy to na kopiec?)
+
+Możemy wybierać te punkty rysując otoczkę wypukłą na punktach obserwacyjnych, a później wybierać te punkty z otoczki, które mają najdalszy dystans od innych.
+
+
+????????? zastonowić się z tym wyborem śmiesznym

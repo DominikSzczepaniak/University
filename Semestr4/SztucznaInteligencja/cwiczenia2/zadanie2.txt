@@ -1,0 +1,8 @@
+2 skoczki i król vs król 
+
+dist(a, b) - odległość manhattańska 
+
+
+heurystyka:
+odległość króla od najbliższego rogu + odległość króla białego od króla czarnego + 2 
+odległość króla od najbliższego rogu - 1 (idziemy do miejsca obok rogu) + odległość króla białego od króla czarnego + odległość gońca koloru pola koło rogu od czarnego króla 

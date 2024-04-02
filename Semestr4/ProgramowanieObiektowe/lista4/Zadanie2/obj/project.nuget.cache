@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "sfqEZtjb460O7wTDd1huh8axVu2ZPE6Cp74U1RJPaRW6tgtr3QIMEa7+BOaI/VJtIFZZ4G7Sswy75X5vuu+dIQ==",
+  "success": true,
+  "projectFilePath": "/Users/dominik/Desktop/University/Semestr4/ProgramowanieObiektowe/lista4/Zadanie2/Zadanie2.csproj",
+  "expectedPackageFiles": [
+    "/Users/dominik/.nuget/packages/microsoft.netcore.app.ref/7.0.16/microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.16/microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.16/microsoft.netcore.app.host.osx-arm64.7.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

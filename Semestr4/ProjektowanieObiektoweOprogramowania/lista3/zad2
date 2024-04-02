@@ -1,0 +1,15 @@
+public class DataFetcher {
+    public string GetData() {
+        return "Dane";
+    }
+}
+
+public class DocumentFormatter {
+    public void FormatDocument() {
+    }
+}
+
+public class ReportPrinter {
+    public void PrintReport(string formattedDocument) {
+    }
+}

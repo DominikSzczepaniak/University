@@ -1,0 +1,67 @@
+.recipeList {
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipeItem {
+    width: 90%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.recipeItem h3 {
+    margin-top: 0;
+}
+
+.recipeActions {
+    margin-top: 10px;
+}
+
+.recipeActions button {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: auto;
+}
+
+.recipeActions button:hover {
+    background-color: #0056b3;
+}
+
+.searchInput {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.filterFavoritesButton {
+    margin-bottom: 20px; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .filterFavoritesButton:hover {
+    background-color: #0056b3;
+  }

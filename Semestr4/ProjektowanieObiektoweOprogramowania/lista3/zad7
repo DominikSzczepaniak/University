@@ -1,0 +1,18 @@
+public class ReportComposer {
+    private DataFetcher dataFetcher;
+    private DocumentFormatter documentFormatter;
+    private ReportPrinter reportPrinter;
+
+    public ReportComposer(DataFetcher dataFetcher, DocumentFormatter documentFormatter, ReportPrinter reportPrinter) {
+        this.dataFetcher = dataFetcher;
+        this.documentFormatter = documentFormatter;
+        this.reportPrinter = reportPrinter;
+    }
+
+    public void composeReport() {
+        String data = dataFetcher.getData();
+        String formattedDocument = documentFormatter.formatDocument(data);
+        reportPrinter.printReport(formattedDocument);
+    }
+}
+

@@ -1,0 +1,11 @@
+Liczymy dla każdej z 4 krawędzi planszy:
+Dla danego ustawienia początkowego, liczba kroków czarnego króla na krawędź, liczba kroków bialego króla do pola 2 od krawędzi. Bierzemy max(d1, d2) * 2 i robimy minimum z czterech krawedzi
+
+Obliczam ile minimalnie ruchów potrzebuje do zmatowania w każdym miejscu na krawędzi.
+Wszystkich przypadków mata jest 28.
+Dla każdego przypadku, obliczam minimalną drogę czarnego króla do danego miejsca, białego do miejsca 2 pola nad nim (od krawędzi).
+Obliczam to za pomocą chebyshev distance D = max(|r2 - r1|, |f2 - f1|)
+Finalny wynik to max(d1, d2) * 2.
+Ostatecznie bierzemy min z wszystkich rozwiązań.
+
+Jesli byśmy mieli też czarną wieżę, to obliczamy, kto powinien kogo zamatować. Czyli minimum z wyniku dla białego i czarnego

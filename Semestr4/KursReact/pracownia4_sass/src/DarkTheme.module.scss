@@ -1,0 +1,81 @@
+@import "colors"; 
+
+.dark-theme {
+    background-color: $color-dark-background;
+    color: $color-dark-text; 
+
+    .navbar {
+        background-color: $color-navbar-dark-background;
+        a {
+            color: $color-dark-text; 
+        }
+    }
+
+    .theme-toggle-button {
+        background-color: lighten($color-dark-background, 60%); 
+        color: $color-light-text;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: lighten($color-dark-background, 55%);
+        }
+    }
+
+    .content-card {
+        background-color: $color-content-card-dark-background;
+    }
+
+    .team-member {
+        background-color: darken($color-dark-background, 10%); 
+        color: $color-dark-text;
+    }
+
+    .blog-post {
+        background-color: darken($color-dark-background, 20%);
+        color: $color-dark-text;
+
+        button {
+            background-color: $color-button-dark-background;
+            color: $color-dark-text;
+
+            &:hover {
+                background-color: $color-button-hover-dark-background;
+            }
+        }
+    }
+
+    .section:nth-child(even) {
+        background-color: darken($color-dark-background, 10%);
+    }
+
+    .navbar {
+        background-color: $color-navbar-dark-background;
+    }
+
+    .contact-form {
+        background-color: darken($color-dark-background, 15%);
+        color: $color-dark-text;
+        border: 1px solid darken($color-dark-background, 25%);
+    }
+
+    .contact {
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            background-color: darken($color-dark-background, 15%);
+            color: $color-dark-text;
+            border: 1px solid darken($color-dark-background, 25%);
+        }
+
+        button {
+            background-color: $color-button-dark-background;
+            color: $color-dark-text;
+
+            &:hover {
+                background-color: $color-button-hover-dark-background;
+            }
+        }
+    }
+}

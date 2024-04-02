@@ -1,0 +1,1 @@
+Przesuwamy liczbe która nie jest na swoim miejscu na to miejsce, a liczba która jest jest obecnie na miejscu na które liczba chce dotrzeć do pustego miejsca.

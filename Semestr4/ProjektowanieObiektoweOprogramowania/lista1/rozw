@@ -1,0 +1,73 @@
+Zadanie 2:
+Pełna Dokumentacja Przypadku Użycia: Realizacja zamówienia w sklepie internetowym
+
+Poziom: Procedura
+
+Interesariusze i ich cele:
+
+    Klient: Dokonanie zakupów w sklepie internetowym.
+    Sklep internetowy: Zrealizowanie zamówienia klienta.
+
+Warunki początkowe:
+
+    Klient jest zalogowany do swojego konta w sklepie internetowym.
+    Produkty zostały dodane do koszyka.
+
+Warunki zakończenia (powodzenia):
+
+    Zamówienie zostaje pomyślnie zrealizowane, a klient otrzymuje potwierdzenie zamówienia.
+
+Główny scenariusz sukcesu:
+
+    Klient przechodzi do koszyka, aby zobaczyć produkty, które chce zakupić.
+    System wyświetla listę produktów znajdujących się w koszyku wraz z ich cenami oraz całkowitą sumą do zapłaty.
+    Klient wybiera metodę płatności spośród dostępnych opcji.
+    System pobiera dane klienta dotyczące dostawy.
+    Klient potwierdza zamówienie.
+    System przetwarza zamówienie klienta, rezerwując produkty w magazynie.
+    System generuje potwierdzenie zamówienia, które jest wysyłane na adres e-mail klienta.
+    System aktualizuje stan zamówienia, informując klienta o postępie realizacji.
+
+Rozszerzenia:
+1a. Klient zmienia ilość produktów w koszyku:
+
+    System automatycznie aktualizuje cenę końcową zamówienia.
+2a. Klient wybiera opcję dostawy towaru do punktu odbioru osobistego:
+    System prezentuje dostępne punkty odbioru w okolicy klienta.
+    Klient wybiera preferowany punkt odbioru.
+3a. Produkty są niedostępne w magazynie:
+    System informuje klienta o braku dostępności produktów i proponuje inne opcje.
+
+Kroki:
+
+    Zdarzenie inicjujące przypadek użycia: Klient przechodzi do koszyka.
+    Interakcja między aktorami: Klient wybiera produkty i dokonuje płatności, a system przetwarza zamówienie.
+    Walidacja: System sprawdza dostępność produktów w magazynie i poprawność danych klienta.
+    Zmiana stanu systemu: System rezerwuje produkty w magazynie i aktualizuje stan zamówienia.
+
+Dodatkowe wymagania:
+
+    System powinien zapewnić bezpieczne przetwarzanie danych klienta podczas płatności.
+    System powinien umożliwić klientowi śledzenie statusu realizacji zamówienia.
+
+Technologia i format danych:
+
+    Dane klienta i produkty są przechowywane w bazie danych sklepu internetowego.
+    Komunikacja między klientem a systemem odbywa się za pomocą protokołu HTTPS z wykorzystaniem szyfrowania SSL/TLS.
+
+
+
+
+Zadanie 3:
+model typu "lista kategorii"
+
+Transakcje Biznesowe: Sale
+Przedmioty Transakcji: Sales Item
+Miejsca transakcji: OnlineStore
+Role użytkowników: Seller, Buyer
+Opisy: Product Description
+Katalogi: Item Category
+Powiadomienia: Sold, NotEnoughItems
+Dostawa: SelfPickup, Courier
+Systemy współpracujące: WarehouseItemChecker
+Dokumenty: Receipt, Log

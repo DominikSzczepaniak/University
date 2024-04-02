@@ -1,0 +1,5 @@
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista5/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista5/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.AssemblyInfoInputs.cache
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista5/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.AssemblyInfo.cs
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista5/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.csproj.CoreCompileInputs.cache
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista5/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.sourcelink.json

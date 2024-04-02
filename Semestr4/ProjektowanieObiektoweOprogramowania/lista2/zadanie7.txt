@@ -1,0 +1,18 @@
+class Student:    
+    uwb = new UsosWebPage()
+    def show(student):
+        UsosWebPage.getStudentGradeInfo(student)
+
+class UsosWebPage:
+    gc = new GradeController()
+    def getStudentGradeInfo(student):
+        gc.getStudentGradeInfo(student) 
+
+class GradeController:
+    def getCourses(student):
+        ans = []
+        courses = student.getCourses()
+        foreach course in courses:
+            mark = course.getMark(student)
+            ans = ans + [(course, mark)]
+        return ans

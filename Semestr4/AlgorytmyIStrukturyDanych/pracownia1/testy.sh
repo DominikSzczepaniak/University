@@ -9,7 +9,7 @@ reset=$(tput sgr0);
 rustc wzorcowka.rs -C opt-level=2 -C target-feature=+crt-static
 
 
-for((i = 1; i<=1920; ++i)); do
+for((i = 1900; i<=1920; ++i)); do
     ./gen $i > in/in$i.txt
     ./wzorcowka < in/in$i.txt > out/out$i.txt
 done

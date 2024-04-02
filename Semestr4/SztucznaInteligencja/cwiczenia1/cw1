@@ -1,0 +1,189 @@
+zadanie 1:
+Obrazek logiczny n x n który ma dokładnie 2 rozwiązania
+x 1 1 1 1 1
+4 x x x x
+0
+0
+0
+1         x
+
+
+x 1 1 1 1 1
+4   x x x x
+0
+0
+0
+1 x
+
+Obrazek logiczny który ma więcej niż n rozwiązań:
+x 1 1 1
+1 x
+1   x
+1     x
+
+3 * 2 * 1 > n
+
+Problem jest izomorficzny z problemem rozstawienia n wież
+
+Zadanie 2:
+Szukamy największej liczby na poziomie i pionie i wstawiamy sobie pixel, później wybieramy albo pion i poziom i probujemy rozszerzyc nasze rozwiazanie do poprawnego, jak coś po drodze zepsuliśmy to naprawiamy (testujemy inna mozliwosc rozszerzania się) -> robimy to pozniej znowu itd.
+
+Zadanie 4:
+Blotkarz ma 2,3,4,5,6,7,8,9,10 -> 9 kart * 4 kolory, czyli możliwych rąk może mieć 36 * 35 * 34 * 33 * 32 = 45_239_040
+Figurant ma 11,12,13,14 -> 4 karty * 4 kolory, rak -> 16*15*14*13 = 43_680
+
+Jak policzyć to dokładnie?
+Generujemy wszystkie ręcę za pomocą np combinations(product()) dla obu stron
+Zamieniamy ręcę na punkty
+Porównujemy punkty i zliczamy.
+Figurant wygrywa gdy ma >= punktów co blotkarz
+Blotkarz wygrywa gdy ma > punktów niz figurant
+
+Zadanie 6:
+Mozemy miec po prostu graf w ktorym sciezka ma wagi rowne 1/2 * poprzednia waga i wtedy ta sciezka jest nieskonczona ale nigdy nie przekroczy wagi 1
+Solution moze istniec na jakiejs innej sciezce o wadze np rownej 2.
+
+^ To chyba nie jest to
+
+Wydaje mi się, ze musze oszukac poczatkowa trase i zrobic pierwsze kroki bardzo kosztowne, ale pozniejsze prawie z zerowym kosztem, a UCS wybierze to co ma maly koszt ale duzo razy
+
+UCS wybierze chyba malo malo duzo duzo
+przed
+duzo duzo malo malo
+mimo iz druga opcja sie bardziej oplaca
+
+
+Dowiedz sie jeszcze jak dziala UCS dla pewnosci
+Nie wiadomo jak to działa
+
+Zadanie 7:
+S - start
+D - skarb
+W - wrogowie
+W_k - wrogowie i ich trasy
+# - ściana
+X - wyjście
+012345678901234567890
+0#####################
+1#S  #              D#
+2#   #D#####W        #
+3#   ###  D#        W#
+4#         #W        #
+5#  W##### #         #
+6#                   #
+7#    W########W     #
+8#        D          X
+9#####################
+W1 spawnuje się na lewym W w linijce 7, a W2 na prawym W w linijce 7 i obydwoje chodzą zgodnie z ruchem wskazówek zegara
+dookoła ściany na linijce 7
+
+Wrogowie z linijek 2, 3, 4 chodzą poziomo od ściany do ściany
+
+Wróg z linijki 5 chodzi po zamkniętej przestrzeni koło skarbu niedaleko niego przy ścianach
+
+
+
+
+Stan:
+Mapujemy sobie skarby na id
+(pozycja gracza, zdobyte_id_skarbow, (pozycja_wroga, kolejny ruch) * n_wrogow)
+
+Wielkość stanu:
+n*m * k * (n*m, 1) * d_wrogow
+
+Ilość stanów jest zalezna od pozycji gracza - pozycje wroga są zalezne od ruchu gracza, wiec potencjalnie nie musimy sprawdzac
+tych stanow dla kazdej mozliwosci, jest to po prostu dodatkowa informacja ktora musimy przechowac, ale nie zwieksza ilosci obliczen.
+
+Potencjalnie moze zwiekszac jesli musimy wykonac ruch przod-tyl zeby poczekac az wrog gdzies przejdzie (wtedy moze byc
+kosztowne obliczeniowo?)
+Jak temu zaradzic?
+Nie trzymać stanów o wrogach w pamięci a po prostu sprawdzać w trakcie symulowania ruchu gracza?
+
+Zadanie 8:
+Zasady:
+Mamy labirynt ze scianami ktory jest plansza
+Mamy paczki i miejsca docelowe
+Dozorca ma dostarczyc paczki w miejsca docelowe pchajac je w strone w ktora chce isc. Nie moze pchac jesli
+paczka bylaby wepchnieta w sciane. (czyli moga byc blokady)
+
+!!!!!!!
+State:
+(pozycja_gracza, pozycje_paczek)
+plansze mozemy trzymac oddzielnie, bo sie nie zmienia
+
+Push:
+(numer paczki, kierunek)
+
+Wielkość stanu:
+n*m(1 + k)
+
+
+
+Teraz mozemy trzymac pozycje_gracza i pozycje_paczek w visited i sprawdzac czy juz bylismy w takim stanie
+Do tego iteracyjne poglebianie i jest dobrze.
+
+Mozna jeszcze ulepszyc i po prostu hashować na 64 bitach (albo 128 jak duza plansza)
+Hashujemy tak, ze kazdemu polu na planszy dajemy jakas wartosc i robimy na tym xora (bo danie xora na xora to oryginalny wynik)
+
+Obliczyć przed wszystkie stany w których mamy paczki w rogach i nie mozemy przesunac zadnej paczki
+albo
+dodać sprawdzanie czy mozna przesunac jakas paczke dla kazdego ruchu (dla wszystkich kierunkow i paczek patrzymy czy mozna przesunac
+w tym kierunku, jak nie to konczymy i nie przeszukujemy dalej) !!!mozemy tez zapamietywac w stanie czy mozna przesuwac jakas paczke!!!
+!!!!!!!!
+
+
+
+Zadanie 9:
+a) Stan
+(pozycja, ilosc_paliwa)
+
+
+b)
+Stan
+(pozycja, ilosc_paliwa, pozostale_paczki - (koncowa_pozycja))
+
+
+Zadanie 10:
+Podstawowy stan to byłyby pozycje wszystkich graczy
+Moze byc n^k roznych pozycji
+a)
+skip?
+
+
+b)
+Jak efektywnie?
+Wybierac za kazdym razem wierzcholek w ktorym nastapi spotkanie i dla kazdego z graczy obliczyc najkrotsza sciezke do tego wierzcholka
+
+Wtedy mamy n * (n+m) * k złozonosc gdzie k to ilosc graczy, n to ilosc wierzcholkow, m to ilosc krawedzi
+
+Nie bedzie odpowiedzi gdy nie ma takiego wierzcholka. Nie przechowujemy zadnych danych i jest to jedynie zlozonosc.
+
+Zadanie 11:
+
+a) C jest kosztem dojscia do danego wierzcholka (minimalna liczba elementow ktore trzeba w pamieci podrecznej)
+b) najpierw przejdziemy 1 node na poziomie 0
+pozniej b na poziomie 1
+b^2 na poziomie 2
+b^3 na poziomie 3
+..
+b^k na pozomie k
+
+
+Czyli mamy:
+1 + b + b^2 + b^3 + ... + b^k = (b^(k+1) - 1) / (b - 1)
+Jeśli C jest kosztem dojscia do danego wierzcholka i kazdy krok zbliza cie o D do wierzcholka docelowego to ilosc krokow ktore musisz zrobic
+to C / (D+1) (+1 bo zaczynasz na dystansie 0, a konczysz na C/D)
+0, D, 2D, 3D, ..., (C/D)D
+Jest 1 + C/D krokow, wiec jest 1 + C/D poziomow, stad zlozonosc to O(b^(1+C/D))
+
+D to oczywiscie epsilon
+
+c)
+DLS nie jest kompletny, a IDS jest kompletny, wiec DLS moze nie znalezc rozwiazania, a wtedy na pewno nie bedzie optymalny
+
+DLS moze wejsc w jakis bardzo gleboki depth w ktorym nie ma rozwiazania, a IDS nie wejdzie w gleboki depth, bo zacznie od 0 i bedzie
+sie stopniowo zwiekszac. DLS moze byc szybsze jesli jest rozwiazanie w glebokim depth, ale IDS zawsze znajdzie rozwiazanie jesli istnieje
+
+d) Mozemy uzyc dowolnego innego algorytmu niz BFS ktory jest Complete
+
+e) Mozemy uzyc dowolnego innego algorytmu niz BFS np. UCS

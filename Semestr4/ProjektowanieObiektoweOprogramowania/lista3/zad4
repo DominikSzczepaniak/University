@@ -1,0 +1,62 @@
+//Kod nie jest poprawny ponieważ Rectangle narzuca bycie prostokątem klasie Square, czyli np. dla:
+//Square abc = new Square(5);
+//return abc typeof Rectangle 
+// zwroci True, co nie jest zbyt dobre
+
+public interface IShape {
+    private int width;
+    private int height;
+    int calculateArea();
+}
+
+public class Rectangle implements IShape {
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    @Override
+    public int calculateArea() {
+        return width * height;
+    }
+}
+
+public class Square implements IShape {
+    public Square(int side) {
+        this.width = side;
+        this.height = side;
+    }
+
+    public int getSide() {
+        return this.width;
+    }
+
+    public void setSide(int side) {
+        this.width = side;
+        this.height = side;
+    }
+
+    @Override
+    public int calculateArea() {
+        return this.height * this.width;
+    }
+}
+
+

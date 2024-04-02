@@ -1,0 +1,45 @@
+//Analiza pod kątem zasady OCP (Open/Closed Principle) wskazuje, że klasa CashRegister narusza tę zasadę, ponieważ jest otwarta na modyfikacje, a nie na rozszerzenia. W związku z tym, każda zmiana taryfy podatkowej lub formatu wydruku paragonu wymagałaby bezpośredniej modyfikacji klasy CashRegister, co jest niezgodne z OCP. OCP sugeruje, że obiekty lub encje powinny być otwarte na rozszerzenia, ale zamknięte na modyfikacje.
+
+//Aby uczynić klasę CashRegister zgodną z zasadą OCP, możemy wprowadzić abstrakcje dla kalkulacji podatku i drukowania paragonu. Umożliwi to dodawanie nowych sposobów obliczania podatku i formatów paragonów bez modyfikacji istniejącego kodu.
+
+public interface ITaxCalculator {
+    Decimal CalculateTax(Decimal Price);
+}
+
+public interface IBillPrinter {
+    void PrintBill(Item[] Items);
+}
+
+public class StandardTaxCalculator : ITaxCalculator {
+    public Decimal CalculateTax(Decimal Price) { return Price * 0.22M; }
+}
+
+public class SimpleBillPrinter : IBillPrinter {
+    public void PrintBill(Item[] Items) {
+        foreach (var item in Items) {
+            Console.WriteLine($"towar {item.Name} : cena {item.Price} + podatek {StandardTaxCalculator.CalculateTax(item.Price)}");
+        }
+    }
+}
+
+public class CashRegister {
+    public ITaxCalculator TaxCalculator { get; set; }
+    public IBillPrinter BillPrinter { get; set; }
+
+    public CashRegister(ITaxCalculator taxCalculator, IBillPrinter billPrinter) {
+        TaxCalculator = taxCalculator;
+        BillPrinter = billPrinter;
+    }
+
+    public Decimal CalculatePrice(Item[] Items) {
+        Decimal price = 0;
+        foreach (Item item in Items) {
+            price += item.Price + TaxCalculator.CalculateTax(item.Price);
+        }
+        return price;
+    }
+
+    public void PrintBill(Item[] Items) {
+        BillPrinter.PrintBill(Items);
+    }
+}

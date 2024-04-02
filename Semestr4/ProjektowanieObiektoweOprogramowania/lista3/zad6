@@ -1,0 +1,7 @@
+SRP mówi, że klasa powinna mieć tylko jeden powód do zmiany, co oznacza, że powinna mieć tylko jedną odpowiedzialność lub funkcję. Głównym celem tej zasady jest zapobieganie sytuacjom, w których zmiany w jednej części systemu wymagają modyfikacji klas, które teoretycznie nie powinny być od tych zmian zależne. Dzielenie klas na mniejsze, bardziej skoncentrowane jednostki pomaga w utrzymaniu kodu, jego testowaniu i rozwoju.
+
+ISP z kolei mówi, że klienci nie powinni być zmuszani do zależności od interfejsów, których nie używają. Zasada ta skupia się na projektowaniu interfejsów w taki sposób, aby były one jak najbardziej wyspecjalizowane i nie wymagały od implementujących je klas wdrażania metod, których te klasy nie potrzebują. Celem jest uniknięcie sytuacji, w której zmiana jednej części interfejsu wpływa na klasy, które tej części nie używają.
+
+
+
+W skrócie, różnica między SRP a ISP polega na tym, że SRP koncentruje się na podziale odpowiedzialności wewnątrz klas, podczas gdy ISP koncentruje się na podziale interfejsów na mniejsze, bardziej specyficzne części, aby spełnić potrzeby klientów. 
