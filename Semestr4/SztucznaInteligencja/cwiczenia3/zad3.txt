@@ -1,0 +1,13 @@
+Ten algorytm bazuje na tym jak działa szukanie najkrotszej trasy u mrowek. Mrowki idac po trasie zostawiaja feromony ktore mowia jak bardzo interesujaca jest ta trasa. Im wiecej mrowek przejdzie dana trasa tym wiecej feromonow jest na tej trasie stad jest ona najszybsza.
+
+W problemie kiwojazera mamy
+n miast
+chcemy odwiedzic kazde raz
+chcemy zminimalizowac dystans
+
+Rozwiazanie:
+Wysylamy mrowke z losowego miasta i dajemy jej isc losowo (kazde miasto max raz) z prawdopodobienstwem wyboru miasta zaleznego od wagi.
+Po przejsciu na podstawie wyniku aktualizujemy feromony na trasie.
+Po skonczonej liczbie iteracji bedziemy miec prawdopodobnie najlepsza trase.
+
+https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms

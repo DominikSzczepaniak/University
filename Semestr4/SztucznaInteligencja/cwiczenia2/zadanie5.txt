@@ -4,8 +4,9 @@ Preprocessing: algorytm Floyda-Warshalla, wyznaczający długości najkrótszych
 
 Nasza heurystyka będzie polegać na braniu najkrótszej ścieżki między miastami, jeśli mamy wystarczająco paliwa w baku lub najkrótszej ścieżki przez miasto ze stacją beznynową.
 
-$d(a, b)$ - najkrótsza ścieżka między miastami a i b
-$T$ - miasto docelowe
-$x$ - miasto ze stacją benzynową
+d(a, b) - najkrótsza ścieżka między miastami a i b
+T - miasto docelowe
+x - miasto ze stacją benzynową
 
-$$ h(s) = \begin{cases}  d(s,T), \text{jeśli mamy w baku w co najmniej d(s,T) paliwa} \\ \min(d(s,x) + d(x,T)) \text{ w.p.p} \end{cases}$$
+h(s) = d(s,T), jeśli mamy w baku w co najmniej d(s,T) paliwa
+       min(d(s,x) + d(x,T)) w.p.p

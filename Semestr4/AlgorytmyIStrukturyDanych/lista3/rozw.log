@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.20)  25 MAR 2024 11:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.20)  8 APR 2024 15:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -566,7 +566,102 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--287
 
  []
 
-[8] (./rozw.aux)
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 340--340
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 350--350
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 369--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--375
+
+ []
+
+
+Overfull \hbox (2.67902pt too wide) in paragraph at lines 376--376
+[]\T1/cmr/m/n/12 W pier-wszym kroku w na-j-gorszej opcji zna-jdziemy cen-troid w n/2 krokach. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--383
+
+ []
+
+
+Overfull \hbox (5.73466pt too wide) in paragraph at lines 384--384
+[]\T1/cmr/m/n/12 Usuwanie kraw¦dzi - n kraw¦dzi i ka»de usuni¦-cie kosz-tuje O(logn). Š¡cznie
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+
+ []
+
+[11] [12]
+Overfull \hbox (54.04541pt too wide) in paragraph at lines 437--438
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[13]
+Overfull \hbox (89.28711pt too wide) in paragraph at lines 474--475
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 493--493
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--496
+
+ []
+
+[14] [15] (./rozw.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -575,16 +670,16 @@ L3 programming layer <2024-02-20>
 Here is how much of TeX's memory you used:
  14425 strings out of 474116
  281772 string characters out of 5743682
- 1963187 words of memory out of 5000000
+ 1967187 words of memory out of 5000000
  36555 multiletter control sequences out of 15000+600000
  571029 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,93p,772b,1559s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,10n,93p,772b,1569s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb>
-Output written on rozw.pdf (8 pages, 177601 bytes).
+Output written on rozw.pdf (15 pages, 191523 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 131 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

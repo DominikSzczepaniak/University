@@ -1,0 +1,15 @@
+a) Algorytm ewolucyjny i hill climbing
+
+Mozemy wspomoc proces mutacji uzywajac hill climbingu zeby znalezc najlepszego "sasiada". Rozni sie to od hill climbingu tym, ze mamy jakies prawdopodobienstwo robiac krzyzowanie.
+
+b) A* i local beam search
+
+Jesli w local beam searchu bierzemy tylko k najlepszych rozwiazan to mozemy zastosowac local beam search w dodawaniu do kolejki w A* i nie dodawac stanow ktore nei sa posrod k najlepszych.
+
+c) Symulowane wyzarzanie i algorytm ewolucyjny
+
+Mozemy zmniejszac prawdopodobienstwo mutacji uzywajac symulowanego wyzarzania. Po jakims czasie powinnismy miec "dosc dobre" osobniki i na nich mozemy juz robic z wiekszym prawdopodobienstwem krzyzowanie zamiast ich mutowac.
+
+d) Taboo search i algorytm ewolucyjny
+
+W taboo search nie mozemy odwiedzac ostatnio odwiedzonych stanow. Mozemy wiec zwiekszyc przestrzen poszukiwania zapisujac miejsca w ktorych juz bylismy i generowac nowe osobniki z nich. Bedziemy miec wiec bardzo duza pule osobnikow i przez to bedziemy miec o wiele wieksza szanse na znalezienie rozwiazania jak najblizszego tego najlepszego.

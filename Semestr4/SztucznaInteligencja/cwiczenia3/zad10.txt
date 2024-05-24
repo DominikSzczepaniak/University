@@ -1,0 +1,9 @@
+Dlaczego gracz pierwszy ma przewagę?
+Moze zawsze wybrac pierwszy ruch, wiec moze polozyc 3 miejsca zanim drugi gracz zacznie swoj ruch, wiec moze wybrac sobie swoj najlepszy ruch, jesli wszystkie ruchy sa dostepne od poczatku.
+
+Jesli zaczynamy pierwsi to najlepiej sie oplaca zaczac od srodka, bo wtedy mamy najwieksza szanse na wygrana. Pozniej wybieramy jeden z 4 rogow. Jesli rog jest zajety, wiemy ze przeciwnik ma taka sama strategie co my.
+Pozniej probujemy ukonczyc nasze trzy z rzedu. Jesli przeciwnik nas zablokowal, to mozemy wybrac inny rog planszy (jeden powinien byc wolny).
+Pozniej znowu probujemy 3 z rzedu, jesli oba rozwiazania sa zajete to nie wygramy, wiec probujemy zablokowac przeciwnika.
+Aby zablokowac przeciwnika, znajac jego pozycje, wiemy ktore pola zablokowac.
+
+Jesli zaczniemy jako drudzy, probujemy zajac srodek. Jesli sie nie udalo to bierzemy losowy rog planszy. Jesli przeciwnik znalazl pole to ma wiecej informacji, wiec probujemy go zablokowac uzywajac najlepszej strategii.

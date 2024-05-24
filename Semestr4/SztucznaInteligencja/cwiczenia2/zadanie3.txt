@@ -1,21 +1,21 @@
 Zad 3.
-#### Polecenie
+
 Pokaż, że spójna heurystyka jest zawsze optymistyczna. Podaj przykład heurystyki, która
 jest optymistyczna, a nie jest spójna.
 
 #### Rozwiązanie
 Weźmy spójną heurystykę h, czyli niech:
-h(s<sub>2</sub>) + cost(s<sub>1</sub>, s<sub>2</sub>) >= h(s<sub>1</sub>) oraz h(s<sub>end</sub>) = 0
+h(s_2) + cost(s_1, s_2) >= h(s_1) oraz h(s_end) = 0
 
 Udowodnimy przez indukcję, że spójna heurystyka jest zawsze optymistyczna.
 1. baza indukcji:
-h(s<sub>end</sub>) = 0 = cost(s<sub>end</sub>, s<sub>end</sub>) OK
+h(s_end) = 0 = cost(s_end, s_end) OK
 2. krok indukcyjny
 Załóżmy, że
-h(S<sub>n</sub>) <= cost(S<sub>n</sub>)
+h(S_n) <= cost(S_n)
 Na podstawie spójności heurystyki:
-h(S<sub>n+1</sub>) <= cost(S<sub>n</sub>, S<sub>n+1</sub>) + h(S<sub>n</sub>) <= cost(S<sub>n</sub>, S<sub>n+1</sub>) + cost(S<sub>n</sub>)
+h(S_n+1) <= cost(S_n, S_{n+1}) + h(S_n) <= cost(S_n, S_{n+1}) + cost(S_n)
 zatem
-h(S<sub>n+1</sub>) <= cost(S<sub>n+1</sub>) OK
+h(S_{n+1}) <= cost(S_{n+1}) OK
 
 optymistyczna, ale nie spójna -> heurystyka o ujemnych wartościach

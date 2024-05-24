@@ -11,7 +11,7 @@
 \newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
 \newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
 \newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b
-\title{AISD lista 2}
+\title{AISD lista 3}
 \author{Dominik Szczepaniak}
 \begin{document}
 
@@ -291,15 +291,215 @@ Wiemy że gdybysmy "przeszli się" po otoczce liniowej to zawsze będziemy skrę
     
 
 \section{Zadanie 5}
-gowno jebane skip
-\section{Zadanie 6}
 
+%fajny materiał o tym zadaniu w prostrzej wersji, w której mamy użyć O(logN) operacji, jakby ktoś chciał poczytać: https://cs.stackexchange.com/questions/10071/how-to-find-a-local-minimum-of-a-complete-binary-tree
+%zasadniczo ten problem nie wymaga niczego więcej, trzeba tylko pokazać czemu musi być co najmniej logN operacji, ale to jest akurat łatwe
+
+Nasz algorytm zaczynamy w korzeniu i wygląda on tak:
+1. Odkryj wierzchołek i jego dwoje dzieci.
+2. Jeśli jest to minimum lokalne to zwróc wynik, wpp. 3
+3. Jeśli lewe dziecko jest mniejsze od prawego to idź w lewo, wpp. idź w prawo. i przejdź do kroku 1 
+
+Ponieważ zaczynamy w korzeniu nigdy nie musimy się przejmować odkrywaniem ojca wierzchołka, ponieważ korzeń nie ma ojca, a każdy następny wierzchołek będzie wiedział skąd przyszedł czyli znał ojca. 
+
+Jeśli drzewo nie jest ukorzenione to zaczynamy w dowolnym wierzchołku i odkrywamy wszystkich sąsiadów (4 - dwoje dzieci i ojca) i idziemy do najmniejszego z nich, a później już możemy korzystać z naszego algorytmu. 
+
+
+Złożoność to oczywiście wysokość drzewa, czyli O(logn), a ilość operacji to 3logn jeśli drzewo ukorzenione. Jeśli drzewo nie jest ukorzenione, to możemy zacząć w liściu i iść do liścia po drugiej stronie, czyli mamy 4 * 2log(n) = 8logn operacji.
+
+Zauważmy, że algorytm nigdy nie używa backtrackingu, czyli po prostu zawsze idzie jakąś scieżką i się kiedyś kończy (jak dojdzie do liścia)
+
+
+Dlaczego znajduje minimum lokalne?
+Lemat 1:
+W każdym drzewie w którym wartości krawędzi są różne musi istnieć minimum lokalne. 
+
+Dowód:
+W szczególności istnieje najmniejszy element w tym drzewie, a z założenia o różnych wartościach krawędzi wynika, że nie ma dwóch równych wartości, więc skoro ma najmniejszą wartość to jest minimum lokalnym.
+
+
+Teza: Algorytm znajduje minimum lokalne.
+
+Dowód:
+Załóżmy nie wprost, że algorytm nie znajduje minimum lokalnego. Czyli załóżmy, że wierzchołek v który zwraca nasz algorytm nie jest minimum lokalnym. Czyli w takim razie musi istnieć jakiś wierzchołek u, który jest sąsiadem v i ma mniejszą wartość niż v. No ale jeśli istnieje taki wierzchołek, to albo 
+a) przyszliśmy z niego - no ale wtedy jeśli u byłby minimum lokalnym to algorytm by się skończył wcześniej 
+b) jest jednym z naszym dzieci - no ale wtedy algorytm by się nie skończył i poszedłby do u.
+
+W obu przypadkach dochodzimy do sprzeczności.
+W takim razie nie może istnieć taki wierzchołek u, więc v jest minimum lokalnym.
+
+
+
+
+Dlaczego nie można szybciej niż logN? 
+
+Załóżmy, że istnieje algorytm który znajduje wynik szybciej niż logN. W takim razie nasz algorytm musi gdzieś zacząć, a później podjąć jakieś decyzje o wyborze kolejnych wierzchołków. W takim razie weźmy taki przykład, w którym wierzchołek jest oddalony o logN od wierzchołka w którym zaczynamy. Nawet jeśli algorytm idzie jak A* do celu z jakąś heurystyką, to odkryje co najmniej logN wierzchołków. Oczywiście jest to niemożliwe, żeby algorytm szedł od razu do poprawnego wierzchołka, ponieważ nie zna wartości wierzchołków, więc nie może podejmować żadnych decyzji w heurystyce.
+
+
+\section{Zadanie 6}
+Zadanie bazowe (podpunkt a):\\
+nudne\\
+
+Zadanie zaawansowane (podpunkt b):\\
+
+Szukamy centroidu drzewa (wierzchołka którego usunięcie spowoduje, że żadne z jego poddrzew nie będzie miało więcej niż połowę wierzchołków w całym drzewie).\\
+
+Jak szukamy centroidu?
+Bierzemy losowy wierzchołek drzewa. Jeśli spełnia warunek centroidu drzewa, to go znaleźliśmy wpp. idziemy do poddrzewa z największym rozmiarem.
+
+W każdym drzewie istnieją co najwyżej dwa centroidy (Jordan theorem), więc możemy wybrać dowolny z nich.\\ 
+
+Algorytm:
+1. Ustalamy zmienną globalną total = 0, która mówi nam o ilości wierzchołków w poddrzewie.
+2. Liczymy preprocessing - wielkości poddrzew za pomocą DFS z DP i zapisujemy wielkości poddrzew do tablicy sz[] i jednocześnie zwiększamy total o 1 w każdym wywołaniu rekurencyjnym DFS, przez co w total mamy wielkość drzewa obecnie rozpatrywanego.
+3. Znajdujemy centroid drzewa:
+a) Przechodzimy po wszystkich sąsiadach i idziemy do tego który ma poddrzewo większe niż tot / 2.
+b) jeśli nie istnieje taki sąsiad, to nasz obecny jest centroidem i zwracamy go. 
+4. Odpalamy dfs który liczy ilość ścieżek o określonej odległości od centroida. (czyli dfs zaczyna z wagą 0 i dla każdego sąsiada dodaje wagę krawędzi) (oczywiście musimy skończyć iść dalej jeśli przekroczymy k, bo się nie opłaca i nie ma gdzie tego zapisać)
+5. Dodajemy do wyniku ilość ścieżek które mają odległość K.
+6. Dla każdego poddrzewa:
+a) Odpalamy dfs który zmniejsza ilość ścieżek o określonej odległości od centroida (robi przeciwną rzecz co 4.) 
+b) Obliczamy podwynik - odpalamy dfs z d = 1:
+- dodajemy do wyniku ilość ścieżek o odległości k-d jeśli k-d > 0 
+- zwiększamy d o 1 przy odwiedzeniu sąsiada
+Z tego mamy ścieżki o długościach od 1 do największego poddrzewa. 
+7. Rekurencja dla każdego poddrzewa.
+
+
+Jaka jest nasza złożoność?\\
+Nasz dfs z punktu 2 w ogólności będzie przechodził po wszystkich wierzchołkach oprócz tych usuwanych (które były centroidami). 
+Mamy więc złożoność $O(n) + O(n-1) + O(n-3) + O(n-7) + O(n-15) + ... = O(n) + O(n - 2^0) + O(n - 2^1) + O(n - 2^2) + O(n - 2^3) + O(n - 2^k) = O(nlogn)$
+$f(n) = O(g(n))$ gdy istnieje $c > 0, f(n) < cg(n)$
+
+Znajdowanie centroidu drzewa - O(n)\\
+Dlaczego centroid szukamy w O(n)?\\
+W pierwszym kroku w najgorszej opcji znajdziemy centroid w n/2 krokach.
+Później w n/4
+Później w n/8
+itd.
+Łącznie jest to O(n) 
+Drzewo centroidowe ma głębokość logn, więc mamy złożoność O(nlogn).\\
+Zbudowanie każdego poziomu drzewa centroidowego to O(n)\\
+Wysokość drzewa centroidowego to O(logn)\\
+Usuwanie krawędzi - n krawędzi i każde usunięcie kosztuje O(logn). Łącznie O(nlogn)
+(można też nie usuwać krawędzi i zapamiętywać które usuwaliśmy przez co zwiększamy trochę pamięć)\\
+
+Dfs z punktu 4 - tak samo jak ten z pkt 2.
+
+Łączna złożonosc O(nlogn).
+
+
+
+
+Dlaczego znajduje wynik poprawnie.
+Dla centroida liczymy ręcznie odległości równe k.
+Dla poddrzew liczymy odległości równe k - d gdy k - d > 0, czyli jeśli istnieje droga o długości k - d to możemy dołożyć do naszej obecnej odległości i będzie równa k.
+
+W takim razie znajdujemy odpowiedzi poprawnie.
+
+\begin{lstlisting}
+
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+const int N = 50002;
+const int K = 502;
+vector<int> g[N];
+int n, k, sz[N], lvl[N];
+int tot, done[N], cenpar[N], cnt[K];
+void calc_sz(int u, int p) {
+	tot++;
+	sz[u] = 1;
+	for (auto v : g[u]) {
+		if(v == p || done[v]) continue;
+		calc_sz(v, u);
+		sz[u] += sz[v];
+	}
+}
+void dfs(int u, int p, int d, int val) {
+	cnt[d] += val;
+	for (auto v: g[u]) {
+		if (v == p || done[v]) continue;
+		dfs(v, u, d + 1, val);
+	}
+}
+long long res = 0;
+void calc(int u, int p, int d) {
+	if (k - d > 0) res += cnt[k - d];
+	for (auto v: g[u]) {
+		if (v == p || done[v]) continue;
+		calc(v, u, d + 1);
+	}
+}
+int find_cen(int u, int p) {
+	for (auto v : g[u]) {
+		if(v == p || done[v]) continue;
+		else if(sz[v] > tot / 2) return find_cen(v, u);
+	}
+  return u;
+}
+void decompose(int u, int pre) {
+	tot = 0;
+	calc_sz(u, pre);
+	int cen = find_cen(u, pre);
+	// calculating ans
+	dfs(cen, pre, 0, 1);
+	res += cnt[k];
+	for (auto v: g[cen]) {
+		if(v == pre || done[v]) continue;
+		dfs(v, cen, 1, -1);
+		calc(v, cen, 1);
+	}
+
+	cenpar[cen] = pre;
+	done[cen] = 1;
+	for(auto v : g[cen]) {
+		if(v == pre || done[v]) continue;
+		decompose(v, cen);
+	}
+}
+void solve() {
+	cin >> n >> k;
+	for (int i = 1; i < n; i++) {
+		int u, v;
+		cin >> u >> v;
+		g[u].push_back(v);
+		g[v].push_back(u);
+	}
+	decompose(1, 0);
+	cout << res << '\n';
+}
+
+int32_t main() {
+    ios_base::sync_with_stdio(false);cin.tie(NULL);//cout.tie(NULL);
+    solve();
+    return 0;
+}
+\end{lstlisting}
 
 \section{Zadanie 7}
+Merge sort działa tak, że dzielimy tablicę tak długo aż będzie miała rozmiar 1, a później scalamy mniejsze tablice. 
+W takim razie jeśli dojdziemy scalania tablic, to mamy: 
+[x] [y]
+jeśli y > x to 1
+później
+[ab] [cd]
+dla każdego elementu mniejszego od c, d dodajemy 1.
+itd.
+
+czyli w ogólności jeśli mamy do scalenia dwie tablice:
+T1, T2
+to ilość inwersji jest równa sumie ilości elementów mniejszych w tablicy po lewej dla każdego elementu z tablicy po prawej
+MOC ZBIORU $\forall_{i \in T1} \forall_{j \in T2} i<j$\\
+
+Dlaczego działa?\\
+Wiemy, że w lewej tablicy zawsze będą elementy z mniejszym indeksem niż te w prawej, więc obojętnie w jakim porządku stoją, to jeśli element jest w lewej tablicy to był gdzieś na lewo elementu z prawej, więc mamy inwersję.\\
 
 \section{Zadanie 8}
+gówna nie tykam
 
 \section{Zadanie 9}
+skip
 
 
 

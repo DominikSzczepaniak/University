@@ -1,26 +1,26 @@
 Spójność łukowa:
 
-Więz C dla zmiennych X i Y z Dziedzinami $D_{x}$ i $D_{y}$ jest spójny łukowo wtt:
+Więz C dla zmiennych X i Y z Dziedzinami D_{x} i D_{y} jest spójny łukowo wtt:
 
-- dla każdego x $\in$ $D_{x}$ istnieje takie y $\in$ $D_{y}$, że C(x,y) jest spełnione
-- dla każdego y $\in$ $D_{y}$ istnieje takie x $\in$ $D_{x}$, że C(x,y) jest spełnione
+- dla każdego x \in D_{x} istnieje takie y \in D_{y}, że C(x,y) jest spełnione
+- dla każdego y \in D_{y} istnieje takie x \in D_{x}, że C(x,y) jest spełnione
 
 Algorytm AC-3, idea:
 Wrzucamy wszystkie więzy do kolejki. Następnie wyciągamy po jednym więzie i lecimy pętlą po wszystkich zmiennych z dziedziny X i dla każdej zmiennej z dziedziny Y spradzamy czy spełnia ona więz - jeśli nie spełnia to wyrzucamy zmienną x z dziedziny. Jeśli jakaś zmienna została usunięta z dziedziny to do kolejki wrzucamy wszystkie więzy Z, które są w jednym więzie z X.
 
-Osiąganie spójności łukowej może być kosztowne - usuwanie zmiennej z dziedziny ma złożoność $O(d^{2})$,gdzie d jest wielkością dziedziny, a złożoność całego algorytmu ma złożoność $O(nd^{3})$, gdzie n jest ilością więzów.
+Osiąganie spójności łukowej może być kosztowne - usuwanie zmiennej z dziedziny ma złożoność O(d^{2}),gdzie d jest wielkością dziedziny, a złożoność całego algorytmu ma złożoność O(nd^{3}), gdzie n jest ilością więzów.
 
 
-![](https://i.imgur.com/QVpHmkV.png)
+{zad9.png}
 
 
 
-Dla danego więzu $\sum_{ni=1}^n x_i *c_{i} ? y$  (gdzie ? oznacza operator) liczymy maksymalną i minimalną wartość sumy. Żeby policzyć maksymalną wartość bierzemy największe $x_i$ z dziedziny dla $c_i$>0 oraz najmniejsze dla $c_i$<=0. Żeby policzyć minimalną wartość sumy bierzemy największe $x_i$ z dziedziny dla $c_i$<0 oraz najmniejsze dla $c_i$≥0. Znając skrajne wartości sumy możemy ograniczyć dziedzinę zmiennej y:
+Dla danego więzu \sum_{ni=1}^n x_i *c_{i} ? y  (gdzie ? oznacza operator) liczymy maksymalną i minimalną wartość sumy. Żeby policzyć maksymalną wartość bierzemy największe x_i z dziedziny dla c_i>0 oraz najmniejsze dla c_i<=0. Żeby policzyć minimalną wartość sumy bierzemy największe x_i z dziedziny dla c_i<0 oraz najmniejsze dla c_i≥0. Znając skrajne wartości sumy możemy ograniczyć dziedzinę zmiennej y:
 
 - gdy ? to = to dziedzinę możemy ograniczyć z obu stron
 - w przeciwnym przypadku możemy ją ograniczyć tylko z jednej.
 
-Do ograniczenia zmiennej $x_i$ posłużą te same maksima i minima, które policzyliśmy dla y.
+Do ograniczenia zmiennej x_i posłużą te same maksima i minima, które policzyliśmy dla y.
 
 Wartości skrajne możemy raz policzyć na początku algorymu w czasie O(w⋅n), gdzie w to liczba więzów, a n to liczba zmiennych w węźle.
 

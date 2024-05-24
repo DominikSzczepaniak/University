@@ -1,0 +1,15 @@
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/bin/Debug/net7.0/Zadanie1
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/bin/Debug/net7.0/Zadanie1.deps.json
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/bin/Debug/net7.0/Zadanie1.runtimeconfig.json
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/bin/Debug/net7.0/Zadanie1.dll
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/bin/Debug/net7.0/Zadanie1.pdb
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.AssemblyInfoInputs.cache
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.AssemblyInfo.cs
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.csproj.CoreCompileInputs.cache
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.sourcelink.json
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.dll
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/refint/Zadanie1.dll
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.pdb
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/Zadanie1.genruntimeconfig.cache
+/Users/dominik/Desktop/University/Semestr4/ProjektowanieObiektoweOprogramowania/lista8/Zadanie1/Zadanie1/obj/Debug/net7.0/ref/Zadanie1.dll

@@ -1,0 +1,33 @@
+https://dke.maastrichtuniversity.nl/m.winands/documents/BestReplySearch.pdf
+https://github.com/PatrykFlama/UWr/tree/main/Sem2/AI/Lista%203.5
+
+a) max n algorytm to algorytm uzywany w grach wieloosobowych z dowolna liczba graczy. W lisciach mamy tuple o wielkosci n, gdzie kazda komorka to numer gracza i wynik ktory otrzymuje. Dzialamy jak w Alpha-Beta wiec w kazdym wierzcholku gracz wybiera ten wynik ktory maksymalizuje jego wynik.
+Jeśli jest remis to wybieramy losowo albo wybieramy te wierzcholki ktore zmniejsza wynik gracza ktory wybiera w korzeniu.
+
+
+b)
+Paranoid assumpion to zalozenie ze wszyscy inni gracze sa w zmowie przeciwko nam przez co mamy tylko siebie i przeciwnika. Wtedy alpha beta pruning jest mozliwy przez co mamy wieksza glebokosc przeszukiwania. W tym algorytmie gra jest grana z perspektywy gracza ktory wybiera w korzeniu i chce zmaksymalizowac jego wynik, gdy inni gracze chca ten wynik minimalizowac (ich wyniki sa odejmowane od wyniku glownego)
+
+c)
+maxN W przeciwienstwie do alpha-beta mozemy robic mniej pruningu wiec nie przejdziemy tak daleko. Pruning mozemy robic jesli damy jakies upper i lower boundy na score kazdego gracza i na sume scorow. Ponadto nie zaklada ze gracze sa w zmowie co bardzo czesto moze sie dziac w roznych grach, przez co algorytm moze byc zbyt optymistyczny.
+
+Paranoid assumption - Wynik moze nie byc optymalny. Ponadto jesli mielibysmy nieskonczony czas przeszukiwania to gracz moglby zalozyc ze kazdy ruch jest przegrywajacy, przez co moglby wybrac nieoptymalne zagranie.
+
+d)
+Zamiast liczyc kazdy mozliwy ruch liczymy tylko ruch ktory jest najlepsza odpowiedzia na zagranie przeciwnika. Oznacza to, że w węźle MIN przeszukujemy wszystkie ruchy przeciwników i wybieramy ten, który najbardziej minimalizuje wynik. w MAX node mamy typowa sytuacje dla root node.
+Sily:
+- wiecej MAX nodow jest odwiedzonych, wiec algorytm moze planowac bardziej w przyszlosc
+- usuwa nierealistycznosc z maxN i nie korzysta z paranoid assumption przez co jest bardziej zbalansowany
+- wiecej pruningu niz w maxN
+
+Slabosci:
+- Nie wszyscy gracze moga wykonac ruch przez co mozemy dojsc do pozycji ktore nigdy nie wystapia
+- Ruchy przeciwnikow ktore moga byc korzystne dla gracza wybierajacego w korzeniu moga byc pomijane
+
+e) W grze Othello mamy plansze 8x8 gdzie kazde pole jest albo puste albo zajete przez jednego z graczy. Mamy czarnego i bialego. Obydwoje chca zmaksymalizowac ilosc swoich pionkow na planszy. Gracz moze postawic swoj pionek tylko gdy obroci przynajmniej jeden pionek przeciwnika. Aby obrocic pionek przeciwnika musimy postawic nasz pionek w taki sposob aby miedzy naszymi pionkami byly pionki przeciwnika. Wtedy wszystkie pionki przeciwnika miedzy naszymi pionkami zmieniaja kolor na nasz. Gra konczy sie gdy plansza jest pelna albo nie ma mozliwosci wykonania ruchu przez jednego z graczy. Wygrywa gracz ktory ma wiecej pionkow na planszy.
+
+Rolit jest odmiana Othello w ktorej jest od dwoch do 4 graczy i pionki czerwone, zielony, niebieskie i zolte. Mamy opcje natychmiastowo wyeliminowac gracza z gry jesli nie ma juz pionkow na planszy. Wiec aby pozbyc sie mozliwosci eliminacji sie z gry to gdy nie mozna obrocic zadnych pionkow przeciwnika to mozna postawic swoj pionek na dowolne puste pole na planszy. To pole musi byc kolo pola z jakims pionkiem ktory znajduje sie na planszy. Jesli nie ma takiego pola to gracz jest eliminowany.
+
+
+f) W pracy byl pojedynek maxN z BRS w grach Chińskie Warcaby, Focus i Rolit. BRS jest testowany na 250, 1000, 5000 ms z 3/4/6 graczami maxN albo paranoid. Dla 3 graczy jest 2^3 = 8 assigments. Dla 4 2^4-2 = 14 dla 6 2^6-2 = 62.
+Dla remisow rowno dzielimy punkty miedzy graczy (nie wszystkich tylko miedzy tych ktorzy wygrywaja).

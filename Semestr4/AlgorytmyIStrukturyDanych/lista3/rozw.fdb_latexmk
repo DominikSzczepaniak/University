@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1711361086.29439 "/Users/dominik/Desktop/University/Semestr4/AlgorytmyIStrukturyDanych/lista3/rozw.tex" "rozw.pdf" "rozw" 1711361087.2224 0
-  "/Users/dominik/Desktop/University/Semestr4/AlgorytmyIStrukturyDanych/lista3/rozw.tex" 1711361085.05768 11353 61186363878ec083a1cc3e6d4d07aabb ""
+["pdflatex"] 1712584370.92574 "/Users/dominik/Desktop/University/Semestr4/AlgorytmyIStrukturyDanych/lista3/rozw.tex" "rozw.pdf" "rozw" 1712584371.55452 0
+  "/Users/dominik/Desktop/University/Semestr4/AlgorytmyIStrukturyDanych/lista3/rozw.tex" 1712584370.68667 20187 611d2a6cea6090e0705f8a6d5d4acee1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -136,8 +136,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1710961636.67477 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1710961475 8221424 8f8a2f74e0b4d07d519f52033404ed87 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "rozw.aux" 1711361087.10436 905 9e84f4e7c638120b4c4322df370aa7d9 "pdflatex"
-  "rozw.tex" 1711361085.05768 11353 61186363878ec083a1cc3e6d4d07aabb ""
+  "rozw.aux" 1712584371.47072 910 c2d61f833e02061080c5bc3d0177cd86 "pdflatex"
+  "rozw.tex" 1712584370.68667 20187 611d2a6cea6090e0705f8a6d5d4acee1 ""
   (generated)
   "rozw.aux"
   "rozw.log"

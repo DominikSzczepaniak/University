@@ -1,0 +1,7 @@
+a) Alpha-beta-Search Dla poprzedniego ruchu juz obliczylismy poddrzewa do glebokosci d, wiec jesli nasza glebokosc wzrasta do d+1 to wystarczy obliczyc jeden nastepny ruch dla kazdego z poddrzew, zamiast d ruchow dla kazdego z poddrzewa.
+
+MCTS Jeśli obliczyliśmy juz jakies ruchy i mamy informacje o grze to mozemy uzyc ta informacje do wykonania nastepnych ruchow. Kilka sciezek jest juz odwiedzonych, wiec mozemy uzyc ich zeby je dalej eksplorowac albo traktujemy je jako wynik dla danego wyboru i robimy kilka wiecej symulacji dla lepszej prezycji.
+
+b) Alpha-Beta-Search - kazda sciezke mozemy obliczac w osobnym watku, a na koncu po prostu mozemy wybrac te najlepsza. Dzieki temu mozemy szybciej zejsc glebiej i miec dokladniejsze wyniki
+
+MCTS - mozemy odpalic kilka symulacji w tym samym czasie a potem wybrac najlepszy ruch - mamy wiecej symulacji stad dokladniejsze wyniki.

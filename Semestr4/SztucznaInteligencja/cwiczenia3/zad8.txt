@@ -1,0 +1,3 @@
+Pentago
+Cel: 5 z rzędu (poziomo, pionowo lub na skos)
+Heurystyka: ważona suma liczby 4 w rzędzie, liczby 3 w rzędzie, liczby 2 w rzędzie, liczby 1 w rzędzie - sumy przeciwnika

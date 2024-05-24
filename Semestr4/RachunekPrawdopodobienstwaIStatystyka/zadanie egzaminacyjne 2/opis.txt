@@ -1,0 +1,5 @@
+Do policzenia dystrybuanty w punkcie x musimy obliczyć całke z funkcji gęstości podanej w zadaniu.
+Jednym ze sposobem policzenia całki jest wykorzystanie umiejętności z analizy numerycznej do całkowania numerycznego. Ja użyłem metody Romberga. Do obliczenia pierwszej kolumny użyłem metody trapezów, a dla reszty kolumn ekstrapolacji Richardsona. To dało mi dość dobre przybliżenie całki, przez co wypisywanie wartości do 4 miejsc po przecinku daje prawie zerowy błąd. 
+Dodatkowo napisałem funkcję wyznaczającą liczbę e za pomocą szeregu Taylora.
+
+Większość funkcji jest opisana w komentarzach w kodzie, stąd opis jest trochę krótszy, ponieważ nie chciałem powielać informacji z kodu.

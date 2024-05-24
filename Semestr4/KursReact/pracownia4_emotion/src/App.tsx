@@ -122,6 +122,8 @@ const colors = {
     buttonHoverDarkBackground: "#ccc"
 };
 
+
+
 const lightTheme = {
     background: colors.lightBackground,
     text: colors.lightText,
@@ -161,10 +163,6 @@ const App = () => {
         css={css`
           margin: 0 auto;
           background-color: ${darkMode ? colors.contentCardDarkBackground : colors.contentCardLightBackground};
-
-          div:nth-child(even) {
-            background-color: ${darkMode ? colors.darkBackground : colors.lightBackground};
-          }
         `}
       >
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
@@ -173,6 +171,11 @@ const App = () => {
           css={css`
             border-radius: 10px;
             margin: 20px 0;
+
+          
+            & > :nth-child(odd) {
+              background-color: ${darkMode ? darken(0.1, colors.contentCardDarkBackground) : lighten(0.5,  colors.contentCardLightBackground)};
+            }
           `}
         >
           <About about={companyData.about} />

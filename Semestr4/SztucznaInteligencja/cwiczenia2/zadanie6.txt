@@ -1,7 +1,3 @@
-**Polecenie:**
-Na wykładzie (W3, okolice slajdu 26) była podana informacja o najlepszych heurystykach dla 15-ki. Przypomnij te heurystyki i zaproponuj przeniesienie ich idei do zadania o Sokobanie.
-
-**Rozwiązanie:**
 Najlepsza heurystyka - baza wzorców (zapamiętujemy koszty rozwiązań podproblemów).
 Działanie:
 * znaleźć wszystkie podproblemy dla danego stanu
@@ -9,6 +5,6 @@ Działanie:
 
 **Sokoban**
 Podproblem - zostaje na mapie tylko jedna skrzynka, trzeba przesunąć ją do stanu końcowego (zapominamy o innych skrzynakch i pozycji magazyniera).
-Baza wzorców: dla każdej skrzynki (każdego miejsca na mapie, na którym może stać skrzynka) i każdego miejsca docelowego (najbliższego) liczymy ile króków potrzeba, by ją tam przesunąć. 
+Baza wzorców: dla każdej skrzynki (każdego miejsca na mapie, na którym może stać skrzynka) i każdego miejsca docelowego (najbliższego) liczymy ile króków potrzeba, by ją tam przesunąć.
 Zastosowanie: dla każdej skrzynki sprawdzamy wartość i bierzemy maksimum.
 Jeżeli zastosujemy rozłączne wzorce - każda skrzynka do innego pola końcowego (jej najbliższego), to możemy zsumować koszty rozwiązania podproblemów.

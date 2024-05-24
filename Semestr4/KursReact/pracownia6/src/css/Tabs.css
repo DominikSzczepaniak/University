@@ -1,0 +1,89 @@
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css';
+
+
+button,
+fieldset,
+input {
+  all: unset;
+}
+
+.TabsRoot {
+  display: flex;
+  flex-direction: row; 
+  width: 100%; 
+  box-shadow: 0 2px 10px var(--black-a4);
+  align-items: flex-start;
+  size: 20px;
+  background-color: #d3d3d3;
+}
+
+.TabsList {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column; 
+  border-right: 1px solid var(--mauve-6);
+
+}
+
+.TabsTrigger {
+  font-family: inherit;
+  padding: 0 20px;
+  height: 80px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  font-size: 20px;
+  background-color: inherit;
+  line-height: 1.5; 
+  color: var(--mauve-11);
+  user-select: none;
+  transition: color 0.3s; 
+  border-right: 3px solid transparent;
+  margin-right: -3px; 
+}
+
+.TabsTrigger:not(:first-child) {
+  border-top: 1px solid var(--mauve-6); 
+}
+
+.TabsTrigger:first-child {
+  border-top-left-radius: 6px;
+}
+
+.TabsTrigger:last-child {
+  border-top-right-radius: 6px;
+}
+
+.TabsTrigger:hover {
+  color: var(--violet-11);
+  background-color: var(--mauve-2); 
+}
+
+.TabsTrigger[data-state='active'] {
+  color: var(--violet-11);
+  border-right: 3px solid currentColor; 
+}
+
+.TabsTrigger:focus {
+  box-shadow: none;
+  position: relative;
+  outline: none;
+}
+
+
+.TabsContent {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+  
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  outline: none;
+}
+.TabsContent:focus {
+  box-shadow: 0 0 0 2px black;
+}

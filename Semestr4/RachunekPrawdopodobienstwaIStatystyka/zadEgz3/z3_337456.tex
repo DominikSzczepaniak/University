@@ -1,0 +1,65 @@
+\documentclass[14pt, a4paper]{article}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{listings}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}	% podłoga
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}		% sufit
+\newcommand{\fractional}[1]{\left\{ #1 \right\}}		% część ułamkowa {x}
+\newcommand{\abs}[1]{\left| #1 \right|}					% wartosc bezwzgledna / moc
+\newcommand{\set}[1]{\left \{ #1 \right \}}				% zbiór elementów {a,b,c}
+\newcommand{\pair}[1]{\left( #1 \right)}				% para elementów (a,b
+\title{Zadanie egzaminacyjne 3 Rachunek Prawdopodobieństwa}
+\author{Dominik Szczepaniak 337456}
+\begin{document}
+
+\maketitle
+
+\bgroup\obeylines
+
+\section{Treść}
+Rozkład wykładniczy $Exp(\lambda)$ ma gęstość określoną wzorem $f(x) = \lambda e^{-\lambda x}$ dla $x > 0$.
+
+\section{Podpunkt 1. Wyznaczyć MGF tego rozkładu}
+$M(t) = E[e^{tX}] = \int_{0}^{\infty} e^{tx} \lambda e^{-\lambda x} dx = \lambda \int_{0}^{\infty} e^{(t-\lambda)x} dx = \frac{\lambda}{t-\lambda} e^{(t-\lambda)x} \Big|_{0}^{\infty} = \frac{\lambda}{t-\lambda} (0 - 1) = \frac{\lambda}{\lambda - t}$
+Co zachodzi dla $t < \lambda$.
+
+\section{Podpunkt 2. Niech X ~ Exp($\lambda$). Wyznaczyć oszacowania dla $P(X \geq \lambda a)$ wynikające z nierowności Markova, Chebysheva i Chernoffa.}
+
+\subsection{Oszacowanie Markova}
+$P(X \geq \lambda a) \leq \frac{E(x)}{\lambda a} = \frac{1}{(\lambda)^2 a}$
+
+\subsection{Oszacowanie Chebysheva}
+$P(X \geq \lambda a) = P(|X - \frac{1}{\lambda}| \geq \lambda a - \frac{1}{\lambda}) \leq \frac{1}{(\lambda^2a - 1)^2}$
+
+\subsection{Oszacowanie Chernoffa}
+$P(X \geq \lambda a) = P(exp(x) \geq exp(\lambda a)) \leq \frac{\lambda}{\lambda - t} exp(-t \lambda a) = exp(ln(\frac{\lambda}{\lambda - t}) - t \lambda a)$
+
+Niech $f(t) = ln(\frac{\lambda}{\lambda - t}) - t \lambda a$
+$f'(t) = \frac{1}{\lambda - t} - \lambda a$
+$f'(t) = 0 \Rightarrow t = \lambda - \frac{1}{\lambda a}$
+Teraz jeśli wstawimy to do poprzedniej nierówności mamy:
+$P(X \geq \lambda a) = P(exp(x) \geq exp(\lambda a)) \leq \frac{\lambda}{\lambda - t} exp(-t \lambda a) = exp(ln(\frac{\lambda}{\lambda - t}) - t \lambda a) = exp(ln(\frac{\lambda}{\lambda - \lambda - \frac{1}{\lambda}}) - \lambda^2 a + 1) = a\lambda^2exp(-\lambda^2 a + 1)$
+
+\section{Podpunkt 3. Sporządzić tabelę z wartościami dokładnymi i oszacowaniami}
+$k = 337456$ mod $10 = 6$
+$m = \frac{337456 - 6}{10}$ mod $10 = 5$
+$\lambda = 6 + 5 + 1 = 12$
+$a \in \set{3, 4, 6, 10}$
+\egroup
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $a$ & $P(X \geq \lambda a)$ & Markov & Chebyshev & Chernoff \\ \hline
+        3 & $2.425402 * 10^{-188}$ & 0.0023148 & $5.3832 * 10^{-6}$ & $2.8481446 * 10^{-185}$  \\ \hline
+        4 & $7.02066 * 10^{-251}$ & 0.0017361 & $3.02457 * 10^{-6}$ & $2.05388 * 10^{-247}$  \\ \hline
+        6 & 0 & 0.0011574 & $1.342698 * 10^{-6}$ & 0  \\ \hline
+        10 & 0 & 0.000694 & $4.829235 * 10^{-7}$ & 0  \\ \hline
+\end{tabular}
+\end{table}
+
+
+\end{document}

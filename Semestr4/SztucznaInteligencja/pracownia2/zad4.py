@@ -27,7 +27,7 @@ class Commando:
         self.horizontal = [0, 0, 1, -1]
         self.moveDirection = ["D", "U", "R", "L"]
 
-        self.stopien = 2 #jak damy 20 to przechodzi wszystkie testy do zadania 2
+        self.stopien = 20 #jak damy 20 to przechodzi wszystkie testy do zadania 2
 
     def data_input(self):
         with open("zad_input.txt", "r") as file:
@@ -72,6 +72,7 @@ class Commando:
         for pos in positions:
             res = max(res, self.minDistance[pos[0]][pos[1]])
         return res * self.stopien
+    
     
     def check_moves(self, state):
         positions = state[0]

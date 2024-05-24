@@ -1,0 +1,14 @@
+a) Jeśli local beam search ma k równe 1 to zawsze zapamiętujemy 1 stan i zostawiamy 1 litera. W takim razie działa to jak hill climbing.
+
+b) local beam z jednym początkowym stanem i bez limitu na liczbę zachowanych stanów po generacji następnika.
+Jeśli wygenerujemy na początku tylko jeden stan i później nie ograniczamy się na sąsiadów i przejścia głębiej to to jest dokładnie opis BFS.
+
+c) Symulowane wyzarzanie z T = 0 przez cały czas
+Jeśli T = k to p = e^(deltaF / T) = e^(deltaF / k) -> k dązy do 0.
+W takim razie nie mamy opcji na akceptowanie gorszych rozwiązań, czyli zawsze bierzemy najlepsze czyli hill climbing
+
+d) Symulowane wyzarzanie z T = inf przez cały czas
+Wtedy dązymy do 1, więc zawsze wykonujemy losowe ruchy, czyli random walk.
+
+e) Jeśli algorytm ewolucyjny ma populacje wielkości 1, to nie wykonamy krzyzowania i jedynie mozemy zrobic mutacje.
+W takim razie jesli robimy mutacje to bierzemy tego sasiada ktory jest najlepszy, czyli dzialamy jak hill climbing.

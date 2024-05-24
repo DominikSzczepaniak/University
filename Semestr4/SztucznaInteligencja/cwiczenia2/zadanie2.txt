@@ -1,8 +1,26 @@
-2 skoczki i król vs król 
+2 gonce i król vs król
 
-dist(a, b) - odległość manhattańska 
+dist(a, b) - odległość manhattańska
 
 
 heurystyka:
-odległość króla od najbliższego rogu + odległość króla białego od króla czarnego + 2 
-odległość króla od najbliższego rogu - 1 (idziemy do miejsca obok rogu) + odległość króla białego od króla czarnego + odległość gońca koloru pola koło rogu od czarnego króla 
+odległość króla od najbliższego rogu + odległość króla białego od króla czarnego + 2
+odległość króla od najbliższego rogu - 1 (idziemy do miejsca obok rogu) + odległość króla białego od króla czarnego + odległość gońca koloru pola koło rogu od czarnego króla
+
+
+
+
+
+======================
+2 skoczki i krol
+czarny krol musi byc kolo sciany
+bialy krol musi byc o 2 pola dalej od czarnego krola
+skoczki musza byc 3 pola dalej od czarnego krola, ale moga sie ruszac o 3 pola na raz
+
+heurystyka to 4 * maximum z sumy:
+h_{czarny} = dist(closest_wall)
+h_{bialy krol} = dist(czarny krol) - 1
+h_{skoczek1} = (dist(czarny krol) - 3)/3
+h_{skoczek2} = (dist(czarny krol) - 3)/3
+
+i bierzemy minimum dla kazdego pola
