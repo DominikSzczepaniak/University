@@ -110,7 +110,7 @@ function ContactForm() {
               border-radius: 5px;
               cursor: pointer;
               transition: background-color 0.3s ease;
-              background-color: ${theme.buttonBackground};
+              background-color: ${theme.buttonPostBackground};
               color: ${theme.buttonText};
               &:hover {
                 background-color: ${theme.buttonHoverBackground};

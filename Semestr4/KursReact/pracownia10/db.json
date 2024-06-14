@@ -1,0 +1,70 @@
+{
+  "books": [
+    {
+      "title": "asdf",
+      "author": "zcxvzxcv",
+      "year": "2134",
+      "copies": "1234",
+      "price": "1234",
+      "genre": "romans",
+      "id": 3
+    },
+    {
+      "title": "afasd",
+      "author": "ghgjhg",
+      "year": "asdf",
+      "copies": "123",
+      "price": "23",
+      "genre": "fantasy",
+      "id": 4
+    },
+    {
+      "title": "afasd",
+      "author": "ghgjhg",
+      "year": "asdf",
+      "copies": "123",
+      "price": "23",
+      "genre": "fantasy",
+      "id": 5
+    },
+    {
+      "title": "afasd",
+      "author": "ghgjhg",
+      "year": "asdf",
+      "copies": "123",
+      "price": "23",
+      "genre": "fantasy",
+      "id": 6
+    }
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "name": "kryminal"
+    },
+    {
+      "id": 2,
+      "name": "fantasy"
+    },
+    {
+      "id": 3,
+      "name": "horror"
+    },
+    {
+      "id": 4,
+      "name": "sci-fi"
+    },
+    {
+      "id": 5,
+      "name": "romans"
+    },
+    {
+      "id": 6,
+      "name": "thriller"
+    },
+    {
+      "id": 7,
+      "name": "dramat"
+    }
+  ]
+}

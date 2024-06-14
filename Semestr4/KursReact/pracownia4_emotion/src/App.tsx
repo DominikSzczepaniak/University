@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { ThemeProvider, css } from "@emotion/react";
-import NavbarHeader from "./components/Navbar";
 import About from "./components/About";
 import Services from "./components/Services";
 import Team from "./components/Team";
@@ -8,8 +7,6 @@ import Blog from "./components/Blog";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import { useState } from "react";
-import { lightThemeStyles } from "./css/LightTheme";
-import { darkThemeStyles } from "./css/DarkTheme";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import { darken, lighten } from "polished";
@@ -119,12 +116,14 @@ const colors = {
     buttonLightText: "#fff",
     buttonDarkText: "#333",
     buttonHoverLightBackground: "#555",
-    buttonHoverDarkBackground: "#ccc"
+    buttonHoverDarkBackground: "#ccc",
+    buttonPostBackground: "#45a049",
 };
 
 
 
 const lightTheme = {
+  ...colors,
     background: colors.lightBackground,
     text: colors.lightText,
     navbarBackground: colors.navbarLightBackground,
@@ -135,6 +134,7 @@ const lightTheme = {
 }
 
 const darkTheme = {
+  ...colors,
     background: colors.darkBackground,
     text: colors.darkText,
     navbarBackground: colors.navbarDarkBackground,

@@ -2,3 +2,5 @@
 **/.vscode/
 **/.vscode/**
 **/node_modules/**
+**/.idea/**
+**/.idea/

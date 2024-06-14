@@ -1,21 +1,10 @@
-import "../styles.css"
+import Section from "./Section";
 
-interface aboutProps {
-    about: string;
-}
-
-
-function About(props: aboutProps){
-    const companyData = props;
-
+export default function About({ companyData }: { companyData: string }) {
     return (
-        <section id="about" className="section about">
-            <div className="section-content">
-                <h2>About Us</h2>
-                <p>{companyData.about}</p>
-            </div>
-        </section>
-    )
+        <Section id="about">
+            <h2>About Us</h2>
+            <p>{companyData}</p>
+        </Section>
+    );
 }
-
-export default About;

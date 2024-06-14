@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=76902bb5_002Df5a6_002D4ee1_002D9bba_002D31ecb74609a9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TaskManagerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::69A69632-4300-44FE-B681-85B39AFF7AA3::net7.0::SimpleTaskManager.Tests.TaskManagerTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8c4d4c12_002D048d_002D4212_002Da999_002D52d4f5ed3aac/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetParentsWithChildren_Returns_ParentsWithChildren #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::69A69632-4300-44FE-B681-85B39AFF7AA3::net7.0::SimpleTaskManager.Tests.TaskManagerTests.GetParentsWithChildren_Returns_ParentsWithChildren&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b56b0bf8_002Dbdf1_002D4dea_002Dbb70_002Ddaa9560fe2ff/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetParentsWithChildren_Returns_ParentsWithChildren" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::69A69632-4300-44FE-B681-85B39AFF7AA3::net7.0::SimpleTaskManager.Tests.TaskManagerTests.GetParentsWithChildren_Returns_ParentsWithChildren&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

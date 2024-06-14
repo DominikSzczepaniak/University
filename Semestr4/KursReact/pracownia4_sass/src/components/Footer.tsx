@@ -1,21 +1,12 @@
-import "../styles.css";
+import classes from "./Footer.module.scss";
+import { ReactNode } from 'react';
 
-interface footerProps {
-    name: string;
-}
-
-
-function Footer(props: footerProps) {
-    const companyData = props;
+export default function Footer({ content }: { content: ReactNode }) {
     return (
-        <footer className="footer">
-            <div className="footer-content">
-                <p>
-                    &copy; {new Date().getFullYear()} {companyData.name}
-                </p>
+        <footer className={classes["footer"]}>
+            <div className={classes["footer-content"]}>
+                <p>{content}</p>
             </div>
         </footer>
-    )
+    );
 }
-
-export default Footer;

@@ -47,7 +47,7 @@ function BlogCard(props: BlogCardProps) {
           cursor: pointer;
           padding: 5px 10px;
           transition: background-color 0.3s ease;
-          background-color: ${theme.buttonBackground};
+          background-color: ${theme.buttonPostBackground};
           color: ${theme.buttonText};
 
           &:hover {

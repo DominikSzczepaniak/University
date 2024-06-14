@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("POOLista9")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a0ad44f1a827c19a8360797520a22ac79722897")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d055c9cfd75ecacf7d96192c216764f5678a1de")]
 [assembly: System.Reflection.AssemblyProductAttribute("POOLista9")]
 [assembly: System.Reflection.AssemblyTitleAttribute("POOLista9")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
