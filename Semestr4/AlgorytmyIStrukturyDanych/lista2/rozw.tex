@@ -171,48 +171,9 @@ Jeśli waga krawędzi e należącej do cyklu C jest większa od pozostałych wag
     \item Krawędź e nie leży na żadnym cyklu, stąd musi należec do MST.
     \item krawędź e leży na cyklu C: Weźmy więc MST i dołóżmy do niego krawędź e -> z tego tworzy sie cykl, bo e nie należało do MST. W tym drzewie rozpinającym musi istnieć jakaś krawędź maksymalna e'. Z założenia e nie jest maksymalną krawędzia na jakimś cyklu, więc e' ma większą wagę od e. Po usunięciu e' otrzymamy MST o mniejszej wadze, więc dochodzimy do sprzeczności, że e nie należało do MST.
 \end{enumerate}
-\section{Zadanie 8}
-Chcemy zrobić algorytm który znajduje trzy wierzchołki dla których zbiór krawędzi pomiędzy nimi jest jak największy.
-Czyli jednocześnie chcemy zmaksymalizować sumę odległości tych trzech wierzchołków od siebie.
+\section{Zadanie 8} 
 
-1. znalezc srednice drzewa 
-2. odpalic bfs/dfs z obu koncow srednicy drzewa 
-3. wziac wierzcholek ktory ma najwieksza sume odleglosci 
-
-
-Lemat:
-Dwa z wierzchołków będą końcami średnicy drzewa.
-
-Dowód:
-Załóżmy, że tak nie jest, t.j. z wierzchołków a, b, c żadne dwa nie są końcami jednej ze średnicy drzewa (jesli wystepuje jakis przypadek ze moze byc wiecej niz jedna sciezka ktora jest srednica drzewa).
-
-Załóżmy, że istnieje lepszy wynik niż uzyskaliśmy. Nazwijmy go A, a nasz wynik B.
-
-Niech nasze wierzchołki to będą b1, b2, b3, a wierzchołki w A to będą a1, a2, a3.
-
-Wiemy, że każde pomiędzy dwoma każdymi wierzchołkami jest jakaś ścieżka. Niech średnica drzewa będzie równa d. Wiemy, że P(a1, a2) != d oraz P(a2, a3) != d oraz P(a1, a3) != d. 
-
-
-Załóżmy bez straty ogólności, że P(b1, b2) == d.
-
-
-b1 i b2 sa koncami srednicy
-b3 jest najbardziej oddalonym punktem od srednicy 
-
-
-a) a1, a2 znajduja sie na sciezce miedzy b1, b2
-jesli a1 i a2 znajduja sie na sciezce miedzy b1 i b2 to a3 nie moze byc dalej niz b3, ale b1 i b2 sa dalej od a3 niz a1 i a2, wiec suma odleglosci dla B jest wieksza niz dla A. 
-sprzecznosc
-b) a1, a2 nie znajduja sie na sciezce miedzy b1, b2
-Jeżeli wierzcholki nie znajduja sie na sciezce miedzy b1 i b2 to leza na sciezce ktora albo ma cześć wspólną ze średnicą albo nie ma części wspólnej. Ponieważ b3 jest najdalszym oddalonym punktem od obu końców średnicy, to musiałby być tak samo daleko oddalony jak a1 (bez straty ogólności), gdyż chcemy maksymalizować odległość, więc a1 musi leżeć na końcu jakiejś ścieżki, a optymalnie wybierze tą najdalszą, czyli można założyć, że odległość do b3 jest taka sama jak do a1 z punktów b1 i b2.
-W takim razie jest P(b1, a1) = P(b1, b3) lub P(b2, b3)
-
-A odleglosc miedzy a1 i a2 jest krotsza niz miedzy b1 i b2 (zalozenie)
-
-Oraz odleglosc miedzy a1 i a3 jest <= niz miedzy b1 i b3 (bo a1 jest najdalej tam gdzie b3, a a3 moze byc albo jednym z {b1, b2} albo czyms innym, blizszym)
-
-Odleglosc miedzy a2 i a3 jest < niz miedzy b2 i b3 (bo a2 nie może być ani b1 ani b2 (skoro a3 było), bo wtedy byłoby niezgodne z założeniem, więc będzie gdzieś na ścieżce pomiędzy b2 i b3 albo b1 i b3, więc będzie krótsza odległość niż między b2 i b3 (albo b1 i b3).
-Skoro mamy, że odległości są krótsze, to mamy sprzeczność, czyli nasz algorytm daje optymalny wynik
+Osobny plik zad8.pdf
 
 \section{Zadanie 9}
 
