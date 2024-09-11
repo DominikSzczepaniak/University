@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("zestawCzadanie2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d055c9cfd75ecacf7d96192c216764f5678a1de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9188271bda14801e42f56666b3ec43392b687a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("zestawCzadanie2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("zestawCzadanie2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
