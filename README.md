@@ -1,4 +1,5 @@
 Przedmioty przerabiane na studiach informatycznych inżynierskich na Instytucie Informatyki Uniwerstytetu Wrocławskiego 2022-2026:
+
 Semestr 1:
 - Analiza matematyczna 10 ECTS
 - Logika dla informatyków 8 ECTS
