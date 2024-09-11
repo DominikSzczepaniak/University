@@ -96,38 +96,41 @@ Mamy więc O(nlog*n) razy.
 
 
 \section{Zadanie 3}
-Z każdego drzewa robimy union set gdzie set odpowiada drzewu. 
-każdy node ma v.p - parent v.d - depth w góre (czyli ile jest do korzenia)
-suma v.d ma być równa głębokości
+Na poczatku kazde drzewo ma jeden element. Kazdy wierzcholek trzyma wage ktora poczatkowo jest rowna 0.
+Dodatkowo kazdy korzen (drzewo) pamieta ile wierzcholkow w sobie przechowuje.
 
-\begin{lstlisting}
-    
-MAKE-TREE(v)
-    v = ALLOCATE-NODE()
-    v.d = 0
-    v.p = v
-    return v
+Jesli mamy sciezke v1, v2, v3, ..., vk, gdzie vk to korzen a v1 to v.
+Depth(v):
+Trzymamy niezmiennik ze Depth(v) = suma wag od v do korzenia drzewa w ktorym jest v, czyli $Depth(v) = \sum_{i=1}^{k} v_i$
 
-FIND-SET(v)
-    if v != v.p
-        (v.p, d) = FIND-SET(v.p)
-        v.d = v.d + d
-        return (v.p, v.d)
-    return (v, 0)
+Wykonujemy kompresje sciezki w nastepujacy sposob:
+1.$\forall v_i podczepiamy v_i pod r$
+2.$\forall v_i$ ustalamy $weight(v_i)$ na $\sum_{j=i}^{k-1} weight(v_j)$
 
-LINK(r, v)
-    (x, d_1) = FIND-SET(r)
-    (y, d_2) = FIND-SET(v)
-    if x.rank > y.rank
-        y.p = x
-        x.d = x.d + d_2 + y.d
-    else
-        x.p = y
-        x.d = x.d + d_2
-        if x.rank == y.rank
-            y.rank = y.rank + 1
+Link(v, r):
+Niech $T_r$ - drzewo posiadajace r, gdzie r' to jego korzen (z tresci)
+Niech $T_v$ - drzewo posiadajace v, i v' korzen tego drzewa 
 
-\end{lstlisting}
+Rozwazamy przypadki:
+1. Count($T_r$) $\leq$ Count($T_v$):
+Podczepiamy r' pod v' i wykonujemy Depth(v).
+Zaktualizujemy wage r' na:
+$weight(r') = weight(r') - weight(v') + depth(v) + 1$
+$weight(r') - weight(v')$ z podpiecia r' pod v', a $depth(v) +1$ z tego ze r podpinamy pod v
+
+Na koniec aktualizujemy county wiec:
+$Count(T_v) += count(T_r)$
+
+2. $Count(T_r)$ > Count($T_v$)
+Podczepiamy v' pod r'.
+Aktualizujemy r' oraz v':
+$weight(r') = weight(r') + depth(v) + 1$ z podpiecia r pod v
+$weight(v') = weight(v') - weight(r')$
+
+Na koniec:
+$Count(T_R) += Count(T_v)$
+
+
 
 
 \section{Zadanie 4}
@@ -136,7 +139,7 @@ No generalnie to jeżeli zwiększymy stałą przy operacji find to zwiększymy z
 \section{Zadanie 5}
 Dostajemy wierzchołek v i dla każdego wierzchołka chcemy umieć odpowiedzieć ile krawędzi początkowych musimy usunąć aby ten wierzchołek i v nie było połączone żadną krawędzią. 
 
-Idziemy od tyłu i dodajemy krawędzie tworząc sobie drzewa w union findzie. Za każdym razem gdy dodamy zrobimy union to chcemy zrobić finda na jednym z dwóch wierzchołków które dodaliśmy (żeby drzewa były postaci ojciec i synowie i nie było głębokości 2). Jeśli nagle trafiamy w union do jakiejś krawędzi w v to robimy tak, że jeśli mamy Union(v, w) to jeśli przed unionem w find(w) = find(v) to nie robimy nic, a w.p.p jeśli w było ojcem swojego uniona to dla każdego syna aktualizujemy v na maxa z obecnych, a jeśli nie było korzeniem swojego uniona to idziemy do ojca i robimy to z ojcem.
+Idziemy od tyłu i dodajemy krawędzie tworząc sobie drzewa w union findzie. Za każdym razem gdy zrobimy union to chcemy zrobić finda na jednym z dwóch wierzchołków które dodaliśmy (żeby drzewa były postaci ojciec i synowie i nie było głębokości 2). Jeśli nagle trafiamy w union do jakiejś krawędzi w v to robimy tak, że jeśli mamy Union(v, w) to jeśli przed unionem w find(w) = find(v) to nie robimy nic, a w.p.p jeśli w było ojcem swojego uniona to dla każdego syna aktualizujemy v na maxa z obecnych, a jeśli nie było korzeniem swojego uniona to idziemy do ojca i robimy to z ojcem.
 
 \egroup
 \end{document}

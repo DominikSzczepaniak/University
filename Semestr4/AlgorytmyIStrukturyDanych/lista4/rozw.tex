@@ -79,24 +79,89 @@ Jak znaleźć LIS?
 
 \section{Zadanie 4}
 
-Niech dp[i][j] oznacza minimalny koszt na przedziale od i do j wlacznie
-
-Wtedy wynik to dp[0][n]
+Niech dp[i][j] oznacza pesymistyczny koszt szukania na przedziale [i, j]
 
 Jesli wielkosc przedzialu jest rowna 1 to koszt to c[i]
 Jesli wielkosc przedzialu jest rowna 2 to koszt to c[i] + c[j] 
-Jesli wielkosc przedzialu jest rowna 3 to koszt to c[środek] + max(dp[i][środek-1], dp[środek+1][j])
+
+Jesli przedzial jest wiekszy niz 2, to 
+dp[i, j] = min i <= k <= j (max(dp[i, k], dp[k, j]) + c[k])
+Jeśli będziemy to liczyć ręcznie to obliczymy całość w $O(n^3).$
 
 
-dp[i][j] - minimalny wynik na przedziale i do j
-dp[i][j] = x w przedziale i<=x<=j który minimalizuje wynik(c[x] + max(dp[i][x-1], dp[x+1][j]))
+Zauważmy, że nie chcemy mieć sytuacji gdzie jeden z dp jest o wiele większy od drugiego bo bierzemy maxa. W takim razie chcemy zrównoważyć, aby dp[i, k] było mniej więcej równe dp[k, j] - chcemy wziąć takie k które minimalizuje bezwzględną różnice.
+Możemy to robić tak, że bierzemy strzelamy w sobie jakieś miejsce:
+
+L y R, gdzie L i R to przedział.
+Teraz mamy możliwe sytuacje:
+L = R - trafiliśmy idealnie
+L > R - musimy przesunąć k w lewo, bo wtedy R sie zwiększy, a L zmniejszy 
+L < R - musimy przesunąć k w prawo bo wtedy R się zmniejszy a L zwiększy.
+
+Zauważmy, że możemy to miejsce szukać binarnie. Musimy tylko szybko odpowiadać na pytania o sume na przedziale - no ale z nazwy robimy to sumami przedziałowymi.
+
+W takim razie jak jesteśmy na miejscu y to:
+\begin{lstlisting}
+def krok(y):
+    start = i
+    end = j
+    while(start < end):
+        y = (i + j) / 2
+        L = suma_przedzial[y] - suma_przedzial[i-1]
+        R = suma_przedzial[j] - suma_przedzial[y-1]
+        if(L < R):
+            start = y
+        else if(L > R):
+            end = y 
+        else:
+            start = y
+            end = y
+\end{lstlisting}
+chuj wie co dalej nie pamietam tegogowna lol 
+jakies drzewo przedzialowe sie tu wpierdalalo ale co dokladnie to idk
 
 
 
 
 
 \section{Zadanie 5}
-nie zapamietujemy nic wiecej oprocz ostatniego wiersza. odwolujemy sie modulo 2
+Hirschberg's algorithm
+https://www.cs.nthu.edu.tw/~wkhon/algo09/tutorials/tutorial-hirschberg.pdf
+
+Jesli liczymy LCS w klasyczny sposob, to mozemy zastosowac ten sam sposob na liczenie od prawej strony, tylko wtedy bierzemy z prawego dolnego rogu lub maxa z prawej lub dolu. 
+
+Teraz mozemy robic tak, ze robimy divide and conquer na jednym z napisow (niech bedzie tym co jest pionowo w tablicy). Liczymy najpierw od gory do dolu dla gornej czesci a nastepne od dolu do gory dla dolnej czesci. Nastepnie w polowie szukamy najwiekszej sumy po przekatnej. Wtedy robimy tak, ze liczymy rekurencyjnie dla obu podtablic ktore nam wyjda. 
+
+Czyli obrazujac na przykladzie:
+
+Niech nasza cala tablica wyglada mniej wiecej tak:
+
+011112
+111222
+211110
+111110
+
+Wtedy max jest na przekatnej 2 i 1 (suma 3)
+
+Odcinamy w nastepujacy sposob:
+01111xx
+11122xx
+xxxxx10
+xxxxx10
+
+I liczymy odpowiednio rekurencje dla powstalych tablic znowu je dzielac w polowie.
+
+Bazowy krok to gdy wysokosc jest rowna 1. Wtedy szukamy dowolnej litery ktora sie zgadza lub jesli takiej nie ma to zwracamy pusty string. Nastepnie laczymy wyniki.
+
+Czemu jest O(n*m)?
+Najpierw liczymy calosc w O(nm)
+Pózniej liczymy 1/2 * O(nm)
+Pozniej 1/4*O(nm)
+Mamy wiec $O(nm) * \sum_{i=0}^{\inf} (1/2)^i = O(nm) * 2 = O(nm)$
+
+Czemu miejsca jest liniowo?
+Poniewaz rekurencje mozemy liczyc tak, ze najpierw pamietamy dla calego wyniku 4 linijki (dla gornej polowy i dolnej). Nastepnie liczymy rekurencyjnie gorna czesc rekurencji, ktora tez potrzebuje 4 linijki, ale nie musimy pamietac wyniku dla dolnej czesci, wiec wykorzystujemy te 4 linijki. Gdy skonczymy liczyc gorna czesc rekurencji mamy string ktory zwrocila gorna czesc i liczymy dolna czesc, to tez zwroci string i nastepnie je dwa laczymy. Czyli zawsze pamietamy 4 linijki, czyli 4n = O(n), no i dodatkowo jakies dane o stringach oraz miejscach gdzie zaczyna sie rekurencja, ale one sa ograniczone i tak przez O(n), poniewaz mozemy miec co najwyzej n roznych rekurencji, bo jesli jest wysokosc 1 to konczymy.
+
 
 \section{Zadanie 6}
 Podzbiór jest niezależny jeśli nie ma żadnych dwóch takich wierzchołków które są połączone krawędzią. 
@@ -129,29 +194,52 @@ Dlaczego działa? Ponieważ rozpatrujemy dp w którym mamy jakieś drzewo i rozs
 Złożoność:
 O(n) - dla każdego wierzchołka wejdziemy do niego tylko raz. 
 
+\section{Zadanie 7}
+
+a) Trzymamy 6 kubełków - najdłuższe podsłowa z LCS 'a', 'aa', 'aaa', 'aaab', 'aaabb', reszta 
+
+Jak trafiamy na nową literę to przechodzimy po wszystkich kubełkach i jeśli litera jest a to przesuwamy wszystkie rzeczy z kubełka 'a' do 'aa', z 'aa' do 'aaa' i z pustych do 'a'. 
+Jak trafiamy na b to z 'aaa' do 'aaab' i z 'aaab' do 'aaabb'.
+Gdy trafiamy na jakakolwiek inna literke to w kazdym kubelku dopisujemy 1.
+
+
 
 \section{Zadanie 8}
+Jesli znamy sume dwoch podzbiorow to trzeciego tez.
+W takim razie chcemy sprawdzic wszystkie mozliwosci wyboru dwoch zbiorow. 
+Nastepnie chcemy uzyc memoizacji aby nie liczyc dwa razy tego samego.
 
-Dzielimy jakiś zbiór na trzy części tak aby suma w każdym z nich była taka sama. \\
+Kod:
 
-W takim razie w każdym zbiorze suma elementów będzie równa $T = S/3$.\\ 
+\begin{lstlisting}
+bool CanBuild3EqualSums(int sumA, int sumB, int[] numbers, int totalSum, Dictionary<(int, int, int), bool> memo = null)
+{
+    if (memo == null)
+        memo = new Dictionary<(int, int, int), bool>();
 
-Możemy trzymać tablice dwuwymiarową T[i][j] która mówi nam czy możemy mieć dwa zbiory o sumie i oraz j.\\
+    int sumC = totalSum - sumA - sumB;
 
-Na początku T[0][0] dostaje 1
-Teraz musimy przejść po każdym elemencie. 
-Wtedy jeśli T[i][j] = 1 to T[i+a[k]][j] = 1 oraz T[i][j+a[k]] = 1\\ 
+    var key = (sumA, sumB, numbers.Length);
+    if (memo.ContainsKey(key))
+        return memo[key];
 
-Jesli przekroczymy S/3 to nie dodajemy i ignorujemy tą wartość (ponieważ tablica jest posortowana, to później nie będzie już liczb ujemnych, więc jeśli przekroczymy wartość S/3 to się nie cofniemy)\\
- 
+    if (numbers.Length == 0)
+        return sumA == sumB && sumB == sumC;
 
-Na końcu sprawdzamy czy T[S/3][S/3] = 1, jeśli tak to mamy odpowiedź.\\
+    bool result = CanBuild3EqualSums(sumA + numbers[0], sumB, numbers[1..], totalSum, memo)
+               || CanBuild3EqualSums(sumA, sumB + numbers[0], numbers[1..], totalSum, memo)
+               || CanBuild3EqualSums(sumA, sumB, numbers[1..], totalSum, memo);
 
+    memo[key] = result;
+    return result;
+}
+\end{lstlisting}
 
-Mamy najpierw pętla która idzie po wszystkich elementach, a później dwie pętle które idą po wartościach od -C*k do C*k więc ostatecznie złożoność to $O(n * 2C*n * 2C*n) = O(n^3 * 4C^2).$\\
+Jaka jest zlozonosc? sumA oraz sumB moga przyjmowac O(nC) mozliwych wartosci.
+Sprawdzamy to dla kazdej liczby (n+1)
 
-
-Jeśli posortowalibyśmy na początku naszą tablicę, a później nowe wartości T[][] dodawali do vectora, a później przechodzili po tych wartościach w wektorze, to nasza złożoność będzie wynosić $O(n * 2C*n*S/3) = O(n^2 * 2/3C*S) = O(n^2 * CS)$, co jest potencjalnie o wiele lepsze, ponieważ S jest mniejsze niż C. 
+Czyli mamy:
+$O((nC)^2 * (n+1)) = O(n^3*C^2)$
 
 \section{Zadanie 9}
 
@@ -214,9 +302,6 @@ ograniczenie k nic nie zmienia
 
 \section{Zadanie 10}
 
-Proste p przecinaja proste rownolegle l' i l'' w dwoch punktach. Jesli punkt przeciecia 1 jest w (a, b), a drugi w (c, d) to proste sie przecinaja jesli a < c oraz b > d
-
-
 Każda prosta zawiera dwa punkty które symbolizują przecięcie z l' i l''.
 $p1 -> p(x_{p_1}, y_{p_1}) oraz k(x_{k_1}, y_{k_1})$
 $p2 -> p(x_{p_2}, y_{p_2}) oraz k(x_{k_2}, y_{k_2})$
@@ -250,6 +335,58 @@ Odwarzamy trzymając drugą tablicę która mówi skąd przyszliśmy (indeks)
 
 b) Jeśli chcemy zapytać się ile jest LIS o podanej długości to wystarczy \\
 
+$O(n^2):$
+\begin{lstlisting}
+int countLIS(vector<int>& arr) {
+    int n = arr.size();
+
+    // Vector to store the length of the 
+    // LIS ending at each element
+    vector<int> lis(n, 1);
+
+    // Vector to store the number of LIS 
+    // of that length ending at each element
+    vector<int> count(n, 1);
+
+    // Variable to track the length of 
+    // the longest LIS found
+    int maxLen = 1;
+
+    for (int i = 1; i < n; i++) {
+        for (int prev = 0; prev < i; prev++) {
+            if (arr[i] > arr[prev]) {
+              
+                // If a longer subsequence is found, 
+                // update the lis and reset the count
+                if (lis[i] < lis[prev] + 1) {
+                    lis[i] = lis[prev] + 1;
+                    count[i] = count[prev];
+                }
+              
+                // If another subsequence of the 
+                // same length is found, add to the count
+                else if (lis[i] == lis[prev] + 1) {
+                    count[i] += count[prev];
+                }
+            }
+        }
+        maxLen = max(maxLen, lis[i]);
+    }
+
+    // Sum up counts of subsequences that 
+    // have the maximum length
+    int res = 0;
+    for (int i = 0; i < n; i++) {
+        if (lis[i] == maxLen) {
+            res += count[i];
+        }
+    }
+
+    return res;
+}
+\end{lstlisting}
+
+
 W dp[i] trzymamy wszystkie takie wartości które były kiedyś liczbą którą kończył się LIS o długości i+1. Te wartości są trzymane jako pierwszy element pary. Drugi element pary reprezentuje liczbę możliwych opcji dla których LIS o długości i+1 kończy się elementem większym lub równym niż pierwszy element pary. Na tych wartościach robimy sumy prefiksowe.\\
 
 Jeśli chcemy wiedzieć, ile mamy możliwości zakończenia najdłuższego rosnącego podciągu (LIS) długości m wartością y, wystarczy wykonać wyszukiwanie binarne dla indeksu i w tablicy dyn[m-1], gdzie pierwsza część pary jest ściśle mniejsza niż y. Wtedy liczba opcji to:\\
@@ -268,7 +405,7 @@ i = 1
 binsearchem wyszukujemy miejsce 2 
 dp[2] = {{4, 1}}
 i = 2
-binsearchem wyszukujemy miejsce 2 
+binsearchem wyszukujemy miejsce 2
 dp[2] = {{4, 1}, {2, 1}}
 i = 3 
 binsearchem wyszukujemy miejsce 3 

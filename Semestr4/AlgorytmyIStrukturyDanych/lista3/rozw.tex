@@ -55,16 +55,49 @@ Ostatecznie, $T(n) = \Theta(n)$.
 
 
 \section{Zadanie 2}
-Jesteśmy na osi OY na wysokości nieskończoność.
+Idea:
 
-Kazda z linii ma dlugosc nieskonczona.
-Zadne trzy linie nie przecinaja sie w jednym punkcie. 
+sortujemy po a
+trzymamy stos (punkt przeciecia z poprzednia, linia)
+nie wrzucamy pierwszej bo ja zawsze widac, wrzucamy druga i liczymy punkt przeciecia
 
-Sortujemy po $a_i$
+dodajemy trzecia. musimy teraz sprawdzic gdzie przecina sie z druga.
+niech X bedzie punktem przeciecia z druga linia, a Y niech bedzie punktem przeciecia drugiej z pierwsza 
+jesli X < Y to znaczy ze ta linia zakrywa druga poniewaz nad tym punktem przeciecia jest linia pierwsza (poniewaz linia druga z pierwsza przeciela sie dalej), w takim razie mozemy usunac druga ze stosu 
+jesli X > Y to znaczy ze linia trzecia i druga sa widoczne 
+ogolny przypadek:
+dopoki punkt przeciecia dodawanej linii i linii ze stosu jest na lewo od punktu przeciecia poprzedniej linii z poprzednia (czyli punktu przeciecia ze stosu) to usuwamy linie ze stosu 
 
-Jeśli jakaś prosta ma $a_i = 0$ to możemy przez nią przejść.
+Algo:
 
-1. Posortujmy linie pod względem nachylenia - wartość bezwzględna z $a_i$
+\begin{lstlisting}
+def main(proste):
+	proste.sort_po_a()
+	stos = Stack()
+	stos.push({punkt_przeciecia(proste[0], proste[1]), proste[1]})
+	for i in range(2, len(proste)):
+		while(stos.top()[0] > punkt_przeciecia(proste[i], stos.top()[1])):
+			stop.pop()
+		stos.push({punkt_przeciecia(proste[i], stos.top()[1]), proste[i]})
+	
+	while(!stos.empty()){
+		print(stos.top()[1])
+		stos.pop()
+	}
+	print(proste[0])
+\end{lstlisting}
+
+Złożoność:
+O(nlogn) - sort 
+Gdy dodajemy linie na stos to dodamy ja tylko raz. Gdy usuniemy linie ze stosu to usuniemy ja tylko raz. W takim razie mamy O(2n) 
+Czyli O(nlogn)
+Pamięciowa:
+O(n) - tablica z prostymi + stos 
+
+Dowód poprawności:
+Załóżmy nie wprost że powyższy algorytm jest niepoprawny i że istnieje jakaś prosta która jest widoczna w poprawnym rozwiązaniu, a nie jest widoczna w naszym rozwiązaniu. W takim razie jeśli prosta ma być widoczna a nie jest, to istnieje jakaś prosta która przykryła ją w jakimś momencie dodawania jej do stosu. No ale przy dodawaniu do stosu sprawdzamy czy punkt przecięcia prostej którą mamy usunąć do poprzedniej prostej jest na prawo od przecięcia obecnie rozpatrywanej prostej z prostą która ma być usunięta. Usuwamy tylko jeśli jest na prawo, więc tak musiało być. No ale jeśli przecięcie jest na prawo, to ponieważ ta prosta rośnie szybciej niż prosta wcześniej rozpatrywana (bo sortowaliśmy po rosnącym a), to każdy w każdym punkcie na prawo od przecięcia tych dwóch prostych prosta szybciej rosnąca będzie miała większą wartość (będzie wyżej). W takim razie jeśli usuwana prosta zaczyna być widoczna dopiero w punkcie który na prawo od przecięcia z obecnie rozpatrywaną prostą to nie jest nigdy widoczna, bo obecnie rozpatrywana prosta zakrywa ją. W takim razie doszliśmy do sprzeczności że usunięta prosta miałaby być widoczna, więc algorytm musi działać poprawnie. 
+
+
 
 
 
@@ -211,7 +244,7 @@ i powtarzamy ten krok, wpp. przechodzimy do punktu 3).\\
 4. powtarzamy punkty 1) i 2), aż do momentu, w którym
 i się "ustabilizują" tzn. nie będą się już zmieniały\\
 
-Zauważmy, że algorytm ten zachowuje właśność STOP-u, ponieważ otoczki wypunkłe, które towżymy w każdym z kroków, są konstruowane na podstawie dwóch wielokątów wypukłych.Zatem jeżeli znajdziemy wierzchołek, dla którego wybór kolejnego wierzchołka nie jest już poprawny, to wiemy, że każdy kolejny\\
+Zauważmy, że algorytm ten zachowuje właśność STOP-u, ponieważ otoczki wypunkłe, które tworzymy w każdym z kroków, są konstruowane na podstawie dwóch wielokątów wypukłych.Zatem jeżeli znajdziemy wierzchołek, dla którego wybór kolejnego wierzchołka nie jest już poprawny, to wiemy, że każdy kolejny\\
 
 Analogicznie, szukamy dolnej granicy.\\
 Porównajmy:
@@ -338,7 +371,20 @@ Załóżmy, że istnieje algorytm który znajduje wynik szybciej niż logN. W ta
 
 \section{Zadanie 6}
 Zadanie bazowe (podpunkt a):\\
-nudne\\
+
+1. Bierzemy dowolny wierzcholek v
+2. dist = BFS(v)
+3. Robimy hashmape (odleglosc od v, liczba wierzcholkow)
+4. Dla kazdego poddrzewa v po kolei:
+ - dla kazdego wierzcholka u w poddrzewie:
+	dodajemy do wyniku wartosc C - dist[u] w hasmapie 
+ - dodajemy wierzcholki z poddrzewa do hashmapy (odleglosci)
+5. Usuwamy v z grafu 
+6. Wywolujemy sie rekurencyjnie dla powstalych poddrzew 
+
+Dlaczego obliczymy wszystko - za kazdym razem liczymy kolejno sciezki przechodzace przez rozny v (to jest warunek - musza przejsc przez v bo uwzgledniamy tylko sciezki z jednego poddrzewa do innego)
+
+Dlaczego nie obliczymy niczego dwa razy? Bo jesli poddrzewo a ma dostep do poddrzewa b to poddrzewo b musialo byc juz wczesniej dodane, wiec nie mialo dostepu do poddrzewa a.
 
 Zadanie zaawansowane (podpunkt b):\\
 
