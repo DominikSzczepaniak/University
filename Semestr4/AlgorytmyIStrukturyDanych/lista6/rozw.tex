@@ -427,28 +427,50 @@ def floor(T, z):
 
 
 \section{Zadanie 9}
-Chcielibyśmy trzymać w indeksach wskaźniki. Trzymamy dwa drzewa - jedno z elementami na miejscach parzytych, drugie z elementami na miejscach nieparzystych. Gdy dodajemy nowy element to sprawdzamy ile jest elementów w drzewie i dodajemy do drzewa z odpowiednia parzystoscia. 
+Mamy klasyczne drzewo AVL z wartościami w node:
+-val - wartość liczby w wierzchołku
+-size - ilość wierzchołków w poddrzewie 
+$-even_sum - suma elementów na pozycjach parzystych $
+$-odd_sum - suma elementów na pozycjach nieparzystych $
 
-Jesli usuwamy jakis element na pozycji i, to wszystkie elementy na pozycjach kolejnych zmieniaja parzystosc. 
-Czyli to co musimy zrobic to przepiac elementy z drzewa nieparzystego do drzewa parzystego i odwrotnie.
+Drzewo AVL jest porządkowane na podstawie wielkości lewych poddrzew. Przejście in-order jest równorzędne z wypisaniem liczb po kolei. (t.j. pierwsza liczba jest maksymalnie po lewej, druga jest jej ojcem, trzecia jest prawym synem drugiej itd.)
 
-Czyli nasz insert jest w czasie $O(\log n)$, a delete w czasie $O(2\log n)$, czyli $O(\log n)$.
-Jak z findem - również jest w czasie $O(\log n)$, wystarczy wejść do odpowiedniego drzewa i znaleźć podany indeks jak w BST i zwrócić wartość trzymaną w danym wierzchołku.
+Parzystość pozycji jest uzależniona od łącznej ilości wierzchołków na lewo od niej.
 
-Okej, a co z sumą elementów na miejscach parzystych. Jest to po prostu suma elementów z drzewa parzystego. No ale nie chcielibyśmy robić tak, że idziemy po wszystkich elementach i trzymamy sumę. Idea jest taka, że w wierzchołku trzymamy sumę wszystkich elementów w poddrzewie. 
-Wtedy będzie tak, że jak przepniemy elementy z drzewa nieparzystego do drzewa parzystego to musimy zaktualizować sumy w wierzchołkach na ścieżce od korzenia do wierzchołka który dodaliśmy. 
+Operacje:
+- insert(i, a):
+Robimy split który dzieli na dwa poddrzewa:
+a) z pozycjami mniejszymi od i 
+b) z pozycjami większymi równymi i 
+Tworzymy nowy node z val = a 
+Mergujemy lewe poddrzewo, node i prawe poddrzewo 
+O(logn) - bo find(i)
+- delete(i):
+Splitujemy drzewo na pozycji i.
+Usuwamy node i
+Mergujemy pozostale dwa drzewa 
+O(logn) - bo find(i)
+- find(i):
+Przechodzimy drzewo ze względu na rozmiary lewych poddrzew i znajdujemy miejsce i.
+O(logn)
+$-sum_of_even():$
+Bierzemy wartość z korzenia 
+O(1)
 
-Żeby to wszystko zachodziło musimy mieć drzewo dość zbalansowane.
+Utrzymywanie poprawnych informacji:
+Po każdym insert, delete albo rotacji updatujemy size, $even_sum$ i $odd_sum$.
+Mamy node N z lewym synem L i prawym synem R to:
+$N_parz = size(L) mod 2$
+$size(N) = size(L) + size(R) + 1$
+jeśli $N_parz$ jest parzysty to nie zmieniają się parzystości w R, więc:
+$even_sum(N) = even_sum(L) + even_sum(R) + N.val $
+$odd_sum(N) = odd_sum(L) + odd_sum(R)$
 
+jeśli $N_parz$ jest nieparzysty to zmieniają się parzystości w R:
+$swap(odd_sum(R), even_sum(R))$
+$even_sum(N) = even_sum(L) + even_sum(R)$
+$odd_sum(N) = odd_sum(L) + odd_sum(R) + N.val$
 
-Zachodzi tu jeszcze jeden problem - nie będziemy pamiętać dobrze wskaźników - bo jeśli usuniemy jakiś element i wszystkie następne elementy zmniejszą swój wskaźnik o 1, to nie będzie przecież tego robić ręcznie, więc chcemy się pozbyć idei miejsca w tabeli. No ale jeśli wiemy jakie elementy z poddrzewa będą przepięte, to możemy dodać w korzeniu informacje o tym o ile jest zmieniony wskaźnik (wartość którą trzeba dodać do wskaźników aby mieć obecnie dobry wskaźnik).
-
-
-
-Użyjemy drzew splay. W drzewach splay jak chcemy splitować drzewa, to robimy tak, że ustawiamy element przed splitem na splay i odcinamy prawe drzewo. W takim razie gdy mamy delete to robimy splay na id mniejszym o 1 niż chcemy usunąć i wtedy mamy po prawej wszystkie elementy większe niż w danym wskaźniku i możemy je odciąć. 
-Teraz dochodzi taki szczegół - gdy będziemy robić jakąś rotację, to może być tak, że zgubimy poprawne wartościowanie id. No ale jeśli tak będzie, to musimy zawsze znaleźć jakiś wierzchołek który będziemy odcinać. Czyli jeśli w jakimś wierzchołku było np. że id mamy zwiększyć o 3 oraz jakiś wierzchołek w poddrzewie będziemy usuwać z tego poddrzewa i przepinać go gdzieś indziej, to do tego wierzchołka musimy dojść. Czyli idąc w dół możemy aktualizować wartość wskaźnika.
-Czyli załóżmy, że idziemy np. ojciec -> lewy syn -> prawy syn i ojciec ma wartość do zwiększenia równą 3.
-Wtedy zrobimy tak, że do id ojca dodamy 3, wartość do zwiększenia ustawimy na 0, do lewego i prawego syna dodamy wartość do zwiększenia równą wartości ojca i zrobimy rekurencje na to gdzie chcemy iść, czyli lewy syn.
 
 
 
