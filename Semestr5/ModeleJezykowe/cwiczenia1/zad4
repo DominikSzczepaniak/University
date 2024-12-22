@@ -1,0 +1,81 @@
+**a) Czy da się zmusić któryś z naszych modeli do tego, żeby rozwiązywał to zadanie w trybie generacji? Jaka strategia wydaje Ci się obiecująca?**
+
+Tak, możliwe jest wykorzystanie modelu językowego do rozwiązywania tego zadania w trybie generacji. Oto obiecująca strategia:
+
+### **Strategia z wykorzystaniem podpowiedzi (prompt engineering):**
+
+1. **Kontekstowe uczenie się (Few-Shot Learning):**
+   - Przygotuj podpowiedź zawierającą kilka przykładów opisów i odpowiadających im słów.
+   - Przykład:
+
+     ```
+     Dopasuj słowo do poniższego opisu.
+
+     Opis: Osoba ucząca dzieci w szkole.
+     Odpowiedź: nauczyciel
+
+     Opis: Urządzenie służące do komunikacji na odległość.
+     Odpowiedź: telefon
+
+     Opis: Kobieta podróżująca środkiem transportu, np. samolotem, pociągiem, statkiem.
+     Odpowiedź:
+     ```
+
+   - Poproś model o wygenerowanie odpowiedzi na podstawie dostarczonych przykładów.
+
+2. **Jasna instrukcja:**
+   - Zawrzyj w podpowiedzi wyraźne polecenie, co model ma zrobić.
+   - Przykład:
+
+     ```
+     Znajdź słowo pasujące do opisu:
+
+     Opis: Kobieta podróżująca środkiem transportu, np. samolotem, pociągiem, statkiem.
+     Odpowiedź:
+     ```
+
+3. **Wykorzystanie wiedzy semantycznej modelu:**
+   - Model językowy został wytrenowany na dużych zbiorach tekstów i posiada szeroką wiedzę o znaczeniach słów oraz ich kontekstach.
+   - Dzięki temu może dopasować odpowiednie słowo do podanego opisu bez potrzeby zewnętrznych źródeł informacji.
+
+**Dlaczego ta strategia jest obiecująca?**
+
+- **Efektywność:** Nie wymaga dodatkowych zasobów ani dostępu do bazy danych definicji.
+- **Elastyczność:** Model może poradzić sobie z różnorodnymi opisami dzięki swojej wewnętrznej reprezentacji języka.
+- **Prostota implementacji:** Wystarczy odpowiednio sformułować podpowiedź, co jest łatwe do wykonania.
+
+---
+
+**b) Czy funkcja oceniania prawdopodobieństwa zdania może być z sukcesem użyta w tym zadaniu? (jaki jest główny problem z jej użyciem)**
+
+Funkcja oceniania prawdopodobieństwa zdania mogłaby być teoretycznie użyta w tym zadaniu, ale w praktyce napotyka na istotne problemy.
+
+### **Możliwość zastosowania:**
+
+- **Ocena kandydatów:**
+  - Dla każdego słowa z listy 10 000 możliwych odpowiedzi można ocenić prawdopodobieństwo opisu w kontekście tego słowa.
+  - Słowo, przy którym model nada najwyższe prawdopodobieństwo opisu, mogłoby być uznane za najbardziej pasujące.
+
+### **Główne problemy z użyciem tej funkcji:**
+
+1. **Skalowalność i wydajność:**
+   - **Ogromna liczba obliczeń:** Ocena 10 000 możliwych słów jest czasochłonna i wymaga dużych zasobów obliczeniowych.
+   - **Niepraktyczność w realnym czasie:** Wykonanie takiej liczby obliczeń w akceptowalnym czasie jest trudne do osiągnięcia.
+
+2. **Ograniczenia modelu:**
+   - **Nieprecyzyjność różnicowania:** Modele językowe mogą mieć trudność z rozróżnieniem między słowami o podobnym znaczeniu na podstawie samego prawdopodobieństwa.
+   - **Zależność od częstotliwości słów:** Modele mogą faworyzować częściej występujące słowa, nawet jeśli nie są one najbardziej odpowiednie.
+
+3. **Brak kontekstu:**
+   - **Jednowymiarowa ocena:** Funkcja prawdopodobieństwa może nie uwzględniać wszystkich niuansów znaczeniowych opisu.
+   - **Potrzeba dodatkowej analizy:** Sama ocena prawdopodobieństwa może nie wystarczyć do jednoznacznego wybrania poprawnej odpowiedzi.
+
+### **Podsumowanie:**
+
+Chociaż funkcja oceniania prawdopodobieństwa zdania oferuje teoretyczną możliwość rozwiązania zadania poprzez wybranie najbardziej prawdopodobnego kandydata, w praktyce **głównym problemem jest nieefektywność obliczeniowa**. Konieczność oceny ogromnej liczby możliwych słów sprawia, że metoda ta jest niepraktyczna dla tak dużego zbioru odpowiedzi. Ponadto, modele mogą nie zapewnić wystarczającej precyzji w różnicowaniu między bliskoznacznymi słowami, co obniża skuteczność takiego podejścia.
+
+---
+
+**Rekomendacja:**
+
+Lepszym rozwiązaniem jest wykorzystanie modelu w trybie generacji z odpowiednio przygotowaną podpowiedzią, co pozwala na efektywne i praktyczne rozwiązywanie zadania bez konieczności przetwarzania ogromnej liczby kandydatów.

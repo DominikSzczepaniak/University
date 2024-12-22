@@ -1,0 +1,29 @@
+Idea polega na tym, aby podczas generowania tekstu przez model językowy wprowadzić ukryty wzorzec preferowania słów zaczynających się na litery C, S i K. Ten wzorzec miałby służyć jako znak wodny, który jest niewidoczny dla użytkownika, ale może być wykryty za pomocą specjalistycznych metod analizy tekstu.
+
+Działanie znaku wodnego dla długich tekstów:
+Statystyczna wykrywalność: W długich tekstach wzorzec preferowania słów na litery C, S i K stanie się bardziej widoczny w analizie statystycznej. Częstotliwość występowania takich słów będzie wyższa niż w tekstach naturalnych, co pozwoli na wykrycie znaku wodnego.
+
+Naturalność tekstu: Ponieważ słowa na te litery są powszechne w języku polskim, ich zwiększone użycie w długim tekście nie zaburzy płynności ani zrozumiałości wypowiedzi. Czytelnik prawdopodobnie nie zauważy żadnej anomalii.
+
+Trudność usunięcia: W długich tekstach trudniej jest usunąć lub zmodyfikować wszystkie słowa zaczynające się na C, S i K bez zmiany sensu tekstu, co utrudnia potencjalnym próbom usunięcia znaku wodnego.
+
+Działanie znaku wodnego dla krótkich tekstów:
+Mniejsza skuteczność wykrywania: W krótkich tekstach liczba słów jest ograniczona, co utrudnia statystyczne wykrycie wzorca. Częstotliwość występowania słów na określone litery może być przypadkowa i nie wystarczająco znacząca.
+
+Ryzyko zauważenia wzorca: Jeśli w krótkim tekście nadmiernie użyjemy słów na C, S i K, może to brzmieć nienaturalnie lub sztucznie, co może zwrócić uwagę czytelnika.
+
+Łatwość manipulacji: Krótki tekst można łatwo zmodyfikować, zastępując lub usuwając kilka słów, co może skutecznie usunąć znak wodny.
+
+Ogólne rozważania:
+Skuteczność metody: Preferowanie słów na określone litery jako znak wodny może być skuteczne w długich tekstach, gdzie statystyczne anomalie są trudniejsze do zauważenia bez specjalistycznej analizy.
+
+Detekcja znaku wodnego: Aby wykryć taki znak wodny, należałoby przeprowadzić analizę częstotliwości występowania słów zaczynających się na C, S i K i porównać ją z normami językowymi.
+
+Ochrona przed nadużyciami: Jeśli metoda zostanie upubliczniona, osoby trzecie mogą próbować manipulować tekstem, aby ukryć lub fałszywie wprowadzić znak wodny.
+
+Podsumowanie:
+Dla długich tekstów: Metoda może być skuteczna, ponieważ wzorzec jest ukryty w dużej ilości danych i trudniejszy do wykrycia bez specjalistycznej analizy.
+
+Dla krótkich tekstów: Metoda jest mniej efektywna ze względu na ograniczoną liczbę słów i większe ryzyko zauważenia nienaturalnego użycia słów.
+
+Wnioski: Zastosowanie takiego znaku wodnego wymaga starannego wyważenia, aby zapewnić skuteczność detekcji przy jednoczesnym zachowaniu naturalności i jakości generowanego tekstu. Metoda ta jest bardziej odpowiednia dla długich tekstów, gdzie ukryty wzorzec nie wpływa negatywnie na odbiór treści.

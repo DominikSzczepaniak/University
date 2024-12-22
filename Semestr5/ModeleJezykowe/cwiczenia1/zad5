@@ -1,0 +1,43 @@
+Oto procedura, która, wykorzystując podstawowy interfejs do generacji tekstu modelu językowego, możliwie efektywnie rozwiązuje problem generacji dokładnie jednego wyrazu dla zadanego prefiksu składającego się z pełnych wyrazów:
+
+1. **Wejście**: Prefiks składający się z pełnych wyrazów.
+
+2. **Inicjalizacja**: Utwórz zmienną `generated_text`, która początkowo jest pusta.
+
+3. **Pętla generacji**:
+
+   a. **Generacja tokenu**: Użyj modelu językowego do wygenerowania następnego tokenu, podając jako kontekst prefiks połączony z `generated_text`.
+
+   b. **Aktualizacja tekstu**: Dodaj wygenerowany token do `generated_text`.
+
+   c. **Sprawdzenie końca wyrazu**: Sprawdź, czy w `generated_text` zakończył się wyraz. Można to zrobić poprzez sprawdzenie, czy ostatni znak jest znakiem białym (np. spacją) lub czy token wskazuje na koniec wyrazu.
+
+   d. **Warunek zakończenia**: Jeśli wyraz jest kompletny, przerwij pętlę. W przeciwnym razie wróć do kroku 3a.
+
+4. **Wynik**: Po zakończeniu pętli, połącz prefiks z `generated_text` i wyodrębnij dokładnie jeden nowo wygenerowany wyraz.
+
+**Dodatkowe uwagi**:
+
+- **Tokenizacja**: Ponieważ modele językowe często używają tokenizacji subword (np. BPE, WordPiece), pojedynczy wyraz może być reprezentowany przez kilka tokenów. Dlatego konieczne jest kontynuowanie generacji, aż cały wyraz zostanie wygenerowany.
+
+- **Efektywność**: Aby zwiększyć efektywność, można ustawić maksymalną liczbę tokenów do wygenerowania na wartość wystarczającą do pokrycia najdłuższego oczekiwanego wyrazu (np. 5 tokenów).
+
+- **Sekwencje stopu**: Jeśli interfejs modelu pozwala na ustawienie sekwencji stopu (stop sequence), można ją ustawić na znak biały (np. spacja) lub znak interpunkcyjny, aby zakończyć generację po pełnym wyrazie.
+
+- **Przetwarzanie końcowe**: Po wygenerowaniu, upewnij się, że usuniesz ewentualne znaki białe na początku i końcu `generated_text`, aby dokładnie wyodrębnić nowy wyraz.
+
+**Przykład**:
+
+- **Prefiks**: `"Szybki brązowy lis"`
+
+- **Procedura**:
+
+  a. **Generacja tokenu**: Model generuje token `" "` (spacja) lub część wyrazu.
+
+  b. **Aktualizacja**: Dodajemy token do `generated_text`, np. `" skacze"`.
+
+  c. **Sprawdzenie**: Jeśli ostatni znak to spacja lub zakończyliśmy wyraz, przerwij pętlę.
+
+- **Wynik**: Nowo wygenerowany wyraz to `"skacze"`.
+
+W ten sposób, wykorzystując podstawowy interfejs do generacji tekstu, możemy efektywnie wygenerować dokładnie jeden wyraz po zadanym prefiksie.

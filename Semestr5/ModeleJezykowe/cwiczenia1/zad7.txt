@@ -1,0 +1,2 @@
+Mozemy slownikiem angielsko-polskim przetlumaczyc kazdy wyraz w podanym po polsku zdaniu a nastepnie uzyc algorytmu podobnego do zadania 2 z pracowni 1 do uporzadkowania zdania w najbardziej prawdopodobny sposob i zwrocic to tlumaczenie.
+

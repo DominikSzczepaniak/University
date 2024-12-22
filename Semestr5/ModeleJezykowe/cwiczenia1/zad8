@@ -1,0 +1,91 @@
+**Propozycje trzech różnych scenariuszy generowania tekstu z wykorzystaniem dwóch modeli językowych:**
+
+---
+
+### **1. Ensemble z uśrednianiem prawdopodobieństw tokenów** *(zakłada tę samą tokenizację)*
+
+**Opis:**
+
+- **Wspólna generacja:** Dla każdego kroku generacji (każdego tokenu), oba modele otrzymują ten sam prefiks i generują rozkłady prawdopodobieństw dla możliwych następnych tokenów.
+  
+- **Łączenie rozkładów:** Rozkłady prawdopodobieństw z obu modeli są następnie łączone poprzez uśrednianie lub ważenie (np. poprzez średnią arytmetyczną lub ważoną, jeśli chcemy nadać jednemu modelowi większy wpływ).
+
+- **Wybór tokenu:** Na podstawie połączonego rozkładu wybierany jest kolejny token, który zostaje dodany do tekstu.
+
+- **Kontynuacja procesu:** Proces jest powtarzany iteracyjnie dla każdego kolejnego tokenu, aż do zakończenia generacji.
+
+**Zalety:**
+
+- **Synergia wiedzy:** Łączy wiedzę i mocne strony obu modeli na poziomie tokenów, co może prowadzić do bardziej spójnego i dokładnego tekstu.
+
+- **Redukcja błędów:** Błędy jednego modelu mogą być kompensowane przez drugi model, zwiększając ogólną jakość generacji.
+
+**Wymagania:**
+
+- **Ta sama tokenizacja:** Oba modele muszą używać identycznej tokenizacji, aby możliwe było bezpośrednie łączenie rozkładów prawdopodobieństw dla tych samych tokenów.
+
+---
+
+### **2. Naprzemienne generowanie fragmentów tekstu** *(nie zakłada tej samej tokenizacji)*
+
+**Opis:**
+
+- **Podział tekstu:** Tekst jest podzielony na fragmenty, takie jak zdania, akapity lub określone sekcje tematyczne.
+
+- **Naprzemienna generacja:** Model A generuje pierwszy fragment tekstu na podstawie początkowego prefiksu. Następnie model B kontynuuje generację, biorąc pod uwagę ostatni fragment wygenerowany przez model A.
+
+- **Kontynuacja cyklu:** Proces naprzemiennej generacji jest powtarzany, z modelami A i B generującymi kolejne fragmenty na zmianę.
+
+**Zalety:**
+
+- **Wykorzystanie różnorodności:** Każdy model może wnieść swoje unikalne cechy stylistyczne, wiedzę czy perspektywę, co może wzbogacić tekst.
+
+- **Brak wymogu wspólnej tokenizacji:** Ponieważ modele komunikują się poprzez wygenerowany tekst, nie muszą używać tej samej tokenizacji.
+
+**Wyzwania:**
+
+- **Spójność tekstu:** Może wystąpić brak spójności stylistycznej lub logicznej między fragmentami generowanymi przez różne modele.
+
+- **Płynność narracji:** Konieczne może być dodatkowe przetwarzanie lub edycja, aby zapewnić płynne przejścia między fragmentami.
+
+---
+
+### **3. Wykorzystanie jednego modelu do generacji szkicu, a drugiego do jego rozwinięcia lub poprawy** *(nie zakłada tej samej tokenizacji)*
+
+**Opis:**
+
+- **Generacja szkicu:** Model A generuje wstępny szkic tekstu na podstawie zadanego prefiksu. Może to być ogólny zarys, lista punktów czy surowy tekst.
+
+- **Rozwinięcie i ulepszenie:** Model B bierze wygenerowany przez model A szkic i rozwija go, dodając szczegóły, poprawiając styl, klarowność czy spójność.
+
+- **Iteracyjny proces (opcjonalnie):** Proces może być powtarzany, gdzie modele na przemian ulepszają tekst, dopracowując go do pożądanego poziomu jakości.
+
+**Zalety:**
+
+- **Kombinacja mocnych stron:** Jeśli jeden model jest lepszy w generowaniu struktury lub pomysłów, a drugi w stylizacji i dopracowywaniu tekstu, ich połączenie może dać lepszy efekt końcowy.
+
+- **Elastyczność tokenizacji:** Ponieważ komunikacja między modelami odbywa się na poziomie tekstu naturalnego, nie ma potrzeby, aby modele używały tej samej tokenizacji.
+
+**Zastosowania:**
+
+- **Parafrazowanie:** Model B może parafrazować lub przekształcać tekst od modelu A, aby nadać mu inny styl lub ton.
+
+- **Korekta i edycja:** Model B może pełnić rolę "redaktora", poprawiając błędy i ulepszając czytelność tekstu.
+
+---
+
+**Podsumowanie:**
+
+- **Scenariusz 1** wykorzystuje **łączenie rozkładów prawdopodobieństw** na poziomie tokenów i wymaga tej samej tokenizacji w obu modelach.
+
+- **Scenariusze 2 i 3** opierają się na **interakcji na poziomie tekstu** i **nie wymagają** wspólnej tokenizacji, umożliwiając wykorzystanie modeli z różnymi tokenizacjami.
+
+- Wybór odpowiedniego scenariusza zależy od **konkretnego zastosowania**, **charakterystyki modeli** oraz **pożądanych cech** generowanego tekstu.
+
+**Uwagi końcowe:**
+
+- **Synchronizacja stylu i treści:** Niezależnie od wybranego scenariusza, ważne jest monitorowanie spójności stylistycznej i merytorycznej tekstu.
+
+- **Ewentualna integracja tokenizacji:** W przypadku potrzeby głębszej integracji modeli o różnych tokenizacjach, można rozważyć mapowanie tokenów lub użycie warstwy pośredniej, choć jest to bardziej zaawansowane i wykracza poza podstawowy interfejs generacji.
+
+- **Eksperymentowanie:** Testowanie różnych podejść i dostosowywanie parametrów modeli może pomóc w osiągnięciu optymalnych rezultatów.
