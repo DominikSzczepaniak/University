@@ -1,0 +1,75 @@
+db.books.insertMany([
+  {
+    _id: 1,
+    author: "Bułhakow",
+    title: "Mistrz i Małgorzata",
+    copies: [
+      { copyId: 101, condition: "Good", available: true },
+      { copyId: 102, condition: "Fair", available: false } // Borrowed
+    ]
+  },
+  {
+    _id: 2,
+    author: "Golden",
+    title: "Wyznania gejszy",
+    copies: [
+      { copyId: 201, condition: "Excellent", available: false } // Borrowed
+    ]
+  }
+]);
+
+
+db.readers.insertMany([
+  {
+    _id: 1,
+    name: "John Doe",
+    membershipDate: ISODate("2020-05-15"),
+    borrowHistory: [
+      { borrowId: 1, bookId: 1, copyId: 102, borrowDate: ISODate("2024-11-15"), returnDate: null },
+      { borrowId: 2, bookId: 2, copyId: 201, borrowDate: ISODate("2024-11-10"), returnDate: ISODate("2024-11-20") }
+    ]
+  },
+  {
+    _id: 2,
+    name: "Jane Smith",
+    membershipDate: ISODate("2022-02-01"),
+    borrowHistory: [
+      { borrowId: 3, bookId: 1, copyId: 101, borrowDate: ISODate("2024-11-18"), returnDate: null }
+    ]
+  }
+]);
+
+db.borrowings.insertMany([
+  {
+    _id: 1,
+    bookId: 1,
+    copyId: 102,
+    readerId: 1,
+    borrowDate: ISODate("2024-11-15"),
+    returnDate: null
+  },
+  {
+    _id: 2,
+    bookId: 2,
+    copyId: 201,
+    readerId: 1,
+    borrowDate: ISODate("2024-11-10"),
+    returnDate: ISODate("2024-11-20")
+  },
+  {
+    _id: 3,
+    bookId: 1,
+    copyId: 101,
+    readerId: 2,
+    borrowDate: ISODate("2024-11-18"),
+    returnDate: null
+  },
+  {
+    _id: 4,
+    bookId: 2,
+    copyId: 201,
+    readerId: 2,
+    borrowDate: ISODate("2024-11-22"),
+    returnDate: null
+  }
+]);

@@ -1,0 +1,34 @@
+MATCH (person:Person {name: 'Person A'})-[:ACTED_IN]->(movie:Movie)
+RETURN movie.title AS Movies_Acted_In
+
+
+
+MATCH (person:Person {name: 'Person A'})-[:ACTED_IN]->(movie:Movie)<-[:DIRECTED]-(person)
+RETURN movie.title AS Movies_Acted_And_Directed
+
+
+
+MATCH (actor:Person)
+WHERE NOT (actor)-[:ACTED_IN]->(:Movie)
+RETURN actor.name AS Actors_Not_In_Movies
+
+
+
+
+MATCH (actor:Person)-[:ACTED_IN]->(movie:Movie)
+WITH actor, COUNT(movie) AS movieCount
+WHERE movieCount > 2
+RETURN actor.name AS Actors_With_More_Than_2_Movies, movieCount
+
+
+
+
+MATCH (movie:Movie)<-[:ACTED_IN]-(actor:Person)
+WITH movie, COUNT(actor) AS actorCount
+ORDER BY actorCount DESC
+RETURN movie.title AS Movie_With_Most_Actors, actorCount
+LIMIT 1
+
+
+
+

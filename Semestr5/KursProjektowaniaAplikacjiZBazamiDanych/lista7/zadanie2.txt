@@ -1,0 +1,26 @@
+CREATE (john:Person {name: 'John Smith'}),
+       (jane:Person {name: 'Jane Doe'}),
+       (newMovie1:Movie {title: 'New Horizon'}),
+       (newMovie2:Movie {title: 'Eternal Bond'})
+
+
+
+MATCH (movie:Movie {title: 'Wall Street'})
+SET movie.year = 1987, movie.genre = 'Drama'
+
+
+
+MATCH (john:Person {name: 'John Smith'}), (wallStreet:Movie {title: 'Wall Street'})
+CREATE (john)-[:ACTED_IN {role: 'John Doe'}]->(wallStreet)
+
+MATCH (jane:Person {name: 'Jane Doe'}), (thePresident:Movie {title: 'The American President'})
+CREATE (jane)-[:ACTED_IN {role: 'First Lady'}]->(thePresident)
+
+
+
+MATCH (movie:Movie {title: 'New Horizon'})
+SET movie.title = 'New Dawn'
+
+
+MATCH (martin:Person {name: 'Martin Sheen'})-[rel:ACTED_IN]->(wallStreet:Movie {title: 'Wall Street'})
+DELETE rel

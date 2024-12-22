@@ -1,0 +1,7 @@
+db.books.find({}).sort({ _id: -1 }).limit(2);
+
+db.books.find({ "copies.available": false });
+
+db.books.find({
+  copies: { $elemMatch: { available: false } }
+});

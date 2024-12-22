@@ -1,0 +1,61 @@
+# Shard 1
+mongod --shardsvr --port 27001 --dbpath /data/shard1 --replSet shard1
+
+# Shard 2
+mongod --shardsvr --port 27002 --dbpath /data/shard2 --replSet shard2
+
+# Shard 3
+mongod --shardsvr --port 27003 --dbpath /data/shard3 --replSet shard3
+
+
+mongod --configsvr --port 27017 --dbpath /data/config --replSet configReplSet
+
+mongos --configdb configReplSet/localhost:27017 --port 27018
+
+rs.initiate({
+  _id: "shard1",
+  members: [{ _id: 0, host: "localhost:27001" }]
+});
+
+rs.initiate({
+  _id: "shard2",
+  members: [{ _id: 0, host: "localhost:27002" }]
+});
+
+rs.initiate({
+  _id: "shard3",
+  members: [{ _id: 0, host: "localhost:27003" }]
+});
+
+rs.initiate({
+  _id: "configReplSet",
+  configsvr: true,
+  members: [{ _id: 0, host: "localhost:27017" }]
+});
+
+mongo --port 27018
+
+sh.addShard("shard1/localhost:27001");
+sh.addShard("shard2/localhost:27002");
+sh.addShard("shard3/localhost:27003");
+
+
+sh.enableSharding("library");
+
+sh.shardCollection("library.books", { author: 1 });
+
+use library;
+
+db.books.insertMany([
+  { _id: 1, author: "Bułhakow", title: "Mistrz i Małgorzata" },
+  { _id: 2, author: "Golden", title: "Wyznania gejszy" },
+  { _id: 3, author: "Golding", title: "Władca much" },
+  { _id: 4, author: "Orwell", title: "1984" },
+  { _id: 5, author: "Huxley", title: "Brave New World" }
+]);
+
+
+db.books.getShardDistribution();
+
+db.books.find({ author: "Orwell" });
+

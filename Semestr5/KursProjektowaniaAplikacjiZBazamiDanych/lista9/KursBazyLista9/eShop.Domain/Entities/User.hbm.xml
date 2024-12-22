@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="eShop.Domain" namespace="eShop.Domain.Entities">
+    <class name="User" table="Users">
+        <id name="Id" column="Id" type="Guid" unsaved-value="guid.empty">
+            <generator class="guid.comb" />
+        </id>
+        <property name="Username" column="Username" not-null="true" />
+        <property name="Password" column="Password" not-null="true" />
+        <property name="Role" column="Role" type="eShop.Domain.Entities.UserRole, eShop.Domain" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,7 @@
+dobra jakby ktos potrzebowal tutoriala szybkiego jak na macu postawic (stawia opor):
+1. wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksLT2022.bak -O adventureworks.bak -q
+2. docker build . -t chriseaton/adventureworks:latest --build-arg BAK_FILE=./adventureworks.bak
+3. docker run --name=sql -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=password’ -d chriseaton/adventureworks:latest
+za password trzeba dac haslo o dlugosci >= 10 z przynajmniej 1 cyfra
+4. W Azure Data Studio laczymy sie do localhost:1433 z loginem SA i haslem jakie ustawilismy w password
+5. Done

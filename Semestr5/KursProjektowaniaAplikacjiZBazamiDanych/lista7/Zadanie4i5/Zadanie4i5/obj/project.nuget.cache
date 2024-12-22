@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "xK5ORaQtJpSt/a1F+3lx/fLZuexJRkeOP1V6URUAH297JjW2XYXbLAnoXaoI7reqs//z+Xg7uuqW5SJSjdEepg==",
+  "success": true,
+  "projectFilePath": "/Users/dominik/Desktop/University/Semestr5/KursProjektowaniaAplikacjiZBazamiDanych/lista7/Zadanie4i5/Zadanie4i5/Zadanie4i5.csproj",
+  "expectedPackageFiles": [
+    "/Users/dominik/.nuget/packages/microsoft.bcl.asyncinterfaces/5.0.0/microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/neo4j.driver/5.27.0/neo4j.driver.5.27.0.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/neo4j.driver.simple/5.27.0/neo4j.driver.simple.5.27.0.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/system.io.pipelines/7.0.0/system.io.pipelines.7.0.0.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/microsoft.netcore.app.ref/7.0.16/microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.16/microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "/Users/dominik/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.16/microsoft.netcore.app.host.osx-arm64.7.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

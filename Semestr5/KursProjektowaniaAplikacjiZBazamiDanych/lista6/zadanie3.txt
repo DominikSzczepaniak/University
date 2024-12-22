@@ -1,0 +1,91 @@
+db.runCommand({
+  collMod: "books",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["_id", "author", "title", "copies"],
+      properties: {
+        _id: { bsonType: "int", description: "Must be an integer and is required." },
+        author: { bsonType: "string", description: "Must be a string and is required." },
+        title: { bsonType: "string", description: "Must be a string and is required." },
+        copies: {
+          bsonType: "array",
+          description: "Must be an array of book copies.",
+          items: {
+            bsonType: "object",
+            required: ["copyId", "condition", "available"],
+            properties: {
+              copyId: { bsonType: "int", description: "Must be an integer and is required." },
+              condition: { 
+                enum: ["Excellent", "Good", "Fair", "Poor"],
+                description: "Must be one of the specified conditions."
+              },
+              available: { bsonType: "bool", description: "Must be a boolean and is required." }
+            }
+          }
+        }
+      }
+    }
+  },
+  validationLevel: "strict"
+});
+
+
+
+
+db.runCommand({
+  collMod: "readers",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["_id", "name", "membershipDate", "borrowHistory"],
+      properties: {
+        _id: { bsonType: "int", description: "Must be an integer and is required." },
+        name: { bsonType: "string", description: "Must be a string and is required." },
+        membershipDate: { bsonType: "date", description: "Must be a date and is required." },
+        borrowHistory: {
+          bsonType: "array",
+          description: "Must be an array of borrow transactions.",
+          items: {
+            bsonType: "object",
+            required: ["borrowId", "bookId", "copyId", "borrowDate"],
+            properties: {
+              borrowId: { bsonType: "int", description: "Must be an integer and is required." },
+              bookId: { bsonType: "int", description: "Must be an integer and is required." },
+              copyId: { bsonType: "int", description: "Must be an integer and is required." },
+              borrowDate: { bsonType: "date", description: "Must be a date and is required." },
+              returnDate: { bsonType: ["date", "null"], description: "Must be a date or null." }
+            }
+          }
+        }
+      }
+    }
+  },
+  validationLevel: "strict"
+});
+
+
+
+
+
+
+
+
+db.runCommand({
+  collMod: "borrowings",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["_id", "bookId", "copyId", "readerId", "borrowDate"],
+      properties: {
+        _id: { bsonType: "int", description: "Must be an integer and is required." },
+        bookId: { bsonType: "int", description: "Must be an integer and is required." },
+        copyId: { bsonType: "int", description: "Must be an integer and is required." },
+        readerId: { bsonType: "int", description: "Must be an integer and is required." },
+        borrowDate: { bsonType: "date", description: "Must be a date and is required." },
+        returnDate: { bsonType: ["date", "null"], description: "Must be a date or null." }
+      }
+    }
+  },
+  validationLevel: "strict"
+});

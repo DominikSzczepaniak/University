@@ -1,0 +1,9 @@
+﻿<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+        <property name="connection.connection_string">Server=tcp:SQLSERVERURL,1433;Initial Catalog=Test;Persist Security Info=False;User ID=USERNAME;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Password=PASSWORD;</property>
+        <property name="show_sql">false</property>
+        <property name="dialect">NHibernate.Dialect.MsSql2012Dialect</property>
+        <mapping resource="eShop.Domain.Entities.User.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
