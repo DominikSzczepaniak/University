@@ -1,0 +1,54 @@
+1. query GetAllMovies {
+  movies {
+    title
+    moviePoster {
+      url
+    }
+  }
+}
+
+2. query GetMoviesByCreator {
+  movies(where: { createdBy: { name: "Lo Etheridge" } }) {
+    title
+    moviePoster {
+      url
+    }
+    createdBy {
+      name
+    }
+  }
+}
+
+
+3. mutation AddNewMovie {
+  createMovie(data: {
+    title: "New Movie Title",
+    slug: "new-movie-title",
+    moviePoster: { connect: { id: 1 } },  # Reference to an existing asset
+  }) {
+    title
+    moviePoster {
+      url
+    }
+  }
+}
+
+4. mutation UpdateMovie {
+  updateMovie(where: { slug: "new-movie-title" }, data: {
+    title: "Updated Movie Title",
+    moviePoster: { connect: { id: "new-asset-id" } }
+  }) {
+    title
+    moviePoster {
+      url
+    }
+  }
+}
+
+
+5. mutation DeleteMovie {
+  deleteMovie(where: { slug: "new-movie-title" }) {
+    title
+  }
+}
+

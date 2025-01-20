@@ -1,0 +1,18 @@
+GET na http://localhost:5000/api/products?search=phone&sortBy=Price&descending=true&pageNumber=1&pageSize=5
+GET na http://localhost:5000/api/products/123e4567-e89b-12d3-a456-426614174000
+POST http://localhost:5000/api/products header json 
+{
+  "name": "item1",
+  "description": "spoko opis",
+  "price": 0.02
+}
+PUT http://localhost:5000/api/products/123e4567-e89b-12d3-a456-426614174000 header json 
+{
+  "name": "nowy item1",
+  "description": "nowy spoko opis",
+  "price": 0.01
+}
+DELETE http://localhost:5000/api/products/123e4567-e89b-12d3-a456-426614174000
+GET http://localhost:5000/api/products
+
+
