@@ -33,19 +33,16 @@ namespace eShop.Domain.Entities.Repositories
         {
             IQueryable<T> query = _session.Query<T>();
 
-            // Apply filtering
             if (filter != null)
             {
                 query = query.Where(filter);
             }
 
-            // Apply sorting
             if (orderBy != null)
             {
                 query = orderBy(query);
             }
 
-            // Apply paging
             if (pageNumber.HasValue && pageSize.HasValue)
             {
                 query = query.Skip((pageNumber.Value - 1) * pageSize.Value).Take(pageSize.Value);
