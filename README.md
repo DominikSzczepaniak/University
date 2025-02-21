@@ -36,3 +36,11 @@ Semestr 4:
 - Rachunek prawdopodobieństwa i statystyka 6 ECTS
 - Kurs: React 5 ECTS
 Łącznie: 41 ECTS
+
+Semestr 5:
+- Kurs projektowania aplikacji z bazami danych 5 ECTS
+- Machine Learning 7 ECTS
+- Programowanie współbieżne 6 ECTS
+- Algorytmy ewolucyjne 6 ECTS
+- Ochrona własności intelektualnej 1 ECTS
+Łącznie: 25 ECTS
